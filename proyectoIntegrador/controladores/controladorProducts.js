@@ -1,3 +1,10 @@
-const router = 'juan';
-const hola = prueba; 
-const cata = 'probando2';
+let cripto = require('../data/productos');
+const controller = {
+    index: function(req, res, next){
+        res.render('index', {
+            'cripto': cripto.lista
+        })
+    }
+}
+
+module.exports = controller; 

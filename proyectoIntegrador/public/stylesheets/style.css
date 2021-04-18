@@ -13,4 +13,12 @@ a {
 
 .font-family {
   font-family: 'New Tegomin', serif;
+  text-align: center;
+  color: white;
+
+}
+
+.logo {
+  max-width: 100px;
+  max-height: 100px;
 }
