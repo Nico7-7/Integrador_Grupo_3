@@ -1,4 +1,4 @@
-let cripto = require('../data/productos');
+const cripto = require('../data/productos');
 const controller = {
     index: function(req, res, next){
         res.render('index', {
@@ -6,9 +6,11 @@ const controller = {
         })
     },
     detalleProduct: function(req, res, next){
-        res.render('product'), {
-            'cripto': cripto.lista
-        }
+        let id = req.params.id;
+        res.render('product', {
+            'cripto': cripto.lista,
+            'producto': id
+        })
     },
     agregarProducto: function(req, res, next){
         res.render('product-add', {

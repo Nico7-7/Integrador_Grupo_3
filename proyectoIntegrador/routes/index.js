@@ -6,7 +6,7 @@ let controladorProducts = require('../controladores/controladorProducts');
 
 /* GET home page. */
 router.get('/', controladorProducts.index)
-router.get('/detalleProduct', controladorProducts.detalleProduct);
+router.get('/detalleProduct/:id', controladorProducts.detalleProduct);
 router.get('/product-add', controladorProducts.agregarProducto);
 
 module.exports = router;
