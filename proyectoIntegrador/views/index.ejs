@@ -8,8 +8,8 @@
 	<!-- /Header -->
 	
 	<!-- Banner -->
-	<div class="banner">
-		<img src="images/products/img-home-banner.jpg" alt="Banner de ofertas">
+	<div class="">
+		<img src="/images/products/img-home-banner.jpg" alt="Banner de ofertas">
 	</div>
 	<!-- /Banner -->
 
@@ -23,7 +23,7 @@
 			<% for(let i = 0; i < 4; i++){ %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/detalleproduct: <%=cripto[i].id%>">
+					<a href="/detalleproduct/<%=cripto[i].id%>">
 						<figure class="product-box_image">
 							<img src="<%=cripto[i].imagen%>" alt="<%=cripto[i].nombre%>">
 						</figure>
@@ -96,7 +96,7 @@
 			<% for(let i = 4; i < 8; i++){ %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="http://localhost:3000/detalleproduct: <%=cripto[i].id%>">
+						<a href="/detalleproduct/<%=cripto[i].id%>">
 							<figure class="product-box_image">
 								<img src="<%=cripto[i].imagen%>" alt="<%=cripto[i].nombre%>">
 							</figure>

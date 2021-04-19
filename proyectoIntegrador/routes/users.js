@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+let controladoresUser = require('../controladores/controladorUser');
+
+router.get('/profile', controladoresUser.profile);
+router.get('/login', controladoresUser.login);
+router.get('/profile-edit', controladoresUser.profileEdit);
+router.get('/register', controladoresUser.register);
 
 module.exports = router;

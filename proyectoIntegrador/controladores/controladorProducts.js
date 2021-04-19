@@ -4,7 +4,17 @@ const controller = {
         res.render('index', {
             'cripto': cripto.lista
         })
+    },
+    detalleProduct: function(req, res, next){
+        res.render('product'), {
+            'cripto': cripto.lista
+        }
+    },
+    agregarProducto: function(req, res, next){
+        res.render('product-add', {
+        })
     }
+
 }
 
 module.exports = controller; 
