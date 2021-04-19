@@ -20,7 +20,7 @@ let cripto = {
         },
         {
           id: 3,
-          nombre: "Ethreum",  
+          nombre: "Ethereum",  
           abreviacion: "ETH",
           descripcion: "Un sistema blockchain descentralizado que funciona como plataforma para intercambiar numerosas criptomonedas, así como para la ejecución de contratos inteligentes.",
           precio: 2305.97,
