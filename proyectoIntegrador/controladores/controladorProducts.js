@@ -1,4 +1,7 @@
 const cripto = require('../data/productos');
+const comentarioUsuarios = require('../data/comentarios');
+const comentariosUsuarios = require('../data/comentarios');
+
 const controller = {
     index: function(req, res, next){
         res.render('index', {
@@ -9,7 +12,8 @@ const controller = {
         let id = req.params.id;
         res.render('product', {
             'cripto': cripto.lista,
-            'producto': id
+            'producto': id,
+            'comentario': comentariosUsuarios.lista
         })
     },
     agregarProducto: function(req, res, next){
