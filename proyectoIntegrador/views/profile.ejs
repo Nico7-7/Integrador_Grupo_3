@@ -9,21 +9,16 @@
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->
-	<% for(let i=0; i < usuarios.length; i++){%> 
-		<% if(usuarios[i].id_usuario == idUsuario){ %> 
+		<% //if(usuarios[i].id_usuario == idUsuario){ %>
 		<section class="info-usuario container products-wrapper">
 			<div class="row">
 				<div class="img-container offset-3 col-2">
-					<img src="<% if(usuarios[i].imagen == null){
-						"https://via.placeholder.com/150" 
-					} else {
-						usuarios[i].imagen 
-					}%> " alt="foto de perfil" class="foto-perfil">
+					<img src=<%= usuarios.imagen  %> alt="foto de perfil" class="foto-perfil">
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
-						<h1 class="main-title"> <%= usuarios[i].nombre + usuarios[i].apellido %> 
-							<a href="/profile-edit/<%= usuarios[i].id %>">
+						<h1 class="main-title"> <%= usuarios.nombre + usuarios.apellido %> 
+							<a class="datosUsuario" href="/profile-edit/<%= usuarios.id %>">
 								<i class="fas fa-cog"></i>
 							</a>
 						</h1>
@@ -31,15 +26,15 @@
 					</div>
 					<div>
 						<ul class="">
-							<li><%= usuarios[i].cantidad_productos%> Productos</li>
-							<li><%= usuario[i].numero_seguidores%> Seguidores</li>
-							<li><%= usuario[i].numero_comentarios%> Comentarios</li>
+							<li class="datosUsuario"><%= usuarios.cantidad_productos%> Productos</li>
+							<li class="datosUsuario"><%= usuarios.numero_seguidores%> Seguidores</li>
+							<li class="datosUsuario"> <%= usuarios.numero_comentarios%> Comentarios</li>
 						</ul>
+					</div>
 				</div>
-			
 			</div>
-		</div>
-	</section>
+		</section>
+		<% //} %> 
 	<!-- /Datos del usuario -->
 
 	<!-- Mis productos -->
@@ -65,8 +60,6 @@
 				</div>
 			</div>
 		</div>
-		<% } %> 
-	<% } %> 
 	<!-- /Mis productos -->
 
 

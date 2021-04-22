@@ -1,0 +1,38 @@
+.columnaFooter{
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr;
+}
+.footer-nombres {
+  text-align: center;
+}
+
+.font-family {
+  font-family: 'New Tegomin', serif;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+
+}
+.imagenCripto{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 200px;
+}
+.logo {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: grey;
+  text-align: justify;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+}
+.datosUsuario{
+  color: whitesmoke;
+}

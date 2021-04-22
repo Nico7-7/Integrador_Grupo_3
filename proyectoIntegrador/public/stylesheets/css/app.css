@@ -8,7 +8,7 @@
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
-  --light-gray: grey;
+  --light-gray: black;
   --green: #39b54a;
   --base-font-family: 'Roboto', sans-serif
 }
@@ -172,6 +172,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .product-box {
@@ -467,6 +468,7 @@ textarea.form-input {
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
+  color: whitesmoke;
 }
 
 .btn{

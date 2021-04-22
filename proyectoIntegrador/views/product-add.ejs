@@ -19,30 +19,25 @@
 
 			<form class= "formulario" action="/" method="GET">
 				<p>
-				<label for="email"> Nombre de Usuario / Email: </label>
-				<input type="text" name="email" id="email">
+				<label for="nombre"> Nombre de la criptomoneda: </label>
+				<input type="text" name="nombre" id="nombre">
 				</p>
 
 				<p>
-				<label for="contrasenia"> Contraseña: </label>
-				<input type="password" name="contrasenia" id="contrasenia">
+				<label for="imagen"> Url de la imagen: </label>
+				<input type="url" name="imagen" id="imagen">
+				</p>
+				<p>
+					<label for="Descripcion"> Descripción de la criptomoneda: </label>
+					<input type="text" name="Descripcion" id="Descripcion">
 				</p>
 
 
 				<p>
-				<input type="submit" value="Enviar">
+				<button type="submit" value="enviar">Agregar criptomoneda</button>
 				</p>
 			
 			</form>
-			
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
-
-
 	<!-- footer -->
 	<%- include('./partial/footer') %> 
 	<!-- /footer -->
