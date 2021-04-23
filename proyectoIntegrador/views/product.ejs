@@ -26,7 +26,7 @@
 						</p>
 					</article>
 					<div class="col-12 col-lg-4">
-						<% for(let i=0; i < comentario.length; i++){%> 
+						<% for(let i=1; i < comentario.length; i++){%> 
 							<% if(comentario[i].id_producto == producto){ %> 
 							<section class="comments">
 								<article>
@@ -38,13 +38,13 @@
 									</div>
 								</article>
 							</section>
+							<% } %> 
+						<% } %> 
 							<form class="form" action="" method="POST">
 								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 							</form>
 							<hr>
-							<% } %> 
-						<% } %> 
 						</div>
 					</div>
 				</div>

@@ -4,12 +4,14 @@ const comentarios = require('../data/comentarios')
 const controller = {
     profile: function(req, res, next){
         let id = req.params.id;
-        //for(let i = id; i < usuarios.length; i++){
-            res.render('profile', {
-                'usuarios': usuarios.lista,
-                'idUsuario': id
-            })
-        //}
+        for(let i = 0; i < usuarios.length; i++){
+            if(usuarios[i].id == id){
+                res.render('profile', {
+                    'usuarios': usuarios.lista,
+                    'idUsuario': id
+                })
+            }
+        }
     },
     login: function(req, res, next){
         res.render('login', {

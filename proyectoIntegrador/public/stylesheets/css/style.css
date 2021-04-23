@@ -29,10 +29,13 @@
   flex-direction: column;
   justify-content: center;
   background-color: grey;
-  text-align: justify;
+  text-align: center;
   font-size: 20px;
   font-family: 'Lato', sans-serif;
 }
 .datosUsuario{
   color: whitesmoke;
+}
+#formularioTotal{
+  text-align: center;
 }
