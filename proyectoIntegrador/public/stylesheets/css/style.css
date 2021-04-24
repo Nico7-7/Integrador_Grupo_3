@@ -39,3 +39,12 @@
 #formularioTotal{
   text-align: center;
 }
+.productos-profile{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.descripcion{
+  font-family: 'New Tegomin', serif;
+  color: whitesmoke;
+}
