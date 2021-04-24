@@ -11,12 +11,21 @@ const controller = {
                     'producto_usuario': products.lista
                 })
     },
+    profileUsuario: function(req, res, next){
+        let id = req.params.id;
+        res.render('profileUsuario', {
+            'usuarios': usuarios.lista,
+            'producto_usuario': products.lista,
+            'idUsuario': id
+        })
+    },
     login: function(req, res, next){
         res.render('login', {
         })
     },
     profileEdit: function(req, res, next){
-        res.render('profile-edit', {
+        let id = req.params.id;
+            res.render('profile-edit', {
         })
     },
     register: function(req, res, next){

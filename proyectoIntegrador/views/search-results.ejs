@@ -20,9 +20,9 @@
 				<% if(busqueda == producto[i].nombre){ %> 
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/detalleproduct/">
+						<a href="/detalleproduct/<%= producto[i].id %> ">
 							<figure class="product-box_image">
-								<img src="<%= producto[i].imagen %> " alt="">
+								<img src="<%= producto[i].imagen %> " alt="<%= producto[i].nombre %> ">
 							</figure>
 							<article class="product-box_data">
 								<h2><%= producto[i].nombre %> </h2>
