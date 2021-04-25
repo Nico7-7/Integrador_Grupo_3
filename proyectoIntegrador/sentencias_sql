@@ -29,3 +29,24 @@ INSERT INTO `comentarios` (`id`, `texto`, `fecha_comentado`, `id_usuario_comenta
 INSERT INTO `comentarios` (`id`, `texto`, `fecha_comentado`, `id_usuario_comentador`, `id_producto`) VALUES ('83', 'Nunca llegue a entender la funcionalidad de las stablecoins.', '2021-04-16', '3', '16'), ('84', 'Están diseñadas para replicar el valor de monedas fíat como el dólar o el euro.', '2021-04-16', '6', '16'), ('85', 'Hay un montón igual, USDT, DAI, USDC, BUSD.', '2021-04-17', '11', '16'), ('86', 'Sisi, a mi la que más seguridad me da es BUSD porque está respaldada por Binance.', '2021-04-19', '7', '16'), ('87', 'Klatyn a 2 dólares es compra siempre.', '2021-04-17', '7', '17'), ('88', 'Me da bastante inseguridad este proyecto.', '2021-04-17', '10', '17'), ('89', 'A mí también, no me gusta.', '2021-04-17', '11', '17'), ('90', 'No estoy de acuerdo, a mí me encanta.', '2021-04-20', '13', '17'), ('91', 'Aave siento que tiene mucho potencial de crecimiento todavía.', '2021-04-19', '7', '18'), ('92', 'Ahora que cayó (como todo) es una buena ventana de compra.', '2021-04-19', '10', '18'), ('93', 'Yo puse un limit en 315, ojalá llegue así se compra.', '2021-04-20', '11', '18'), ('94', 'Te manejaste con stop loss también?', '2021-04-22', '13', '18'), ('95', 'ATOM!!!', '2021-04-21', '3', '19'), ('96', 'Claramente una que busco meter en mi portfolio.', '2021-04-21', '1', '19'), ('97', 'Dónde la comprarías??', '2021-04-22', '6', '19'), ('98', 'En Binance está, yo uso esa.', '2021-04-22', '1', '19'), ('99', 'Alguien más haciendo staking de $CAKE?', '2021-04-23', '3', '20'), ('100', 'La pregunta es quién NO está haciendo staking de CAKE!!', '2021-04-22', '7', '20'), ('101', 'Yo no, ajaja. Que tenga un panqueque me parece poco confiable.', '2021-04-24', '10', '20'), ('102', 'Claro, pero tiene un gas fee muchísimo menor.', '2021-04-24', '13', '20')
 UPDATE `usuarios` SET `nombre_usuario` = 'Nicolás', `apellido_usuario` = 'Cavalieri', `mail` = 'ncavalieri@udesa.edu.ar' WHERE `usuarios`.`id` = 11
 UPDATE `usuarios` SET `nombre_usuario` = 'Catalina', `apellido_usuario` = 'Rosella', `url_imagen_usuario` = '', `mail` = 'crosella@udesa.edu.ar', `texto_usuario` = 'Estudiante universitaria.' WHERE `usuarios`.`id` = 13
+ALTER TABLE `productos` ADD `descripcion_corta` VARCHAR(255) NOT NULL AFTER `descripcion_larga`;
+UPDATE `productos` SET `descripcion_corta` = 'Una plataforma para crear mercados y aplicaciones.' WHERE `productos`.`id` = 1
+UPDATE `productos` SET `descripcion_corta` = 'Una plataforma de juego basada en Tron.' WHERE `productos`.`id` = 2
+UPDATE `productos` SET `descripcion_corta` = 'El token secundario en el ecosistema VeChain.' WHERE `productos`.`id` = 3
+UPDATE `productos` SET `descripcion_corta` = 'Un ecosistema dApp con acuerdos inteligentes.' WHERE `productos`.`id` = 4
+UPDATE `productos` SET `descripcion_corta` = 'Una moneda para comprar bienes virtuales.' WHERE `productos`.`id` = 5
+UPDATE `productos` SET `descripcion_corta` = 'Una plataforma pública de blockchain.' WHERE `productos`.`id` = 6
+UPDATE `productos` SET `descripcion_corta` = 'Una plataforma criptográfica de oráculos descentralizados.' WHERE `productos`.`id` = 7
+UPDATE `productos` SET `descripcion_corta` = 'Un protocolo para apuestas en juegos.' WHERE `productos`.`id` = 8
+UPDATE `productos` SET `descripcion_corta` = 'Una app que promueve las compras online con cripto.' WHERE `productos`.`id` = 9
+UPDATE `productos` SET `descripcion_corta` = 'Una ventanilla única para coleccionables digitales.' WHERE `productos`.`id` = 10
+UPDATE `productos` SET `descripcion_corta` = 'Un juego de realidad virtual con compras in-game.' WHERE `productos`.`id` = 11
+UPDATE `productos` SET `descripcion_corta` = 'Una plataforma de blockchain para redistribuir el poder.' WHERE `productos`.`id` = 12
+UPDATE `productos` SET `descripcion_corta` = 'Un sistema blockchain de intercambio y desarrollo.' WHERE `productos`.`id` = 13
+UPDATE `productos` SET `descripcion_corta` = 'Un protocolo de sharding multicadena.' WHERE `productos`.`id` = 14
+UPDATE `productos` SET `descripcion_corta` = 'Una red de oráculo descentralizado.' WHERE `productos`.`id` = 15
+UPDATE `productos` SET `descripcion_corta` = 'Una moneda estable que imita el valor del dólar.' WHERE `productos`.`id` = 16
+UPDATE `productos` SET `descripcion_corta` = 'Un proyecto blockchain con foco en el UX.' WHERE `productos`.`id` = 17
+UPDATE `productos` SET `descripcion_corta` = 'Un protocolo de mercado monetario DeFi.' WHERE `productos`.`id` = 18
+UPDATE `productos` SET `descripcion_corta` = 'Un proyecto que busca unificar blockchains.' WHERE `productos`.`id` = 19
+UPDATE `productos` SET `descripcion_corta` = 'Una plataforma de intercambio de criptomonedas con BSC.' WHERE `productos`.`id` = 20
