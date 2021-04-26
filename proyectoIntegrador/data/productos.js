@@ -45,7 +45,7 @@ let cripto = {
             nombre: 'Enjin Coin',
             descripcion_larga: 'Una moneda creada para bienes virtuales y su finalidad convertirse en la criptomoneda más útil en la industria del videojuego. A su vez Enjin es una plataforma de juegos con la comunidad más grande en linea.',
             descripcion_corta: 'Una moneda para comprar bienes virtuales.',
-            imagen: 'https://cryptocoinspy.com/wp-content/uploads/2018/03/enjin.png',
+            imagen: 'https://www.forexsrovnavac.cz/assets/img/crypto/enjin-coin.png',
             comentarios: 4,
             id_usuario: 1,
             fecha_publicación: 2021-04-16
@@ -55,7 +55,7 @@ let cripto = {
             nombre: 'Ontology',
             descripcion_larga: 'Ontology es una plataforma pública de cadenas de bloques que permite la creación e implementación de proyectos de diferentes tamaños; de esta manera, cierra la brecha entre las cadenas de bloques y los negocios.',
             descripcion_corta: 'Una plataforma pública de blockchain.',
-            imagen: 'https://bitcoin.es/wp-content/uploads/2018/03/Captura-de-pantalla-2018-03-08-a-las-19.13.56.png',
+            imagen: 'https://www.forexsrovnavac.cz/assets/img/crypto/ontology.png',
             comentarios: 4,
             id_usuario: 4,
             fecha_publicación: 2021-04-18
