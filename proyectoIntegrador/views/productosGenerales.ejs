@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partial/head') %> 
+<body>
+	<!-- Header -->
+	<%- include('./partial/header') %> 
+	<!-- /Header -->
+	<!-- Todos los productos -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="font-family" class="products-title" >Todos los productos</h2>
+			</div>
+			<!-- Show the products -->
+			<% for(let i = 0; i < cripto.length; i++){ %> 
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/detalleproduct/<%= cripto[i].id%>">
+						<figure class="product-box_image">
+							<img src="<%= cripto[i].imagen%>" alt="<%= cripto[i].nombre%>">
+						</figure>
+						<article class="product-box_data">
+							<h2><%= cripto[i].nombre%></h2>
+							<p><%= cripto[i].descripcion_corta%></p>
+							<p>Comentarios: <%= cripto[i].comentarios%></p>
+						</article>
+					</a>
+				</section>
+			</div>
+			<% } %> 
+		</div>
+	</div>
+	<!-- / Todos los productos -->
+	<!-- footer -->
+	<%- include('./partial/footer') %> 
+	<!-- /footer -->
+</body>	
+</html>

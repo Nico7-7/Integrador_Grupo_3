@@ -8,6 +8,11 @@ const controller = {
             'cripto': cripto.lista
         })
     },
+    productosGenerales: function(req, res, next){
+        res.render('productosGenerales', {
+            'cripto': cripto.lista            
+        })
+    },
     detalleProduct: function(req, res, next){
         let id = req.params.id;
         res.render('product', {
