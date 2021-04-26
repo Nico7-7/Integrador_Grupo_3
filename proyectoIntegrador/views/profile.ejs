@@ -52,7 +52,11 @@
 					<section class="product-box">
 						<a href="/detalleProduct/<%= producto_usuario[i].id %> ">
 							<figure class="product-box_image">
-								<img src="<%= producto_usuario[i].imagen %>" alt="<%= producto_usuario[i].nombre %>">
+								<% if (producto_usuario[i].imagen == null){ %> 
+									<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">
+								<% } else { %> 
+									<img src="<%= producto_usuario[i].imagen %>" alt="<%= producto_usuario[i].nombre %>">
+								<% } %> 
 							</figure>
 							<article class="product-box_data">
 								<h2><%= producto_usuario[i].nombre %></h2>

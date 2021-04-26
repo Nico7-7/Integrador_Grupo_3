@@ -15,7 +15,11 @@
 				<% if(usuarios[i].id == idUsuario){ %> 
 			<div class="row">
 				<div class="img-container offset-3 col-2">
-					<img src=<%= usuarios[i].url_imagen_usuario %> alt="foto de perfil" class="foto-perfil">
+					<% if(usuarios[i].url_imagen_usuario == null){ %> 
+						<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35" class="foto-perfil">
+					<% }else{ %> 
+						<img src="<%= usuarios[i].url_imagen_usuario %>" alt="<%= usuarios[i].nombre %>" class="foto-perfil">
+					<% } %> 
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
