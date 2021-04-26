@@ -26,11 +26,15 @@
 						</p>
 					</article>
 					<div class="col-12 col-lg-4">
-						<% for(let i=0; i < 4; i++){%> 
+						<% for(let i=0; i < comentario.length; i++){%> 
 							<% if(comentario[i].id_producto == producto){ %> 
 							<section class="comments">
 								<article>
-									<img src="<%= comentario[i].imagen %> " alt="https://via.placeholder.com/35">
+									<% if (comentario[i].imagen == null) { %>
+										<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">
+									<% } else { %>
+										<img src=" <%= comentario[i].imagen %> " alt="https://via.placeholder.com/35">
+									<% } %> 		
 									<div class="data">
 										<p class="user">
 										<strong> <a href="/profile/<%= comentario[i].id_usuario_comentador %> "><%= comentario[i].nombre_usuario %>  </a> </strong>
