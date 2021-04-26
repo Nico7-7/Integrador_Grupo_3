@@ -20,7 +20,9 @@
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
 						<h1 class="main-title"> <%= `${usuarios[i].nombre} ${usuarios[i].apellido}` %> </h1>
-						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+						<a class="datosUsuario" href="/profile-edit/1">
+							<i class="fas fa-cog"></i>
+						</a>
 					</div>
 					<div>
 						<ul class="">
@@ -41,7 +43,7 @@
 		<div class="container products-wrapper">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="products-title">Los productos de <%= usuarios[i].nombre %> </h2>
+					<h2 class="products-title">Mis productos </h2>
 				</div>
 				<% } %> 
 			<% } %> 
