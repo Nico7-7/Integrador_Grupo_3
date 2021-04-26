@@ -464,6 +464,8 @@ textarea.form-input {
 
 .foto-perfil{
   border-radius: 50%;
+  width: 10vw;
+  height: 135px;
 }
 
 .main-title{

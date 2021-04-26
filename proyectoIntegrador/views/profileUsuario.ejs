@@ -30,11 +30,21 @@
 					</div>
 					<div>
 						<ul class="">
-							<li class="datosUsuario"><%= usuarios[i].cantidad_productos%> Productos</li>
-							<li class="datosUsuario"><%= usuarios[i].numero_seguidores%> Seguidores</li>
-							<li class="datosUsuario"> <%= usuarios[i].numero_comentarios%> Comentarios</li>
-							<br>
-
+							<% if (usuarios[i].cantidad_productos == null) { %>
+							<li class="datosUsuario">0 Productos</li>
+							<% } else { %>
+								<li class="datosUsuario"><%= usuarios[i].cantidad_productos%> Producto/s</li>
+							<% } %> 
+							<% if (usuarios[i].numero_seguidores == null) { %>
+								<li class="datosUsuario">0 Seguidores</li>
+								<% } else { %>
+									<li class="datosUsuario"><%= usuarios[i].numero_seguidores%> Seguidor/es</li>
+								<% } %> 
+							<% if (usuarios[i].numero_comentarios == null) { %>
+								<li class="datosUsuario">0 Comentarios</li>
+								<% } else { %>
+									<li class="datosUsuario"><%= usuarios[i].numero_comentarios%> Comentario/s</li>
+								<% } %> 
 							<li class="descripcion"> <%= usuarios[i].texto_usuario%></li>
 						</ul>
 					</div>

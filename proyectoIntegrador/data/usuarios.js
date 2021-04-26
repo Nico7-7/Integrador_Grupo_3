@@ -151,7 +151,7 @@ let usuarios = {
             numero_seguidores: 15,
             numero_comentarios: 7, 
             cantidad_productos: null,
-            url_imagen_usuario: 'http://cdn3.upsocl.com/wp-content/uploads/2016/07/13-6.png',
+            url_imagen_usuario: null,
             email: 'crosella@udesa.edu.ar', 
             fecha: 2021-04-16,
             texto_usuario: 'Estudiante universitaria.'
