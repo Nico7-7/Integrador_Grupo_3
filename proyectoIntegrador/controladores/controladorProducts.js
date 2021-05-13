@@ -1,31 +1,72 @@
-const cripto = require('../data/productos');
-const comentarioUsuarios = require('../data/comentarios');
-const comentariosUsuarios = require('../data/comentarios');
+const db = require('../database/models');
+const op = db.Sequelize.Op;
 
 const controller = {
-    index: function(req, res, next){
-        res.render('index', {
-            'cripto': cripto.lista
+    index: function(req, res){
+        db.Producto.findAll()
+        .then((resultados) => {
+            return res.render('index', {
+                cripto: resultados
+            })
+        })
+        .catch((error) => {
+            return res.send(error);
         })
     },
     productosGenerales: function(req, res, next){
-        res.render('productosGenerales', {
-            'cripto': cripto.lista            
+        db.Producto.findAll()
+        .then((resultados) => {
+            return res.render('productosGenerales', {
+                cripto: resultados
+            })
+        })
+        .catch((error) => {
+            return res.send(error);
         })
     },
     detalleProduct: function(req, res, next){
-        let id = req.params.id;
-        res.render('product', {
-            'cripto': cripto.lista,
-            'producto': id,
-            'comentario': comentariosUsuarios.lista
+        db.Producto.findByPk(req.params.id)
+        .then((cripto) => {
+            db.Comentario.findAll({
+                where: [
+                    {id_producto: req.params.id}
+                ]
+            }) 
+            .then((comentarios) => {
+                return res.render('product', {
+                comentarios: comentarios,
+                cripto: cripto
+                })
+            }).catch((error) => {
+                return res.send(error);
+            })
+        })
+        .catch((error) => {
+            return res.send(error);
         })
     },
     agregarProducto: function(req, res, next){
-        res.render('product-add', {
+        db.Producto.findAll()
+        .then((data) => {
+            return res.render('product-add', {
+                cripto: data
+            })
+        })
+       
+    },
+    productoBaseDatos: function(req, res, next){
+        db.Producto.create(req.body)
+        .then(() => {
+            return res.redirect('productosGenerales', {
+            })
+        })
+        .catch((error) => {
+            return res.send(error);
         })
     }
 
 }
 
 module.exports = controller; 
+
+

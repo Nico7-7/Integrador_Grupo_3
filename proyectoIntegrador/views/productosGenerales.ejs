@@ -18,12 +18,12 @@
 				<section class="product-box">
 					<a href="/producto/detalleproduct/<%= cripto[i].id%>">
 						<figure class="product-box_image">
-							<img src="<%= cripto[i].imagen%>" alt="<%= cripto[i].nombre%>">
+							<img src="<%= cripto[i].url_imagen%>" alt="<%= cripto[i].nombre_producto%>">
 						</figure>
 						<article class="product-box_data">
-							<h2><%= cripto[i].nombre%></h2>
+							<h2><%= cripto[i].nombre_producto%></h2>
 							<p><%= cripto[i].descripcion_corta%></p>
-							<p>Comentarios: <%= cripto[i].comentarios%></p>
+							<p>Comentarios: <%= cripto[i].num_comentarios%></p>
 						</article>
 					</a>
 				</section>

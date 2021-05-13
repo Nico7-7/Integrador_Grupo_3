@@ -9,10 +9,9 @@
 	<!-- /Header -->
 	<!-- product detail -->
 	<div class="container products-wrapper">
-		<% for(let i=0; i < cripto.length; i++){%> 
-			<% if(cripto[i].id == producto){ %> 
+
 			<div class="d-flex align-items-center">
-				<h2 class="font-family" ><%= cripto[i].nombre %> </h2> 
+				<h2 class="font-family" ><%= cripto.nombre_producto %> </h2> 
 				<p class="product-detail-description">
 					<a href="/user/product-add">EDITAR</a>
 				</p>
@@ -20,29 +19,23 @@
 			<div class="product-detail">
 				<div class="row">
 					<article class="col-12 col-lg-8 product-detail-info">
-						<img src="<%= cripto[i].imagen %> " alt=" <%= cripto[i].nombre %> " class="product-detail-img">
+						<img src="<%= cripto.url_imagen %> " alt=" <%= cripto.nombre %> " class="product-detail-img">
 						<p class="product-detail-description">
-							<%= cripto[i].descripcion_larga %> 
+							<%= cripto.descripcion_larga %> 
 						</p>
 					</article>
 					<div class="col-12 col-lg-4">
-						<% for(let i=0; i < comentario.length; i++){%> 
-							<% if(comentario[i].id_producto == producto){ %> 
+						<% for(let i=0; i < comentarios.length; i++){%> 
 							<section class="comments">
-								<article>
-									<% if (comentario[i].imagen == null) { %>
-										<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">
-									<% } else { %>
-										<img src=" <%= comentario[i].imagen %> " alt="https://via.placeholder.com/35">
-									<% } %> 		
+								<article>									
+									<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">								 		
 									<div class="data">
 										<p class="user">
-										<strong> <a href="/user/profileUsuario/<%= comentario[i].id_usuario_comentador %> "><%= comentario[i].nombre_usuario %>  </a> </strong>
-										<%= comentario[i].texto %></p>
+										<strong> <a href="/user/profileUsuario/<%= comentarios[i].id_usuario_comentador %> "> Jose  </a> </strong>
+										<%= comentarios[i].texto %></p>
 									</div>
 								</article>
 							</section>
-							<% } %> 
 						<% } %> 
 							<form class="form" action="" method="POST">
 								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
@@ -52,8 +45,6 @@
 						</div>
 					</div>
 				</div>
-			<% } %> 
-		<% } %> 
 	</div>
 	<!-- /product detail -->
 
