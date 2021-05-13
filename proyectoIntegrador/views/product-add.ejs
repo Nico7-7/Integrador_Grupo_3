@@ -17,20 +17,41 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 
-			<form class= "formulario" action="/views/product-add" method="POST">
-				<p>
-				<label for="nombre"> Nombre de la criptomoneda: </label>
-				<input type="text" name="nombre" id="nombre">
-				</p>
+			<form class= "formulario" action="/producto/product-add" method="POST">
 
 				<p>
 				<label for="imagen"> Url de la imagen: </label>
-				<input type="url" name="imagen" id="imagen">
+				<input type="url" name="url_imagen" id="url_imagen">
 				</p>
 				<p>
-					<label for="Descripcion"> Descripción de la criptomoneda: </label>
-					<input type="text" name="Descripcion" id="Descripcion">
+					<label for="nombre"> Nombre de la criptomoneda: </label>
+					<input type="text" name="nombre_producto" id="nombre_producto">
+					</p>
+				<p>
+				<p>
+					<label for="nombre"> Fecha de hoy (AAAA-MM-DD): </label>
+					<input type="text" name="fecha_publicacion" id="fecha_publicacion">
 				</p>
+				<!-- (ID) Parte hardcodeada hasta que tengamos foreign keys-->
+				<p>
+					<label for="nombre"> Tu ID personal: </label>
+					<input type="number" name="id_usuario" id="id_usuario" value= 5 readonly>
+					</p>
+				<p>
+				<p>
+					<label for="Descripcion"> Descripción larga: </label>
+					<input type="text" name="descripcion_larga" id="descripcion_larga">
+				</p>
+				<p>
+					<label for="Descripcion"> Descripción corta (una frase): </label>
+					<input type="text" name="descripcion_corta" id="descripcion_corta">
+				</p>
+				<!-- (NUM COMENT) Parte hardcodeada hasta que tengamos foreign keys-->
+				<p>
+					<label for="nombre"> Comentarios iniciales: </label>
+					<input type="number" name="num_comentarios" id="num_comentarios" value=0 readonly>
+					</p>
+				<p>
 
 
 				<p>

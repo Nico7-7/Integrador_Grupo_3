@@ -57,7 +57,7 @@ const controller = {
     productoBaseDatos: function(req, res, next){
         db.Producto.create(req.body)
         .then(() => {
-            return res.redirect('productosGenerales', {
+            return res.redirect('index', {
             })
         })
         .catch((error) => {
