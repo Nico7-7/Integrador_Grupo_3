@@ -14,7 +14,7 @@
 			<div class="d-flex align-items-center">
 				<h2 class="font-family" ><%= cripto[i].nombre %> </h2> 
 				<p class="product-detail-description">
-					<a href="/product-add">EDITAR</a>
+					<a href="/user/product-add">EDITAR</a>
 				</p>
 			</div>
 			<div class="product-detail">
@@ -37,7 +37,7 @@
 									<% } %> 		
 									<div class="data">
 										<p class="user">
-										<strong> <a href="/profileUsuario/<%= comentario[i].id_usuario_comentador %> "><%= comentario[i].nombre_usuario %>  </a> </strong>
+										<strong> <a href="/user/profileUsuario/<%= comentario[i].id_usuario_comentador %> "><%= comentario[i].nombre_usuario %>  </a> </strong>
 										<%= comentario[i].texto %></p>
 									</div>
 								</article>

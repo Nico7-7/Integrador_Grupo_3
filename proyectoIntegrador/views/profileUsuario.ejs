@@ -63,7 +63,7 @@
 					<% for(let i=0; i < producto_usuario.length; i++){%> 
 						<% if(producto_usuario[i].id_usuario == idUsuario){ %> 
 					<section class="product-box">
-						<a href="/detalleProduct/<%= producto_usuario[i].id %> ">
+						<a href="/producto/detalleProduct/<%= producto_usuario[i].id %> ">
 							<figure class="product-box_image">
 								<img src="<%= producto_usuario[i].imagen %>" alt="<%= producto_usuario[i].nombre %>">
 							</figure>

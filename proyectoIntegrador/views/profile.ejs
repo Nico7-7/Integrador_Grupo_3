@@ -20,7 +20,7 @@
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
 						<h1 class="main-title"> <%= `${usuarios[i].nombre} ${usuarios[i].apellido}` %> </h1>
-						<a class="datosUsuario" href="/profile-edit/1">
+						<a class="datosUsuario" href="/user/profile-edit/1">
 							<i class="fas fa-cog"></i>
 						</a>
 					</div>
@@ -52,7 +52,7 @@
 					<% for(let i=0; i < producto_usuario.length; i++){%> 
 						<% if(producto_usuario[i].id_usuario == idUsuario){ %> 
 					<section class="product-box">
-						<a href="/detalleProduct/<%= producto_usuario[i].id %> ">
+						<a href="/producto/detalleProduct/<%= producto_usuario[i].id %> ">
 							<figure class="product-box_image">
 								<% if (producto_usuario[i].imagen == null){ %> 
 									<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">
