@@ -33,6 +33,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         texto_usuario: {
             type: DataTypes.STRING
+        },
+        contrasenia: {
+            type: DataTypes.STRING
         }
     }
 

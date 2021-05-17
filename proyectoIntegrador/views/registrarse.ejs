@@ -14,30 +14,35 @@
 				<h2 class="products-title">REGISTRATE</h2>
 			<!-- Show the "ultimos" products -->
 
-			<form class= "formulario" action="/" method="GET">
+			<form class= "formulario" action="/seguridad/registrarse" method="POST">
 				<p>
 				<label for="Nombre"> Nombre: </label>
-				<input type="text" name="Nombre" id="Nombre">
+				<input type="text" name="nombre_usuario" id="nombre_usuario">
 				</p>
 
 				<p>
 				<label for="Apellido"> Apellido: </label>
-				<input type="text" name="Apellido" id="Apellido">
+				<input type="text" name="apellido_usuario" id="apellido_usuario">
 				</p>
 
 				<p>
 				<label for="Email"> Email: </label>
-				<input type="text" name="Email" id="Email">
+				<input type="email" name="mail" id="mail">
+				</p>
+
+				<p>
+				<label for="contrasenia"> Contraseña: </label>
+				<input type="password" name="contrasenia" id="contrasenia">
 				</p>
 	
 				<p>
 				<label for="Imagen"> URL de imagen: </label>
-				<input type="url" name="imagen" id="Imagen">
+				<input type="url" name="url_imagen_usuario" id="url_imagen_usuario">
 				</p>
 
 				<p>
 				<label for="descripcion"> Descripcion: </label>
-				<input type="texto" name="descripcion" id="descripcion">
+				<input type="texto" name="texto_usuario" id="texto_usuario">
 				</p>
 
 				<p>

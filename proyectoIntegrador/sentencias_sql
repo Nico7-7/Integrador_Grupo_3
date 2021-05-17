@@ -50,3 +50,4 @@ UPDATE `productos` SET `descripcion_corta` = 'Un proyecto blockchain con foco en
 UPDATE `productos` SET `descripcion_corta` = 'Un protocolo de mercado monetario DeFi.' WHERE `productos`.`id` = 18
 UPDATE `productos` SET `descripcion_corta` = 'Un proyecto que busca unificar blockchains.' WHERE `productos`.`id` = 19
 UPDATE `productos` SET `descripcion_corta` = 'Una plataforma de intercambio de criptomonedas con BSC.' WHERE `productos`.`id` = 20
+ALTER TABLE `usuarios` ADD `contrasenia` VARCHAR(255) NOT NULL AFTER `texto_usuario`;

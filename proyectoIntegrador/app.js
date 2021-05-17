@@ -3,10 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
 var buscadorRouter = require('./routes/buscador');
+var routerSeguridad = require('./routes/seguridad')
 
 
 var app = express();
@@ -19,9 +21,32 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session(
+  {secret: "proyecto_integrador",
+		resave: false,
+		saveUninitialized: true }
+));
 app.use(express.static(path.join(__dirname, 'public')));
 
+const rutasPublicas = [
+  '/seguridad/login', '/seguridad/registrarse', '/'
+]
+
+app.use(function(req, res, next) {
+  if (req.session.usuario != undefined){
+    res.locals = req.session.usuario
+    next();
+  }
+  else {
+    if(!rutasPublicas.includes(req.path)) {
+      // return res.redirect ('/seguridad/login')
+    }
+  }
+  next();
+})
+
 app.use('/', indexRouter);
+app.use('/seguridad', routerSeguridad)
 app.use('/user', userRouter);
 app.use('/search', buscadorRouter);
 
