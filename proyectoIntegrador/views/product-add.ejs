@@ -35,7 +35,7 @@
 				<!-- (ID) Parte hardcodeada hasta que tengamos foreign keys-->
 				<p>
 					<label for="nombre"> Tu ID personal: </label>
-					<input type="number" name="id_usuario" id="id_usuario" value= 5 readonly>
+					<input type="number" name="id_usuario" id="id_usuario" value= <%= locals.id %>  readonly>
 					</p>
 				<p>
 				<p>
@@ -46,13 +46,6 @@
 					<label for="Descripcion"> Descripción corta (una frase): </label>
 					<input type="text" name="descripcion_corta" id="descripcion_corta">
 				</p>
-				<!-- (NUM COMENT) Parte hardcodeada hasta que tengamos foreign keys-->
-				<p>
-					<label for="nombre"> Comentarios iniciales: </label>
-					<input type="number" name="num_comentarios" id="num_comentarios" value=0 readonly>
-					</p>
-				<p>
-
 
 				<p>
 				<button type="submit" value="enviar">Agregar criptomoneda</button>
