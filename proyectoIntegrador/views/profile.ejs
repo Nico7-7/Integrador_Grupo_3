@@ -4,9 +4,11 @@
 <%- include('./partial/head') %> 
 <body>
 	<!-- Header -->
-	<%- include('./partial/headerLogueado') %> 
-	
-	<!-- /Header -->
+	<% if (locals.mail) { %>
+		<%- include('./partial/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partial/header') %> 
+	<% } %>
 
 	<!-- Datos del usuario -->
 

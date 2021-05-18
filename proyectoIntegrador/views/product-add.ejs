@@ -6,7 +6,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partial/headerLogueado') %> 
+	<% if (locals.mail) { %>
+		<%- include('./partial/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partial/header') %> 
+	<% } %>
 	<!-- /Header -->
 
 	<!-- Novedades -->

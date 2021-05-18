@@ -5,8 +5,12 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partial/header') %> 
-	<!-- /Header -->
+	<% if (locals.mail) { %>
+		<%- include('./partial/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partial/header') %> 
+	<% } %>
+
 	<!-- product detail -->
 	<div class="container products-wrapper">
 
