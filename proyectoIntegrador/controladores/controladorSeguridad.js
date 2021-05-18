@@ -40,4 +40,4 @@ let controladorSeguridad = {
     }
 }
 
-module.exports = controladorSeguridad
+module.exports = controladorSeguridad;

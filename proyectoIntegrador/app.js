@@ -35,11 +35,11 @@ const rutasPublicas = [
 app.use(function(req, res, next) {
   if (req.session.usuario != undefined){
     res.locals = req.session.usuario
-    next();
+    return next();
   }
   else {
     if(!rutasPublicas.includes(req.path)) {
-      // return res.redirect ('/seguridad/login')
+      return res.redirect ('/seguridad/login')
     }
   }
   next();
