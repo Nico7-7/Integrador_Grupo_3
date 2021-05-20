@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-let controladoresUser = require('../controladores/controladorUser');
+let controladorUser = require('../controladores/controladorUser');
 
-router.get('/profile/:id', controladoresUser.profile);
-router.get('/profileUsuario/:id', controladoresUser.profileUsuario);
-router.get('/profile-edit/:id', controladoresUser.profileEdit);
+router.get('/profile/:id', controladorUser.profile);
+router.get('/profileUsuario/:id', controladorUser.profileUsuario);
+router.get('/profile-edit/:id', controladorUser.profileEdit);
 
 module.exports = router;
