@@ -31,11 +31,15 @@
 					<div class="col-12 col-lg-4">
 						<% for(let i=0; i < comentarios.length; i++){%> 
 							<section class="comments">
-								<article>									
-									<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">								 		
+								<article>
+									<% if (comentarios[i].usuario.url_imagen_usuario == null) { %>
+										<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">		
+									<% }else{ %>
+										<img src="<%= comentarios[i].usuario.url_imagen_usuario %>" alt="imagen usuario">
+									<% } %>					
 									<div class="data">
 										<p class="user">
-										<strong> <a href="/user/profileUsuario/<%= comentarios[i].id_usuario_comentador %> "> Jose  </a> </strong>
+										<strong> <a href="/user/profileUsuario/<%= comentarios[i].id_usuario_comentador %> "> <%= comentarios[i].usuario.nombre_usuario %>  <%= comentarios[i].usuario.apellido_usuario %> </a> </strong>
 										<%= comentarios[i].texto %></p>
 									</div>
 								</article>

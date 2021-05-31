@@ -30,7 +30,10 @@ const controller = {
             db.Comentario.findAll({
                 where: [
                     {id_producto: req.params.id}
-                ]
+                ],
+                include: [{
+                    association: 'usuario'
+                }]
             }) 
             .then((comentarios) => {
                 return res.render('product', {
