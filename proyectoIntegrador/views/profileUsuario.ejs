@@ -4,7 +4,7 @@
 <%- include('./partial/head') %> 
 <body>
 	<!-- Header -->
-	<% if (locals.usuario.mail) { %>
+	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
 	<% } else { %>
 		<%- include('./partial/header') %> 
@@ -13,38 +13,37 @@
 	<!-- Datos del usuario -->
 
 		<section class="info-usuario container products-wrapper">
-			<%  for(let i = 0; i < usuarios.length; i++){%> 
 			<div class="row">
 				<div class="img-container offset-3 col-2">
-					<% if (usuarios[i].url_imagen_usuario == null) { %>
+					<% if (usuario.url_imagen_usuario == null) { %>
 						<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">		
 					<% }else{ %>
-						<img src="<%= usuarios[i].url_imagen_usuario %>" alt="imagen usuario">
+						<img src="<%= usuario.url_imagen_usuario %>" alt="imagen usuario">
 					<% } %>	
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
-						<h1 class="main-title"> <%= `${usuarios[i].nombre_usuario} ${usuarios[i].apellido_usuario}` %> </h1>
+						<h1 class="main-title"> <%= `${usuario.nombre_usuario} ${usuario.apellido_usuario}` %> </h1>
 						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 					</div>
 					<div>
 						<ul class="">
-							<% if (usuarios[i].cant_productos == null) { %>
+							<% if (usuario.cant_productos == null) { %>
 							<li class="datosUsuario">0 Productos</li>
 							<% } else { %>
-								<li class="datosUsuario"><%= usuarios[i].cant_productos%> Producto/s</li>
+								<li class="datosUsuario"><%= usuario.cant_productos%> Producto/s</li>
 							<% } %> 
-							<% if (usuarios[i].num_seguidores == null) { %>
+							<% if (usuario.num_seguidores == null) { %>
 								<li class="datosUsuario">0 Seguidores</li>
 								<% } else { %>
-									<li class="datosUsuario"><%= usuarios[i].num_seguidores%> Seguidor/es</li>
+									<li class="datosUsuario"><%= usuario.num_seguidores%> Seguidor/es</li>
 								<% } %> 
-							<% if (usuarios[i].num_comentarios == null) { %>
+							<% if (usuario.num_comentarios == null) { %>
 								<li class="datosUsuario">0 Comentarios</li>
 								<% } else { %>
-									<li class="datosUsuario"><%= usuarios[i].num_comentarios%> Comentario/s</li>
+									<li class="datosUsuario"><%= usuario.num_comentarios%> Comentario/s</li>
 								<% } %> 
-							<li class="descripcion"> <%= usuarios[i].texto_usuario%></li>
+							<li class="descripcion"> <%= usuario.texto_usuario%></li>
 						</ul>
 					</div>
 				</div>
@@ -56,7 +55,7 @@
 		<div class="container products-wrapper">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="products-title">Los productos de <%= usuarios[i].nombre %> </h2>
+					<h2 class="products-title">Los productos de <%= usuario.nombre %> </h2>
 				</div>
 				<% } %> 
 			<% } %> 

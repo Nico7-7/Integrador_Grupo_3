@@ -1,4 +1,4 @@
-const productos = require('../data/productos')
+const productos = require('../database/models')
 
 const controller = {
     search: function(req, res, next){

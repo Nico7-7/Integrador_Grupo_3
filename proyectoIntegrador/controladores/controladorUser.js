@@ -29,7 +29,7 @@ const controller = {
     },
     profileUsuario: function(req, res, next){
         db.Usuario.findByPk(req.params.id)
-        .then((usuarios) => {
+        .then((usuario) => {
             db.Producto.findAll({
                 where: [
                 {id_usuario: req.params.id}
@@ -37,9 +37,9 @@ const controller = {
             }) 
             .then((producto) => {
                     return res.render('profile', {
-                        'usuarios': usuarios,
-                        'imagen': usuarios.url_imagen_usuario,
-                        'idUsuario': usuarios.id,
+                        'usuario': usuario,
+                        'imagen': usuario.url_imagen_usuario,
+                        'idUsuario': usuario.id,
                         'producto': producto,
                     })
             })
