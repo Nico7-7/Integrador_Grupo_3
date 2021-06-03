@@ -13,6 +13,10 @@ let controladorSeguridad = {
         .then((usuario) => {
             if(bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)){
                 req.session.usuario = usuario;
+                if(req.body.recordarme){
+                    res.cookies('id', usuario.id, {maxAge: 1000 * 60 *60})
+                
+                }
                 return res.redirect('/');
             }
             res.redirect('/seguridad/login?failed=true');
@@ -39,6 +43,7 @@ let controladorSeguridad = {
     },
     logout: function (req, res) {
         req.session.destroy()
+        res.clearCookie('usuario.id')
         return res.redirect('/');
     }
 }

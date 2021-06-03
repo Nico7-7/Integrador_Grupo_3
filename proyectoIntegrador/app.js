@@ -33,9 +33,17 @@ const rutasPublicas = [
 ]
 
 app.use(function(req, res, next) {
-  if (req.session.usuario != undefined){
-    res.locals.usuario = req.session.usuario
-    return next();
+
+  if (req.cookies.id != undefined && req.session.usuario == undefined){
+    db.usuario.findByPk(req.cookies.id)
+    .then(usuario => {
+      req.session.usuario = usuario;
+      return next();
+    })
+  }
+  if(req.session.usuario != undefined){
+    res.locals.usuario = req.session.usuario;
+
   }
   else {
     if(!rutasPublicas.includes(req.path)) {
