@@ -58,7 +58,15 @@ const controller = {
        
     },
     productoBaseDatos: function(req, res, next){
-        db.Producto.create(req.body)
+        let imagenProducto = {
+           url_imagen: req.file.filename, 
+           nombre_producto: req.body.nombre_producto,
+           fecha_publicacion: req.body.fecha_publicacion,
+           id_usuario: req.body.id_usuario,
+           descripcion_larga: req.body.descripcion_larga,
+           descripcion_corta: req.body.descripcion_corta
+        };
+        db.Producto.create(imagenProducto)
         .then(() => {
             return res.redirect('index', {
             })

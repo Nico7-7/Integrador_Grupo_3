@@ -29,7 +29,16 @@ let controladorSeguridad = {
         console.log(req.method)
         if (req.method == 'POST') {
             req.body.contrasenia = bcrypt.hashSync(req.body.contrasenia)
-            db.Usuario.create(req.body)
+            let imagenUsuario = {
+                nombre_usuario: req.body.nombre_usuario,
+                apellido_usuario: req.body.apellido_usuario,
+                email: req.body.email,
+                contrasenia: req.body.contrasenia,
+                url_imagen_usuario: req.file.url_imagen_usuario,
+                texto_usuario: req.body.texto_usuario
+            };
+
+            db.Usuario.create(imagenUsuario)
             .then(() => {
                 res.redirect('/')
             })

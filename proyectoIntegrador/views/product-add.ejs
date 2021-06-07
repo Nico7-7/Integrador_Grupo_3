@@ -21,11 +21,11 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 
-			<form class= "formulario" action="/producto/product-add" method="POST">
+			<form class= "formulario" action="/producto/product-add" method="POST" enctype="multipart/form-data">
 
 				<p>
-					<label for="imagen"> Url de la imagen: </label>
-					<input type="url" name="url_imagen" id="url_imagen">
+					<label for="imagen" > Url de la imagen: </label>
+					<input type="file" name="url_imagen" id="url_imagen">
 				</p>
 				<p>
 					<label for="nombre"> Nombre de la criptomoneda: </label>
