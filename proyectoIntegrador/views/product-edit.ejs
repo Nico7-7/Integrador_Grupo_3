@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<%- include('./partial/head') %> 
+
+<body>
+	<!-- Header -->
+	<% if (locals.usuario.mail) { %>
+		<%- include('./partial/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partial/header') %> 
+	<% } %>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar productos</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+
+			<form class= "formulario" action="/producto/product-add" method="POST" enctype="multipart/form-data">
+
+				<p>
+					<label for="imagen" > Url de la imagen: </label>
+					<input type="file" name="url_imagen" id="url_imagen" value= <%= locals.usuario.url_imagen %>> 
+				</p>
+				<p>
+					<label for="nombre"> Nombre de la criptomoneda: </label>
+					<input type="text" name="nombre_producto" id="nombre_producto" value= <%= locals.usuario.nombre_producto %>>
+				</p>
+				<p>
+				<p>
+					<label for="nombre"> Fecha de hoy (AAAA-MM-DD): </label>
+					<input type="text" name="fecha_publicacion" id="fecha_publicacion" value= <%= locals.usuario.fecha_publicacion %>>
+				</p>
+				<!-- (ID) Parte hardcodeada hasta que tengamos foreign keys-->
+				<p>
+					<label for="nombre"> Tu ID personal: </label>
+					<input type="number" name="id_usuario" id="id_usuario" value= <%= locals.usuario.id %>  readonly>
+					</p>
+				<p>
+				<p>
+					<label for="Descripcion"> Descripción larga: </label>
+					<input type="text" name="descripcion_larga" id="descripcion_larga" value= <%= locals.usuario.descripcion_larga %>>
+				</p>
+				<p>
+					<label for="Descripcion"> Descripción corta (una frase): </label>
+					<input type="text" name="descripcion_corta" id="descripcion_corta" value= <%= locals.usuario.descripcion_corta %>>
+				</p>
+
+				<p>
+				<button type="submit" value="enviar">Agregar criptomoneda</button>
+				</p>
+			
+			</form>
+		</div>
+	</div>
+	<!-- footer -->
+	<%- include('./partial/footer') %> 
+	<!-- /footer -->
+</body>
+
+</html>

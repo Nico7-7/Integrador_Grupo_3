@@ -17,7 +17,7 @@ const controller = {
         db.Producto.findAll()
         .then((resultados) => {
             return res.render('productosGenerales', {
-                cripto: resultados
+                cripto: resultados   
             })
         })
         .catch((error) => {
@@ -59,7 +59,7 @@ const controller = {
     },
     productoBaseDatos: function(req, res, next){
         let imagenProducto = {
-           url_imagen: req.file.filename, 
+           url_imagen: '/images/products/' + req.file.filename, 
            nombre_producto: req.body.nombre_producto,
            fecha_publicacion: req.body.fecha_publicacion,
            id_usuario: req.body.id_usuario,
@@ -67,6 +67,33 @@ const controller = {
            descripcion_corta: req.body.descripcion_corta
         };
         db.Producto.create(imagenProducto)
+        .then(() => {
+            return res.redirect('index', {
+            })
+        })
+        .catch((error) => {
+            return res.send(error);
+        })
+    },
+    editarProducto: function(req, res, next){
+        db.Producto.findByPk(req.params.id)
+        .then((data) => {
+            return res.render('product-edit', {
+                cripto: data
+            })
+        })
+       
+    },
+    productoEditado: function(req, res, next){
+        let imagenProducto = {
+           url_imagen: req.file.filename, 
+           nombre_producto: req.body.nombre_producto,
+           fecha_publicacion: req.body.fecha_publicacion,
+           id_usuario: req.body.id_usuario,
+           descripcion_larga: req.body.descripcion_larga,
+           descripcion_corta: req.body.descripcion_corta
+        };
+        db.Producto.update(imagenProducto)
         .then(() => {
             return res.redirect('index', {
             })
