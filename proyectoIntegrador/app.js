@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+const db = require('./database/models');
+
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
@@ -35,15 +37,20 @@ const rutasPublicas = [
 app.use(function(req, res, next) {
 
   if (req.cookies.id != undefined && req.session.usuario == undefined){
-    db.usuario.findByPk(req.cookies.id)
+    db.Usuario.findByPk(req.cookies.id)
     .then(usuario => {
       req.session.usuario = usuario;
       return next();
     })
-  }
+    .catch( e => { next(createError(e.status)) })
+
+  } else{
+    next()
+  }})
+
+app.use(function(req, res, next) {
   if(req.session.usuario != undefined){
     res.locals.usuario = req.session.usuario;
-
   }
   else {
     if(!rutasPublicas.includes(req.path)) {

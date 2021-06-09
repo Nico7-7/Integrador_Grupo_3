@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         mail: {
             type: DataTypes.STRING
         },
-        fecha: {
+        fecha_registracion: {
             type: DataTypes.DATE
         },
         texto_usuario: {
@@ -36,7 +36,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         contrasenia: {
             type: DataTypes.STRING
-        }
+        },
+        fecha_nacimiento: {
+            type: DataTypes.DATE
+        },
     }
 
     let config = {
