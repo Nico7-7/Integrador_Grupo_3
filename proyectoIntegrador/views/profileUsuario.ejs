@@ -4,18 +4,19 @@
 <%- include('./partial/head') %> 
 <body>
 	<!-- Header -->
-	<% if (locals.usuario && locals.usuario.mail) { %>
+	<% if (locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
 	<% } else { %>
 		<%- include('./partial/header') %> 
 	<% } %>
+	<!-- /Header -->
 
 	<!-- Datos del usuario -->
 
 		<section class="info-usuario container products-wrapper">
 			<div class="row">
 				<div class="img-container offset-3 col-2">
-					<% if (usuario.url_imagen_usuario == null) { %>
+					<% if (!usuario.url_imagen_usuario) { %>
 						<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">		
 					<% }else{ %>
 						<img src="<%= usuario.url_imagen_usuario %>" alt="imagen usuario">
@@ -23,26 +24,16 @@
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
-						<h1 class="main-title"> <%= `${usuario.nombre_usuario} ${usuario.apellido_usuario}` %> </h1>
+						<h1 class="main-title"> <%= usuario.nombre_usuario %>  <%= usuario.apellido_usuario %> </h1>
 						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 					</div>
 					<div>
 						<ul class="">
-							<% if (usuario.cant_productos == null) { %>
-							<li class="datosUsuario">0 Productos</li>
-							<% } else { %>
-								<li class="datosUsuario"><%= usuario.cant_productos%> Producto/s</li>
-							<% } %> 
-							<% if (usuario.num_seguidores == null) { %>
-								<li class="datosUsuario">0 Seguidores</li>
-								<% } else { %>
-									<li class="datosUsuario"><%= usuario.num_seguidores%> Seguidor/es</li>
-								<% } %> 
-							<% if (usuario.num_comentarios == null) { %>
-								<li class="datosUsuario">0 Comentarios</li>
-								<% } else { %>
-									<li class="datosUsuario"><%= usuario.num_comentarios%> Comentario/s</li>
-								<% } %> 
+							<li class="datosUsuario"><%= usuario.cant_productos%> Productos</li>
+							<li class="datosUsuario"><%= usuario.num_seguidores%> Seguidores</li>
+							<li class="datosUsuario"> <%= usuario.num_comentarios_hechos%> Comentarios</li>
+							<br>
+
 							<li class="descripcion"> <%= usuario.texto_usuario%></li>
 						</ul>
 					</div>
@@ -55,26 +46,26 @@
 		<div class="container products-wrapper">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="products-title">Los productos de <%= usuario.nombre %> </h2>
+					<h2 class="products-title">Los productos de <%= usuario.nombre_usuario %> </h2>
 				</div>
 				<% } %> 
 			<% } %> 
 			<!-- Show mis productos -->
-				<div class="productos-profile" >
-					<% for(let i=0; i < producto.length; i++){%> 
-					<section class="product-box">
-						<a href="/producto/detalleProduct/<%= producto[i].id %> ">
-							<figure class="product-box_image">
-								<img src="<%= producto[i].imagen %>" alt="<%= producto[i].nombre %>">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= producto[i].nombre %></h2>
-								<p><%= producto[i].descripcion_corta %></p>
-								<p>Comentarios: <%= producto[i].comentarios %></p>
-							</article>
-						</a>
-					</section>
-					<% } %> 
+			<div class="productos-profile" >
+				<% producto.forEach(producto => { %>
+				<section class="product-box">
+					<a href="/producto/detalleProduct/<%= producto.id %> ">
+						<figure class="product-box_image">
+							<img src="<%= producto.url_imagen %>" alt="<%= producto.nombre_producto %>">
+						</figure>
+						<article class="product-box_data">
+							<h2><%= producto.nombre_producto %></h2>
+							<p><%= producto.descripcion_corta %></p>
+							<p>Comentarios: <%= producto.num_comentarios %></p>
+						</article>
+					</a>
+				</section>
+				<% }) %>
 				</div>
 			</div>
 		</div>

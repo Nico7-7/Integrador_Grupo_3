@@ -14,8 +14,6 @@ const controller = {
             .then((producto) => {
                     return res.render('profile', {
                         'usuario': usuario,
-                        'imagen': usuario.url_imagen_usuario,
-                        'idUsuario': usuario.id,
                         'producto': producto,
                     })
             })
@@ -36,10 +34,8 @@ const controller = {
                 ]
             }) 
             .then((producto) => {
-                    return res.render('profile', {
+                    return res.render('profileUsuario', {
                         'usuario': usuario,
-                        'imagen': usuario.url_imagen_usuario,
-                        'idUsuario': usuario.id,
                         'producto': producto,
                     })
             })
