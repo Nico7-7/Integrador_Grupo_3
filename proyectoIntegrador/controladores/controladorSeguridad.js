@@ -32,9 +32,9 @@ let controladorSeguridad = {
             let imagenUsuario = {
                 nombre_usuario: req.body.nombre_usuario,
                 apellido_usuario: req.body.apellido_usuario,
-                email: req.body.email,
+                mail: req.body.mail,
                 contrasenia: req.body.contrasenia,
-                url_imagen_usuario: req.file.url_imagen_usuario,
+                url_imagen_usuario: req.file.filename,
                 texto_usuario: req.body.texto_usuario
             };
 
