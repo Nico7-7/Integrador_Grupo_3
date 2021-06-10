@@ -45,8 +45,12 @@
 								</article>
 							</section>
 						<% } %> 
-							<form class="form" action="" method="POST">
-								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+							<form class="form" action="/producto/agregarComentario/<%= cripto.id %>" method="POST">
+								<input class="form-input" type="text" value="" placeholder="Agregar comentario" name="texto" id="texto">
+								<input type="number" name="id_producto" id="id_producto" value= <%= cripto.id %> readonly>
+								<input type="number" name="id_usuario_comentador" id="id_usuario_comentador" value= <%= locals.usuario.id %> readonly>
+								<label for="nombre"> Fecha de hoy (AAAA-MM-DD): </label>
+								<input type="text" name="fecha_comentado" id="fecha_comentado">	
 								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 							</form>
 							<hr>

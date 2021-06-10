@@ -34,7 +34,7 @@ let controladorSeguridad = {
                 apellido_usuario: req.body.apellido_usuario,
                 mail: req.body.mail,
                 contrasenia: req.body.contrasenia,
-                url_imagen_usuario: req.file.filename,
+                url_imagen_usuario: '/images/users/' + req.file.filename,
                 texto_usuario: req.body.texto_usuario
             };
 

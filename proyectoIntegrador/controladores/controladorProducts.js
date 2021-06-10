@@ -48,6 +48,21 @@ const controller = {
             return res.send(error);
         })
     },
+    agregarComentario: function(req, res, next){
+        let comentarios = {
+           texto: req.body.texto,
+           fecha_comentado: req.body.fecha_comentado,
+           id_usuario_comentador: req.body.id_usuario_comentador,
+           id_producto: req.body.id_producto
+        };
+        db.Comentario.create(comentarios)
+        .then(() => {
+            return res.redirect('/producto/detalleproduct/' + req.params.id)
+        })
+        .catch((error) => {
+            return res.send(error);
+        })
+    },
     agregarProducto: function(req, res, next){
         db.Producto.findAll()
         .then((data) => {
