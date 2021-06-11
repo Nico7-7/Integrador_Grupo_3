@@ -16,26 +16,24 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">RESULTADO DE BUSQUEDA: "<%= busqueda %>" </h2>
+				<h2 class="products-title">RESULTADO DE BUSQUEDA: "<%= buscador %>" </h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for(let i = 0; i < producto.length; i++){ %> 
-				<% if(busqueda == producto[i].nombre){ %> 
+			<% for(let i = 0; i < cripto.length; i++){ %>  
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/producto/detalleproduct/<%= producto[i].id %> ">
+						<a href="/producto/detalleproduct/<%= cripto[i].id %> ">
 							<figure class="product-box_image">
-								<img src="<%= producto[i].imagen %> " alt="<%= producto[i].nombre %> ">
+								<img src="<%= cripto[i].url_imagen %> " alt="<%= cripto[i].nombre_producto %> ">
 							</figure>
 							<article class="product-box_data">
-								<h2><%= producto[i].nombre %> </h2>
-								<p><%= producto[i].descripcion_corta %> </p>
-								<p>Comentarios: <%= producto[i].comentario %> </p>
+								<h2><%= cripto[i].nombre_producto %> </h2>
+								<p><%= cripto[i].descripcion_corta %> </p>
+								<p>Comentarios: <%= cripto[i].num_comentario %> </p>
 							</article>
 						</a>
 					</section>
 				</div>
-				<% } %> 
 			<% } %>
 		</div>
 	</div>
