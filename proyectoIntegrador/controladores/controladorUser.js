@@ -18,6 +18,24 @@ const controller = {
                 return res.send(error);
             })
     },
+    // profileUsuario: function(req, res, next){
+    //     db.Usuario.findByPk(req.params.id, {
+    //         where: [
+    //             {id: req.params.id}
+    //             ],
+    //         include: [
+    //             {association: 'producto' }
+    //         ]
+    //     })
+    //     .then((usuarioPerfil) => {
+    //         return res.render('profileUsuario', {
+    //             'usuarioPerfil': usuarioPerfil,
+    //         })
+    //     })
+    //     .catch((error) => {
+    //         return res.send(error);
+    //     })
+    // },
     profileUsuario: function(req, res, next){
         db.Usuario.findByPk(req.params.id)
         .then((usuario) => {
@@ -40,18 +58,37 @@ const controller = {
             return res.send(error);
         })
     },
-    login: function(req, res, next){
-        res.render('login', {
-        })
-    },
     profileEdit: function(req, res, next){
         let id = req.params.id;
             res.render('profile-edit', {
         })
     },
-    register: function(req, res, next){
-        res.render('register', {
-        })
+    profileEditConfirm: function(req, res, next){
+        if (req.method == 'POST') {
+            let imagenUsuario = {
+                nombre_usuario: req.body.nombre_usuario,
+                apellido_usuario: req.body.apellido_usuario,
+                mail: req.body.mail,
+                url_imagen_usuario: '/images/users/' + req.file.filename,
+                texto_usuario: req.body.texto_usuario,
+                fecha_nacimiento: req.body.fecha_nacimiento
+            };
+
+            db.Usuario.update(imagenUsuario, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(() => {
+                res.redirect('/user/profile/'+req.params.id)
+            })
+            .catch((error) => {
+                return res.send(error)
+            })
+        }
+        if (req.method == 'GET') {
+            return res.render('profile-edit');
+        }
     }
 }
 

@@ -18,7 +18,7 @@
 				<h2 class="font-family" ><%= cripto.nombre_producto %> </h2> 
 				<% if(cripto.id_usuario == locals.usuario.id){ %> 
 				<p class="product-detail-description">
-					<a href="/producto/product-edit/ <%= cripto.id %> " class="edicion">EDITAR</a>
+					<a href="/producto/product-edit/<%= cripto.id %>" class="edicion">EDITAR</a>
 				</p>
 				<% }else{} %> 
 			</div>

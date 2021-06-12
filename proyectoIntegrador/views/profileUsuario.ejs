@@ -46,25 +46,30 @@
 		<div class="container products-wrapper">
 			<div class="row">
 				<div class="col-12">
+					<% if (!usuario.cant_productos) { %>
+						<h2 class="products-title"><%= usuario.nombre_usuario %> aun no ha subido criptomonedas, vuelve mas tarde para ver si esto cambia </h2>
+				</div>
+					<% }else{ %>
 					<h2 class="products-title">Los productos de <%= usuario.nombre_usuario %> </h2>
 				</div>
 			<!-- Show mis productos -->
-			<div class="productos-profile" >
-				<% producto.forEach(producto => { %>
-				<section class="product-box">
-					<a href="/producto/detalleProduct/<%= producto.id %> ">
-						<figure class="product-box_image">
-							<img src="<%= producto.url_imagen %>" alt="<%= producto.nombre_producto %>">
-						</figure>
-						<article class="product-box_data">
-							<h2><%= producto.nombre_producto %></h2>
-							<p><%= producto.descripcion_corta %></p>
-							<p>Comentarios: <%= producto.num_comentarios %></p>
-						</article>
-					</a>
-				</section>
-				<% }) %>
+				<div class="productos-profile" >
+					<% producto.forEach(producto => { %>
+					<section class="product-box">
+						<a href="/producto/detalleProduct/<%= producto.id %> ">
+							<figure class="product-box_image">
+								<img src="<%= producto.url_imagen %>" alt="<%= producto.nombre_producto %>">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= producto.nombre_producto %></h2>
+								<p><%= producto.descripcion_corta %></p>
+								<p>Comentarios: <%= producto.num_comentarios %></p>
+							</article>
+						</a>
+					</section>
+					<% }) %>
 				</div>
+				<% } %> 
 			</div>
 		</div>
 	<!-- /Mis productos -->

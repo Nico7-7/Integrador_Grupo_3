@@ -26,7 +26,6 @@ let controladorSeguridad = {
         })
     },
     registrarse: function (req, res) {
-        console.log(req.method)
         if (req.method == 'POST') {
             req.body.contrasenia = bcrypt.hashSync(req.body.contrasenia)
             let imagenUsuario = {

@@ -31,9 +31,21 @@
 					</div>
 					<div>
 						<ul class="">
-							<li class="datosUsuario"><%= locals.usuario.cant_productos%> Productos</li>
-							<li class="datosUsuario"><%= locals.usuario.num_seguidores%> Seguidores</li>
-							<li class="datosUsuario"> <%= locals.usuario.num_comentarios_hechos%> Comentarios</li>
+							<li class="datosUsuario"><% if (!locals.usuario.cant_productos) { %>
+								0 Productos</li>
+							<% }else{ %>
+								<%= locals.usuario.cant_productos%> Productos</li>
+							<% } %> 
+							<li class="datosUsuario"><% if (!locals.usuario.num_seguidores) { %>
+								0 Seguidores</li>
+							<% }else{ %>
+								<%= locals.usuario.num_seguidores%> Seguidores</li>
+							<% } %> 
+							<li class="datosUsuario"><% if (!locals.usuario.num_comentarios_hechos) { %>
+								0 Comentarios</li>
+							<% }else{ %>
+								<%= locals.usuario.num_comentarios_hechos%> Comentarios</li>
+							<% } %> 
 							<br>
 
 							<li class="descripcion"> <%= locals.usuario.texto_usuario%></li>

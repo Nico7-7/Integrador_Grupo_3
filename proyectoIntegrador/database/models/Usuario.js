@@ -54,10 +54,10 @@ module.exports = (sequelize, DataTypes) => {
             as: 'comentario',
             foreignKey: 'id_usuario_comentador'
         });
-        //Usuario.hasMany(models.Producto, {
-        //    as: 'usuario',
-        //    foreignKey: 'id_usuario'
-        //})
+        // Usuario.belongsTo(models.Producto, {
+        //     as: 'producto',
+        //     foreignKey: 'id_usuario'
+        // })
     }
 
     return Usuario
