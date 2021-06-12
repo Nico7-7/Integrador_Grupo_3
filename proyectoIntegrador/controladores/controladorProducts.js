@@ -3,7 +3,11 @@ const op = db.Sequelize.Op;
 
 const controller = {
     index: function(req, res){
-        db.Producto.findAll()
+        db.Producto.findAll({
+            order: [
+                ['fecha_publicacion', 'DESC']
+            ]
+        })
         .then((resultados) => {
             return res.render('index', {
                 cripto: resultados
