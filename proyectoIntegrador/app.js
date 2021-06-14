@@ -60,6 +60,17 @@ app.use(function(req, res, next) {
   next();
 })
 
+// flash
+// app.use(async function (req, res, next){
+  // res.locals.flash = {
+  // success: await req.consumeFlash('success'),
+   // info: await req.consumeFlash('info'),
+   // danger: await req.consumeFlash('danger'),
+   //warning: await req.consumeFlash('warning')
+ // }
+  //next()
+// });
+
 app.use('/', indexRouter);
 app.use('/seguridad', routerSeguridad)
 app.use('/user', userRouter);

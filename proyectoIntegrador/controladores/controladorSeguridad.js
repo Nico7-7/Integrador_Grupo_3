@@ -15,7 +15,6 @@ let controladorSeguridad = {
                 req.session.usuario = usuario;
                 if(req.body.recordarme){
                     res.cookie('id', usuario.id, { maxAge: 1000 * 60 * 60 })
-                
                 }
                 return res.redirect('/');
             }
@@ -26,6 +25,7 @@ let controladorSeguridad = {
         })
     },
     registrarse: function (req, res) {
+        console.log(req.method)
         if (req.method == 'POST') {
             req.body.contrasenia = bcrypt.hashSync(req.body.contrasenia)
             let imagenUsuario = {
@@ -39,6 +39,8 @@ let controladorSeguridad = {
 
             db.Usuario.create(imagenUsuario)
             .then(() => {
+                // req.flash('info', 'Bienvenido!');
+               // req.session.usuario = usuario;
                 res.redirect('/')
             })
             .catch((error) => {

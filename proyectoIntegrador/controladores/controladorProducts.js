@@ -10,7 +10,7 @@ const controller = {
         })
         .then((resultados) => {
             return res.render('index', {
-                cripto: resultados
+                cripto: resultados,
             })
         })
         .catch((error) => {
@@ -28,30 +28,23 @@ const controller = {
             return res.send(error);
         })
     },
-    detalleProduct: function(req, res, next){
-        db.Producto.findByPk(req.params.id)
-        .then((cripto) => {
-            db.Comentario.findAll({
-                where: [
-                    {id_producto: req.params.id}
-                ],
-                include: [{
-                    association: 'usuario'
-                }]
-            }) 
-            .then((comentarios) => {
-                return res.render('product', {
-                comentarios: comentarios,
-                cripto: cripto
-                })
-            }).catch((error) => {
-                return res.send(error);
-            })
-        })
-        .catch((error) => {
-            return res.send(error);
+    detalleProduct: async function(req, res, next){
+        let cripto = await db.Producto.findByPk(req.params.id)
+        let comentarios = await db.Comentario.findAll({ 
+            where: [
+                {id_producto: req.params.id}
+            ],
+            include: [{
+                association: 'usuario'
+            }]
+        }) 
+
+        res.render('product', {
+            cripto,
+            comentarios
         })
     },
+        
     agregarComentario: function(req, res, next){
         let comentarios = {
            texto: req.body.texto,

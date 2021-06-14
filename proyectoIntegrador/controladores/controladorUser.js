@@ -37,21 +37,17 @@ const controller = {
     //     })
     // },
     profileUsuario: function(req, res, next){
-        db.Usuario.findByPk(req.params.id)
+        // let usuario =  db.Usuario.findByPk(req.params.id)
+
+        db.Usuario.findByPk(req.params.id, {
+            include: [{
+                association: 'producto'
+            }]
+        })
         .then((usuario) => {
-            db.Producto.findAll({
-                where: [
-                {id_usuario: req.params.id}
-                ]
-            }) 
-            .then((producto) => {
-                    return res.render('profileUsuario', {
-                        'usuario': usuario,
-                        'producto': producto,
-                    })
-            })
-            .catch((error) => {
-                return res.send(error);
+            console.log(usuario);
+            return res.render('profileUsuario', {
+                'usuario': usuario,
             })
         })
         .catch((error) => {
