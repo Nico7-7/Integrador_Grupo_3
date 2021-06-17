@@ -8,9 +8,20 @@ const controller = {
                 ['fecha_publicacion', 'DESC']
             ]
         })
-        .then((resultados) => {
-            return res.render('index', {
-                cripto: resultados,
+        .then((resultado) => {
+            db.Producto.findAll({
+                order: [
+                    ['num_comentarios', 'DESC']
+                ]
+            })
+            .then((masComentados) => {
+                return res.render('index', {
+                    resultado,
+                    masComentados
+                })
+            })
+            .catch((error) => {
+                return res.send(error);
             })
         })
         .catch((error) => {
@@ -33,6 +44,9 @@ const controller = {
         let comentarios = await db.Comentario.findAll({ 
             where: [
                 {id_producto: req.params.id}
+            ],
+            order: [
+                ['fecha_comentado', 'DESC']
             ],
             include: [{
                 association: 'usuario'

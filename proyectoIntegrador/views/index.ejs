@@ -28,14 +28,14 @@
 			<% for(let i = 0; i < 4; i++){ %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/producto/detalleproduct/<%=cripto[i].id%>">
+					<a href="/producto/detalleproduct/<%=resultado[i].id%>">
 						<figure class="product-box_image">
-							<img src="<%=cripto[i].url_imagen%>" alt="<%=cripto[i].nombre_producto%>">
+							<img src="<%=resultado[i].url_imagen%>" alt="<%=resultado[i].nombre_producto%>">
 						</figure>
 						<article class="product-box_data">
-							<h2><%=cripto[i].nombre_producto%></h2>
-							<p><%=cripto[i].descripcion_corta%></p>
-							<p>Comentarios: <%=cripto[i].num_comentarios%></p>
+							<h2><%=resultado[i].nombre_producto%></h2>
+							<p><%=resultado[i].descripcion_corta%></p>
+							<p>Comentarios: <%=resultado[i].num_comentarios%></p>
 						</article>
 					</a>
 				</section>
@@ -50,18 +50,18 @@
 			<div class="col-12">
 				<h2 class="font-family" class="products-title">MAS COMENTADOS</h2>
 			</div>
-			<!-- Show the "ultimos" products -->
 			<% for(let i = 0; i < 4; i++){ %>
+			<!-- Show the "ultimos" products -->
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/producto/detalleproduct/<%=cripto[i].id%>">
+						<a href="/producto/detalleproduct/<%=masComentados[i].id%>">
 							<figure class="product-box_image">
-								<img src="<%=cripto[i].url_imagen%>" alt="<%=cripto[i].nombre_producto%>">
+								<img src="<%=masComentados[i].url_imagen%>" alt="<%=masComentados[i].nombre_producto%>">
 							</figure>
 							<article class="product-box_data">
-								<h2><%=cripto[i].nombre_producto%></h2>
-								<p><%=cripto[i].descripcion_corta%></p>
-								<p>Comentarios: <%=cripto[i].num_comentarios%></p>
+								<h2><%=masComentados[i].nombre_producto%></h2>
+								<p><%=masComentados[i].descripcion_corta%></p>
+								<p>Comentarios: <%=masComentados[i].num_comentarios%></p>
 							</article>
 						</a>
 					</section>

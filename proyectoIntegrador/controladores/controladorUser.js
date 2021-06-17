@@ -44,10 +44,9 @@ const controller = {
                 association: 'producto'
             }]
         })
-        .then((usuario) => {
-            console.log(usuario);
+        .then((usuariosGenerales) => {
             return res.render('profileUsuario', {
-                'usuario': usuario,
+                usuariosGenerales
             })
         })
         .catch((error) => {
