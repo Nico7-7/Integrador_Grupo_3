@@ -112,13 +112,15 @@ const controller = {
     },
     productoEditado: function(req, res, next){
         let imagenProducto = {
-           url_imagen: '/images/products/' + req.file.filename, 
            nombre_producto: req.body.nombre_producto,
            fecha_publicacion: req.body.fecha_publicacion,
            id_usuario: req.body.id_usuario,
            descripcion_larga: req.body.descripcion_larga,
            descripcion_corta: req.body.descripcion_corta
         };
+        if (req.file) {
+            imagenProducto.url_imagen = '/images/products/' + req.file.filename;
+        }
         db.Producto.update(imagenProducto, {
             where: {
                 id: req.params.id

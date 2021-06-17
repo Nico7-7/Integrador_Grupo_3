@@ -27,6 +27,7 @@
 					<label for="imagen" >Imagen: </label>
 					<input type="file" name="url_imagen" id="url_imagen" value= <%= cripto.url_imagen %>> 
 				</p>
+				<img src="<%= cripto.url_imagen %> " alt="">
 				<p>
 					<label for="nombre"> Nombre de la criptomoneda: </label>
 					<input type="text" name="nombre_producto" id="nombre_producto" value= <%= cripto.nombre_producto %>>
@@ -36,19 +37,13 @@
 					<label for="nombre"> Fecha de hoy (AAAA-MM-DD): </label>
 					<input type="text" name="fecha_publicacion" id="fecha_publicacion" value= <%= cripto.fecha_publicacion %>>
 				</p>
-				<!-- (ID) Parte hardcodeada hasta que tengamos foreign keys-->
-				<p>
-					<label for="nombre"> Tu ID personal: </label>
-					<input type="number" name="id_usuario" id="id_usuario" value= <%= locals.usuario.id %>  readonly>
-					</p>
-				<p>
 				<p>
 					<label for="Descripcion"> Descripción larga: </label>
-					<input type="text" name="descripcion_larga" id="descripcion_larga" value= <%= cripto.descripcion_larga %>>
+					<textarea name="descripcion_larga" rows="10" cols="50" id="descripcion_larga"><%= cripto.descripcion_larga %></textarea>
 				</p>
 				<p>
 					<label for="Descripcion"> Descripción corta (una frase): </label>
-					<input type="text" name="descripcion_corta" id="descripcion_corta" value= <%= cripto.descripcion_corta %>>
+					<input type="text" name="descripcion_corta" id="descripcion_corta" value="<%= cripto.descripcion_corta %>">
 				</p>
 
 				<p>
