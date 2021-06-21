@@ -63,8 +63,8 @@ const controller = {
         let comentarios = {
            texto: req.body.texto,
            fecha_comentado: req.body.fecha_comentado,
-           id_usuario_comentador: req.body.id_usuario_comentador,
-           id_producto: req.body.id_producto
+           id_usuario_comentador: req.session.usuario.id,
+           id_producto: req.params.id
         };
         db.Comentario.create(comentarios)
         .then(() => {
@@ -83,7 +83,7 @@ const controller = {
         })
        
     },
-    productoBaseDatos: function(req, res, next){
+    productoBaseDatos: async function(req, res){
         let imagenProducto = {
            url_imagen: '/images/products/' + req.file.filename, 
            nombre_producto: req.body.nombre_producto,
@@ -92,14 +92,10 @@ const controller = {
            descripcion_larga: req.body.descripcion_larga,
            descripcion_corta: req.body.descripcion_corta
         };
-        db.Producto.create(imagenProducto)
-        .then(() => {
-            return res.redirect('index', {
-            })
-        })
-        .catch((error) => {
-            return res.send(error);
-        })
+        let producto = await db.Usuario.findByPk(req.params.id)
+        producto.update({cant_productos: producto.cant_productos + 1})
+        await db.Producto.create(imagenProducto)
+        return res.redirect('/')
     },
     editarProducto: function(req, res, next){
         db.Producto.findByPk(req.params.id)
@@ -114,7 +110,7 @@ const controller = {
         let imagenProducto = {
            nombre_producto: req.body.nombre_producto,
            fecha_publicacion: req.body.fecha_publicacion,
-           id_usuario: locals.usuario.id,
+           id_usuario: req.session.usuario.id,
            descripcion_larga: req.body.descripcion_larga,
            descripcion_corta: req.body.descripcion_corta
         };

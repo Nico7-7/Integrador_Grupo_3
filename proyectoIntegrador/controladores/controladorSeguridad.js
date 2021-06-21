@@ -8,7 +8,7 @@ let controladorSeguridad = {
             failed: req.query.failed
         });
     },
-    autenticarse: function (req, res) {
+    autenticarse: function (req, res, next) {
         db.Usuario.findOne({ where: { mail: req.body.mail} })
         .then((usuario) => {
             if(bcrypt.compareSync(req.body.contrasenia, usuario.contrasenia)){
@@ -16,13 +16,15 @@ let controladorSeguridad = {
                 if(req.body.recordarme){
                     res.cookie('id', usuario.id, { maxAge: 1000 * 60 * 60 })
                 }
+                req.flash('success', 'Bienvenido!');
                 return res.redirect('/');
             }
             res.redirect('/seguridad/login?failed=true');
         })
         .catch((error) => {
-            return res.send(error);
-        })
+            req.flash('danger', 'Algo salió mal');
+            next(error);
+          });
     },
     registrarse: function (req, res) {
         console.log(req.method)
