@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 const db = require('./database/models');
+const { flash } = require('express-flash-message');
 
 
 var indexRouter = require('./routes/index');
@@ -29,6 +30,7 @@ app.use(session(
 		saveUninitialized: true }
 ));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 const rutasPublicas = [
   '/seguridad/login', '/seguridad/registrarse', '/'
@@ -60,16 +62,16 @@ app.use(function(req, res, next) {
   next();
 })
 
-// flash
-// app.use(async function (req, res, next){
-  // res.locals.flash = {
-  // success: await req.consumeFlash('success'),
-   // info: await req.consumeFlash('info'),
-   // danger: await req.consumeFlash('danger'),
-   //warning: await req.consumeFlash('warning')
- // }
-  //next()
-// });
+// get flash messages
+app.use(async (req, res, next) => {
+  res.locals.flash = {
+    success: await req.consumeFlash('success'),
+    info: await req.consumeFlash('info'),
+    danger: await req.consumeFlash('danger'),
+    warning: await req.consumeFlash('warning'),
+  };
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/seguridad', routerSeguridad)

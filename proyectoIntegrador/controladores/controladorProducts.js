@@ -136,11 +136,11 @@ const controller = {
     eliminarProducto(req, res, next) {
         db.Producto.destroy({ where: { id: req.params.id } })
           .then(() => {
-            // req.flash('warning', 'Product deleted');
+            req.flash('warning', 'Producto eliminado');
             res.redirect('/');
           })
           .catch((error) => {
-            // req.flash('danger', 'Something went wrong');
+            req.flash('danger', 'Algo salió mal');
             next(error);
           });
         }
