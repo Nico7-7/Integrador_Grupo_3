@@ -132,6 +132,19 @@ const controller = {
         .catch((error) => {
             return res.send(error);
         })
+    },
+    eliminarProducto: function(req, res, next){
+        db.Producto.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(() => {
+            return res.redirect('/')
+        })
+        .catch((error) => {
+            return res.send(error);
+        })
     }
 
 }
