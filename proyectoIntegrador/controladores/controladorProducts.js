@@ -88,7 +88,7 @@ const controller = {
            url_imagen: '/images/products/' + req.file.filename, 
            nombre_producto: req.body.nombre_producto,
            fecha_publicacion: req.body.fecha_publicacion,
-           id_usuario: req.body.id_usuario,
+           id_usuario: req.session.usuario.id,
            descripcion_larga: req.body.descripcion_larga,
            descripcion_corta: req.body.descripcion_corta
         };
@@ -133,20 +133,17 @@ const controller = {
             return res.send(error);
         })
     },
-    eliminarProducto: function(req, res, next){
-        db.Producto.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
-        .then(() => {
-            return res.redirect('/')
-        })
-        .catch((error) => {
-            return res.send(error);
-        })
-    }
-
+    eliminarProducto(req, res, next) {
+        db.Producto.destroy({ where: { id: req.params.id } })
+          .then(() => {
+            // req.flash('warning', 'Product deleted');
+            res.redirect('/');
+          })
+          .catch((error) => {
+            // req.flash('danger', 'Something went wrong');
+            next(error);
+          });
+        }
 }
 
 module.exports = controller; 
