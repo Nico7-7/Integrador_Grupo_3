@@ -27,7 +27,9 @@
 					<label for="imagen" >Imagen: </label>
 					<input type="file" name="url_imagen" id="url_imagen" value= <%= cripto.url_imagen %>> 
 				</p>
-				<img src="<%= cripto.url_imagen %> " alt="">
+				<% if (!cripto.url_imagen) { %>
+					<img src="<%= cripto.url_imagen %> " alt="">
+				<% } %>
 				<p>
 					<label for="nombre"> Nombre de la criptomoneda: </label>
 					<input type="text" name="nombre_producto" id="nombre_producto" value= <%= cripto.nombre_producto %>>

@@ -39,6 +39,9 @@
 				<label for="imagen"> Imágen: </label>
 				<input type="file" name="url_imagen_usuario" id="url_imagen_usuario" value="<%= locals.usuario.url_imagen_usuario %> ">
 				</p>
+				<% if (!locals.usuario.url_imagen_usuario) { %>
+					<img src="<%= locals.usuario.url_imagen_usuario %> " alt="">
+				<% } %>
 				<p>
 				<label for="descripcion"> Biografía: </label>
 				<textarea name="texto_usuario" rows="1" cols="40" id="texto_usuario"><%= locals.usuario.texto_usuario %></textarea>

@@ -74,14 +74,16 @@ const controller = {
        
     },
     productoBaseDatos: async function(req, res){
-        let imagenProducto = {
-           url_imagen: '/images/products/' + req.file.filename, 
+        let imagenProducto = { 
            nombre_producto: req.body.nombre_producto,
            fecha_publicacion: req.body.fecha_publicacion,
            id_usuario: req.session.usuario.id,
            descripcion_larga: req.body.descripcion_larga,
            descripcion_corta: req.body.descripcion_corta
         };
+        if (req.file) {
+            imagenProducto.url_imagen = '/images/products/' + req.file.filename;
+        }
         let producto = await db.Usuario.findByPk(req.params.id)
         producto.update({cant_productos: producto.cant_productos + 1})
         await db.Producto.create(imagenProducto)

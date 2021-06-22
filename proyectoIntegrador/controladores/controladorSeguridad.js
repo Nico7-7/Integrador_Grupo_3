@@ -35,10 +35,11 @@ let controladorSeguridad = {
                 apellido_usuario: req.body.apellido_usuario,
                 mail: req.body.mail,
                 contrasenia: req.body.contrasenia,
-                url_imagen_usuario: '/images/users/' + req.file.filename,
                 texto_usuario: req.body.texto_usuario
             };
-
+            if (req.file) {
+                imagenUsuario.url_imagen = '/images/users/' + req.file.filename;
+            }
             db.Usuario.create(imagenUsuario)
             .then(() => {
                 // req.flash('info', 'Bienvenido!');

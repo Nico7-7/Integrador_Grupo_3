@@ -52,8 +52,8 @@
 						<% } %> 
 							<form class="form" action="/producto/agregarComentario/<%= cripto.id %>" method="POST">
 								<textarea name="texto" rows="5" cols="50" id="texto" placeholder="Agregar comentario"></textarea>
-								<label for="nombre"> Fecha de hoy (AAAA-MM-DD): </label>
-								<input type="text" name="fecha_comentado" id="fecha_comentado">	
+								<label for="nombre"> Fecha de hoy: </label>
+								<input type="date" name="fecha_comentado" id="fecha_comentado">	
 								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 							</form>
 							<hr>

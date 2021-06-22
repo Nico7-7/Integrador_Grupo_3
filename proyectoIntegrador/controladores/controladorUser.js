@@ -44,10 +44,12 @@ const controller = {
                 nombre_usuario: req.body.nombre_usuario,
                 apellido_usuario: req.body.apellido_usuario,
                 mail: req.body.mail,
-                url_imagen_usuario: '/images/users/' + req.file.filename,
                 texto_usuario: req.body.texto_usuario,
                 fecha_nacimiento: req.body.fecha_nacimiento
             };
+            if (req.file) {
+                imagenUsuario.url_imagen = '/images/users/' + req.file.filename;
+            }
 
             db.Usuario.update(imagenUsuario, {
                 where: {
