@@ -11,8 +11,8 @@ const controller = {
         })
         .then((cripto)=> {
             return res.render('search-results', {
-                cripto: cripto,
-                buscador: buscador
+                cripto,
+                buscador
             })
         })
     }

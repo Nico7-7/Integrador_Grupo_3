@@ -2,30 +2,20 @@ const db = require('../database/models');
 const op = db.Sequelize.Op;
 
 const controller = {
-    index: function(req, res){
-        db.Producto.findAll({
+    index: async function(req, res){
+        let resultado = await db.Producto.findAll({
             order: [
                 ['fecha_publicacion', 'DESC']
             ]
         })
-        .then((resultado) => {
-            db.Producto.findAll({
-                order: [
-                    ['num_comentarios', 'DESC']
-                ]
-            })
-            .then((masComentados) => {
-                return res.render('index', {
-                    resultado,
-                    masComentados
-                })
-            })
-            .catch((error) => {
-                return res.send(error);
-            })
+        let masComentados = await db.Producto.findAll({
+            order: [
+                ['num_comentarios', 'DESC']
+            ]
         })
-        .catch((error) => {
-            return res.send(error);
+        res.render('index',{
+            resultado,
+            masComentados
         })
     },
     productosGenerales: function(req, res, next){

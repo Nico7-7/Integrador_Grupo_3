@@ -18,27 +18,7 @@ const controller = {
                 return res.send(error);
             })
     },
-    // profileUsuario: function(req, res, next){
-    //     db.Usuario.findByPk(req.params.id, {
-    //         where: [
-    //             {id: req.params.id}
-    //             ],
-    //         include: [
-    //             {association: 'producto' }
-    //         ]
-    //     })
-    //     .then((usuarioPerfil) => {
-    //         return res.render('profileUsuario', {
-    //             'usuarioPerfil': usuarioPerfil,
-    //         })
-    //     })
-    //     .catch((error) => {
-    //         return res.send(error);
-    //     })
-    // },
     profileUsuario: function(req, res, next){
-        // let usuario =  db.Usuario.findByPk(req.params.id)
-
         db.Usuario.findByPk(req.params.id, {
             include: [{
                 association: 'producto'
