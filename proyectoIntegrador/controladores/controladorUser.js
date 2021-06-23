@@ -18,27 +18,7 @@ const controller = {
                 return res.send(error);
             })
     },
-    // profileUsuario: function(req, res, next){
-    //     db.Usuario.findByPk(req.params.id, {
-    //         where: [
-    //             {id: req.params.id}
-    //             ],
-    //         include: [
-    //             {association: 'producto' }
-    //         ]
-    //     })
-    //     .then((usuarioPerfil) => {
-    //         return res.render('profileUsuario', {
-    //             'usuarioPerfil': usuarioPerfil,
-    //         })
-    //     })
-    //     .catch((error) => {
-    //         return res.send(error);
-    //     })
-    // },
     profileUsuario: function(req, res, next){
-        // let usuario =  db.Usuario.findByPk(req.params.id)
-
         db.Usuario.findByPk(req.params.id, {
             include: [{
                 association: 'producto'
@@ -64,10 +44,12 @@ const controller = {
                 nombre_usuario: req.body.nombre_usuario,
                 apellido_usuario: req.body.apellido_usuario,
                 mail: req.body.mail,
-                url_imagen_usuario: '/images/users/' + req.file.filename,
                 texto_usuario: req.body.texto_usuario,
                 fecha_nacimiento: req.body.fecha_nacimiento
             };
+            if (req.file) {
+                imagenUsuario.url_imagen = '/images/users/' + req.file.filename;
+            }
 
             db.Usuario.update(imagenUsuario, {
                 where: {

@@ -33,9 +33,21 @@
 					</div>
 					<div>
 						<ul class="">
-							<li class="datosUsuario"><%= usuariosGenerales.cant_productos%> Productos</li>
-							<li class="datosUsuario"><%= usuariosGenerales.num_seguidores%> Seguidores</li>
-							<li class="datosUsuario"> <%= usuariosGenerales.num_comentarios_hechos%> Comentarios</li>
+							<li class="datosUsuario"><% if (!usuariosGenerales.cant_productos) { %>
+								0 Productos</li>
+							<% }else{ %>
+								<%= usuariosGenerales.cant_productos%> Productos</li>
+							<% } %> 
+							<li class="datosUsuario"><% if (!usuariosGenerales.num_seguidores) { %>
+								0 Seguidores</li>
+							<% }else{ %>
+								<%= usuariosGenerales.num_seguidores%> Seguidores</li>
+							<% } %> 
+							<li class="datosUsuario"><% if (!usuariosGenerales.num_comentarios_hechos) { %>
+								0 Comentarios</li>
+							<% }else{ %>
+								<%= usuariosGenerales.num_comentarios_hechos%> Comentarios</li>
+							<% } %> 
 							<br>
 
 							<li class="descripcion"> <%= usuariosGenerales.texto_usuario%></li>

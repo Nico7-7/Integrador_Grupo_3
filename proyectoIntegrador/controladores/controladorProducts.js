@@ -2,30 +2,20 @@ const db = require('../database/models');
 const op = db.Sequelize.Op;
 
 const controller = {
-    index: function(req, res){
-        db.Producto.findAll({
+    index: async function(req, res){
+        let resultado = await db.Producto.findAll({
             order: [
                 ['fecha_publicacion', 'DESC']
             ]
         })
-        .then((resultado) => {
-            db.Producto.findAll({
-                order: [
-                    ['num_comentarios', 'DESC']
-                ]
-            })
-            .then((masComentados) => {
-                return res.render('index', {
-                    resultado,
-                    masComentados
-                })
-            })
-            .catch((error) => {
-                return res.send(error);
-            })
+        let masComentados = await db.Producto.findAll({
+            order: [
+                ['num_comentarios', 'DESC']
+            ]
         })
-        .catch((error) => {
-            return res.send(error);
+        res.render('index',{
+            resultado,
+            masComentados
         })
     },
     productosGenerales: function(req, res, next){
@@ -84,14 +74,16 @@ const controller = {
        
     },
     productoBaseDatos: async function(req, res){
-        let imagenProducto = {
-           url_imagen: '/images/products/' + req.file.filename, 
+        let imagenProducto = { 
            nombre_producto: req.body.nombre_producto,
            fecha_publicacion: req.body.fecha_publicacion,
            id_usuario: req.session.usuario.id,
            descripcion_larga: req.body.descripcion_larga,
            descripcion_corta: req.body.descripcion_corta
         };
+        if (req.file) {
+            imagenProducto.url_imagen = '/images/products/' + req.file.filename;
+        }
         let producto = await db.Usuario.findByPk(req.params.id)
         producto.update({cant_productos: producto.cant_productos + 1})
         await db.Producto.create(imagenProducto)

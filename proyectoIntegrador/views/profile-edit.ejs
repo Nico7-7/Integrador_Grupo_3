@@ -35,17 +35,17 @@
 				<label for="Email"> Email: </label>
 				<input type="email" name="mail" id="mail" value="<%= locals.usuario.mail %>" required>
 				</p>
-	
 				<p>
 				<label for="imagen"> Imágen: </label>
 				<input type="file" name="url_imagen_usuario" id="url_imagen_usuario" value="<%= locals.usuario.url_imagen_usuario %> ">
 				</p>
-
+				<% if (!locals.usuario.url_imagen_usuario) { %>
+					<img src="<%= locals.usuario.url_imagen_usuario %> " alt="">
+				<% } %>
 				<p>
 				<label for="descripcion"> Biografía: </label>
-				<input type="text" name="texto_usuario" id="texto_usuario" value="<%= locals.usuario.texto_usuario %>">
+				<textarea name="texto_usuario" rows="1" cols="40" id="texto_usuario"><%= locals.usuario.texto_usuario %></textarea>
 				</p>
-
 				<p>
 				<label for="fecha_nacimiento"> Fecha de nacimiento: </label>
 				<input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="<%= locals.usuario.fecha_nacimiento %> ">
