@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
 const rutasPublicas = [
-  '/seguridad/login', '/seguridad/registrarse', '/'
+  '/seguridad/login', '/seguridad/registrarse', '/', '/producto/detalleProduct/2', '/producto/productosGenerales', '/user/profileUsuario/4'
 ]
 
 app.use(function(req, res, next) {
