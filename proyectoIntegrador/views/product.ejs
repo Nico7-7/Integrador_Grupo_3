@@ -5,7 +5,7 @@
 
 <body>
 	<!-- Header -->
-	<% if (locals.usuario.mail) { %>
+	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
 	<% } else { %>
 		<%- include('./partial/header') %> 
@@ -15,15 +15,17 @@
 	<div class="container products-wrapper">
 
 			<div class="d-flex align-items-center">
-				<h2 class="font-family" ><%= cripto.nombre_producto %> </h2> 
-				<% if(cripto.id_usuario == locals.usuario.id){ %> 
-				<p class="product-detail-description">
-					<a href="/producto/product-edit/<%= cripto.id %>" class="edicion">EDITAR</a>
-				</p>
-				<p class="product-detail-description">
-					<a href="/producto/product-delete/<%= cripto.id %>" class="edicion">BORRAR</a>
-				</p>
-				<% }else{} %> 
+				<h2 class="font-family" ><%= cripto.nombre_producto %> </h2>
+				<% if (locals.usuario && locals.usuario.mail){ %>  
+					<% if(cripto.id_usuario == locals.usuario.id){ %> 
+					<p class="product-detail-description">
+						<a href="/producto/product-edit/<%= cripto.id %>" class="edicion">EDITAR</a>
+					</p>
+					<p class="product-detail-description">
+						<a href="/producto/product-delete/<%= cripto.id %>" class="edicion">BORRAR</a>
+					</p>
+					<% } %> 
+				<% } %> 
 			</div>
 			<div class="product-detail">
 				<div class="row">
@@ -49,13 +51,20 @@
 									</div>
 								</article>
 							</section>
-						<% } %> 
-							<form class="form" action="/producto/agregarComentario/<%= cripto.id %>" method="POST">
-								<textarea name="texto" rows="10" cols="50" id="texto" placeholder="Agregar comentario"></textarea>
-								<label for="nombre"> Fecha de hoy (AAAA-MM-DD): </label>
-								<input type="text" name="fecha_comentado" id="fecha_comentado">	
-								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-							</form>
+						<% } %>
+							<% if (locals.usuario && locals.usuario.mail){ %> 
+								<form class="form" action="/producto/agregarComentario/<%= cripto.id %>" method="POST">
+									<textarea name="texto" rows="10" cols="50" id="texto" placeholder="Agregar comentario"></textarea>
+									<label for="nombre"> Fecha de hoy (AAAA-MM-DD): </label>
+									<input type="text" name="fecha_comentado" id="fecha_comentado">	
+									<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+								</form>
+							<% } else { %>
+								<form action="">
+									<button type="submit" class="buy-now-button gris" disabled>AGREGAR COMENTARIO</button>
+								</form>
+								<p>Debes iniciar sesión para agregar un comentario</p>
+							<% } %>
 							<hr>
 						</div>
 					</div>

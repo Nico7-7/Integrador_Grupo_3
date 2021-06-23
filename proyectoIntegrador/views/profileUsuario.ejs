@@ -4,7 +4,7 @@
 <%- include('./partial/head') %> 
 <body>
 	<!-- Header -->
-	<% if (locals.usuario.mail) { %>
+	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
 	<% } else { %>
 		<%- include('./partial/header') %> 
@@ -25,7 +25,11 @@
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
 						<h1 class="main-title"> <%= usuariosGenerales.nombre_usuario %>  <%= usuariosGenerales.apellido_usuario %> </h1>
-						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+						<% if (locals.usuario && locals.usuario.mail){ %> 
+							<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+						<% } else { %>
+							<a class="btn mt-3 ml-4 gris" href="" style="pointer-events: none">SEGUIR</a>
+						<% } %>
 					</div>
 					<div>
 						<ul class="">
