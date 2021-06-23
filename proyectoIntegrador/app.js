@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
 const rutasPrivadas = [
-  '/user/profile'
+  '/user/perfil', '/user/editar-perfil', '/producto/agregar-producto', '/producto/editar-producto'
 ]
 
 app.use(function(req, res, next) {

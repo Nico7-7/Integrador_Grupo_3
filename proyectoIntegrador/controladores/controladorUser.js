@@ -10,7 +10,7 @@ const controller = {
                 ]
             }) 
             .then((producto) => {
-                    return res.render('profile', {
+                    return res.render('perfil', {
                         'producto': producto,
                     })
             })
@@ -35,7 +35,7 @@ const controller = {
     },
     profileEdit: function(req, res, next){
         let id = req.params.id;
-            res.render('profile-edit', {
+            res.render('editar-perfil', {
         })
     },
     profileEditConfirm: function(req, res, next){
@@ -57,14 +57,14 @@ const controller = {
                 }
             })
             .then(() => {
-                res.redirect('/user/profile/'+req.params.id)
+                res.redirect('/user/perfil/'+req.params.id)
             })
             .catch((error) => {
                 return res.send(error)
             })
         }
         if (req.method == 'GET') {
-            return res.render('profile-edit');
+            return res.render('editar-perfil');
         }
     }
 }

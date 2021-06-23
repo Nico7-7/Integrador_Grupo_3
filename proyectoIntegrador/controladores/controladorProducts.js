@@ -67,7 +67,7 @@ const controller = {
     agregarProducto: function(req, res, next){
         db.Producto.findAll()
         .then((data) => {
-            return res.render('product-add', {
+            return res.render('agregar-producto', {
                 cripto: data
             })
         })
@@ -100,7 +100,7 @@ const controller = {
     editarProducto: function(req, res, next){
         db.Producto.findByPk(req.params.id)
         .then((data) => {
-            return res.render('product-edit', {
+            return res.render('editar-producto', {
                 cripto: data
             })
         })

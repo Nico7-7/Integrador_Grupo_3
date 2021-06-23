@@ -23,10 +23,10 @@ router.get('/', controladorProducts.index)
 router.get('/producto/productosGenerales', controladorProducts.productosGenerales);
 router.get('/producto/detalleProduct/:id', controladorProducts.detalleProduct);
 router.post('/producto/agregarComentario/:id', controladorProducts.agregarComentario);
-router.get('/producto/product-add', controladorProducts.agregarProducto);
-router.post('/producto/product-add', upload.single('url_imagen'), controladorProducts.productoBaseDatos);
-router.get('/producto/product-edit/:id', controladorProducts.editarProducto);
-router.post('/producto/product-edit/:id', upload.single('url_imagen'), controladorProducts.productoEditado);
+router.get('/producto/agregar-producto', controladorProducts.agregarProducto);
+router.post('/producto/agregar-producto', upload.single('url_imagen'), controladorProducts.productoBaseDatos);
+router.get('/producto/editar-producto/:id', controladorProducts.editarProducto);
+router.post('/producto/editar-producto/:id', upload.single('url_imagen'), controladorProducts.productoEditado);
 router.all('/producto/product-delete/:id', controladorProducts.eliminarProducto);
 
 

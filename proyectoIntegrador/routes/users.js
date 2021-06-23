@@ -17,9 +17,9 @@ const upload = multer({storage: storage})
 
 let controladorUser = require('../controladores/controladorUser');
 
-router.get('/profile/:id', controladorUser.profile);
+router.get('/perfil/:id', controladorUser.profile);
 router.get('/profileUsuario/:id', controladorUser.profileUsuario);
-router.get('/profile-edit/:id', controladorUser.profileEdit);
-router.post('/profile-edit/:id', upload.single('url_imagen_usuario'), controladorUser.profileEditConfirm);
+router.get('/editar-perfil/:id', controladorUser.profileEdit);
+router.post('/editar-perfil/:id', upload.single('url_imagen_usuario'), controladorUser.profileEditConfirm);
 
 module.exports = router;
