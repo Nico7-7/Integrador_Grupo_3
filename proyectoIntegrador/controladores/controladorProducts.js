@@ -73,7 +73,7 @@ const controller = {
         })
        
     },
-    productoBaseDatos: async function(req, res){
+    async productoBaseDatos(req, res){
         let imagenProducto = { 
            nombre_producto: req.body.nombre_producto,
            fecha_publicacion: req.body.fecha_publicacion,
@@ -84,10 +84,18 @@ const controller = {
         if (req.file) {
             imagenProducto.url_imagen = '/images/products/' + req.file.filename;
         }
-        let producto = await db.Usuario.findByPk(req.params.id)
-        producto.update({cant_productos: producto.cant_productos + 1})
-        await db.Producto.create(imagenProducto)
-        return res.redirect('/')
+        const producto = await db.Usuario.findByPk(req.params.id)
+        db.Producto.create(imagenProducto)
+            .then(() => {
+                producto.update({cant_productos: producto.cant_productos + 1})
+                req.flash('success', 'Producto creado correctamente');
+                return res.redirect('/')
+            })
+            .catch((error) => {
+                res.send(error);
+                req.flash('danger', 'Algo salió mal');
+            })
+        
     },
     editarProducto: function(req, res, next){
         db.Producto.findByPk(req.params.id)
