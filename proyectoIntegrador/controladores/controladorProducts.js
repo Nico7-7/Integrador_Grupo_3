@@ -73,7 +73,7 @@ const controller = {
         })
        
     },
-    async productoBaseDatos(req, res){
+    async productoBaseDatos(req, res, next){
         let imagenProducto = { 
            nombre_producto: req.body.nombre_producto,
            fecha_publicacion: req.body.fecha_publicacion,
@@ -84,15 +84,15 @@ const controller = {
         if (req.file) {
             imagenProducto.url_imagen = '/images/products/' + req.file.filename;
         }
-        const producto = await db.Usuario.findByPk(req.params.id)
+        const usuario = await db.Usuario.findByPk(req.session.usuario.id)
         db.Producto.create(imagenProducto)
             .then(() => {
-                producto.update({cant_productos: producto.cant_productos + 1})
+                usuario.update({cant_productos: usuario.cant_productos + 1})
                 req.flash('success', 'Producto creado correctamente');
                 return res.redirect('/')
             })
             .catch((error) => {
-                res.send(error);
+                next(error);
                 req.flash('danger', 'Algo salió mal');
             })
         
@@ -129,9 +129,11 @@ const controller = {
             return res.send(error);
         })
     },
-    eliminarProducto(req, res, next) {
+    async eliminarProducto(req, res, next) {
+        const usuario = await db.Usuario.findByPk(req.session.usuario.id)
         db.Producto.destroy({ where: { id: req.params.id } })
           .then(() => {
+            usuario.update({cant_productos: usuario.cant_productos - 1})
             req.flash('warning', 'Producto eliminado');
             res.redirect('/');
           })

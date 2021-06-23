@@ -32,8 +32,8 @@ app.use(session(
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
-const rutasPublicas = [
-  '/seguridad/login', '/seguridad/registrarse', '/', '/producto/detalleProduct/9', '/producto/productosGenerales', '/user/profileUsuario/1'
+const rutasPrivadas = [
+  '/user/profile'
 ]
 
 app.use(function(req, res, next) {
@@ -55,7 +55,7 @@ app.use(function(req, res, next) {
     res.locals.usuario = req.session.usuario;
   }
   else {
-    if(!rutasPublicas.includes(req.path)) {
+    if (rutasPrivadas.find(element => req.path.includes(element))) {
       return res.redirect ('/seguridad/login')
     }
   }
