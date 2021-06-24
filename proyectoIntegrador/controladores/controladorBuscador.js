@@ -10,7 +10,7 @@ const controller = {
             ]
         })
         .then((cripto)=> {
-            return res.render('search-results', {
+            return res.render('resultados-busqueda', {
                 cripto,
                 buscador
             })

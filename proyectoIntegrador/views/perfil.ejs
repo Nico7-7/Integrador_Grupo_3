@@ -25,7 +25,7 @@
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
 						<h1 class="main-title"> <%= locals.usuario.nombre_usuario %>  <%= locals.usuario.apellido_usuario %> </h1>
-						<a class="datosUsuario" href="/user/editar-perfil/<%= locals.usuario.id %> ">
+						<a class="datosUsuario" href="/usuario/editar-perfil/<%= locals.usuario.id %> ">
 							<i class="fas fa-cog"></i>
 						</a>
 					</div>
@@ -70,7 +70,7 @@
 						<div class="productos-profile" >
 							<% producto.forEach(producto => { %>
 							<section class="product-box">
-								<a href="/producto/detalleProduct/<%= producto.id %> ">
+								<a href="/producto/detalleProducto/<%= producto.id %> ">
 									<figure class="product-box_image">
 										<img src="<%= producto.url_imagen %>" alt="<%= producto.nombre_producto %>">
 									</figure>
@@ -86,28 +86,6 @@
 					<% } %> 
 					
 				</div>
-
-			<!-- Show mis productos -->
-				<div class="productos-profile" >
-					<% producto.forEach(producto => { %>
-					<section class="product-box">
-						<a href="/producto/detalleProduct/<%= producto.id %> ">
-							<figure class="product-box_image">
-								<img src="<%= producto.url_imagen %>" alt="<%= producto.nombre_producto %>">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= producto.nombre_producto %></h2>
-								<p><%= producto.descripcion_corta %></p>
-								<p>Comentarios: <%= producto.num_comentarios %></p>
-							</article>
-						</a>
-					</section>
-					<% }) %>
-				</div>
-			</div>
-		</div>
-	<!-- /Mis productos -->
-
 
 	<!-- footer -->
 	<%- include('./partial/footer') %> 

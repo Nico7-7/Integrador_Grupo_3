@@ -29,7 +29,7 @@ const controller = {
             return res.send(error);
         })
     },
-    detalleProduct: async function(req, res, next){
+    detalleProducto: async function(req, res, next){
         let cripto = await db.Producto.findByPk(req.params.id)
         let comentarios = await db.Comentario.findAll({ 
             where: [
@@ -58,7 +58,7 @@ const controller = {
         };
         db.Comentario.create(comentarios)
         .then(() => {
-            return res.redirect('/producto/detalleproduct/' + req.params.id)
+            return res.redirect('/producto/detalleProducto/' + req.params.id)
         })
         .catch((error) => {
             return res.send(error);

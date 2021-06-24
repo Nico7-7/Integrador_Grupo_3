@@ -38,7 +38,7 @@ let controladorSeguridad = {
                 texto_usuario: req.body.texto_usuario
             };
             if (req.file) {
-                imagenUsuario.url_imagen = '/images/users/' + req.file.filename;
+                imagenUsuario.url_imagen = '/images/usuarios/' + req.file.filename;
             }
             db.Usuario.create(imagenUsuario)
             .then(() => {

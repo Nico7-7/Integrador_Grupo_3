@@ -48,7 +48,7 @@ const controller = {
                 fecha_nacimiento: req.body.fecha_nacimiento
             };
             if (req.file) {
-                imagenUsuario.url_imagen = '/images/users/' + req.file.filename;
+                imagenUsuario.url_imagen = '/images/usuarios/' + req.file.filename;
             }
 
             db.Usuario.update(imagenUsuario, {
@@ -57,7 +57,7 @@ const controller = {
                 }
             })
             .then(() => {
-                res.redirect('/user/perfil/'+req.params.id)
+                res.redirect('/usuario/perfil/'+req.params.id)
             })
             .catch((error) => {
                 return res.send(error)

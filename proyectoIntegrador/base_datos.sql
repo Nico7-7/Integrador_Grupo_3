@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 10, 2021 at 07:35 PM
+-- Generation Time: Jun 24, 2021 at 01:40 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -134,7 +134,9 @@ INSERT INTO `comentarios` (`id`, `texto`, `fecha_comentado`, `id_usuario_comenta
 (99, 'Alguien más haciendo staking de $CAKE?', '2021-04-23', 3, 20),
 (100, 'La pregunta es quién NO está haciendo staking de CAKE!!', '2021-04-22', 7, 20),
 (101, 'Yo no, ajaja. Que tenga un panqueque me parece poco confiable.', '2021-04-24', 10, 20),
-(102, 'Claro, pero tiene un gas fee muchísimo menor.', '2021-04-24', 13, 20);
+(102, 'Claro, pero tiene un gas fee muchísimo menor.', '2021-04-24', 13, 20),
+(103, 'Elrond va a llegar a 300 para fin de año', '2021-06-13', 17, 21),
+(104, 'VTHO me sacó toda la plata', '2021-06-21', 17, 3);
 
 -- --------------------------------------------------------
 
@@ -158,29 +160,28 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `url_imagen`, `nombre_producto`, `fecha_publicacion`, `id_usuario`, `descripcion_larga`, `descripcion_corta`, `num_comentarios`) VALUES
-(1, 'https://s2.coinmarketcap.com/static/img/coins/200x200/5117.png', 'Origin Protocol', '2021-04-14', 17, 'Origin Protocol es una plataforma de código abierto que permite la creación de mercados entre pares y aplicaciones de comercio electrónico, que utiliza la blockchain de Ethereum y el Sistema de Archivos IPFS. Origin Protocol pretende facilitar la creación de sistemas similares a Uber, Airbnb, Getaround, Fiverr y muchos otros.', 'Una plataforma para crear mercados y aplicaciones.', 4),
-(2, 'https://s2.coinmarketcap.com/static/img/coins/200x200/4206.png', 'Wink', '2021-04-14', 17, 'WINk (WIN) es una plataforma de juego basada en Tron (TRX) que permite a los usuarios jugar, socializar y bloquear activos en múltiples ecosistemas blockchain mediante el uso del token nativo WIN.', 'Una plataforma de juego basada en Tron.', 4),
-(3, 'https://research.binance.com/static/images/projects/vethor/logo1.png', 'VeThor Token', '2021-04-15', 17, 'VeThor Token (VTHO) es un activo digital con una capitalización de mercado de $686.78M. VeThor Token se encuentra en el rango de 121 en el rating global de criptomonedas con un volumen de trading diario medio de $160.78M. Es el token secundario en el ecosistema VeChain; el VTHO se consume al hacer transacciones o al subir datos a la cadena de bloques.', 'El token secundario en el ecosistema VeChain.', 4),
-(4, 'https://icoholder.com/media/cache/ico_logo_view_page/files/img/c364d8534cf023bd26556dcb035d5b79.png', 'PAID Network', '2021-04-14', 17, 'Un ecosistema dApp que aprovecha la tecnología blockchain para ofrecer acuerdos SMART impulsados por DeFi para hacer negocios exponencialmente más eficientes. Permiten a los usuarios crear su propia política, asegurándose de que RECIBAN PAGOS. Diseñaron la plataforma con la eficiencia y la rentabilidad como su prioridad principal. ', 'Un ecosistema dApp con acuerdos inteligentes.', 4),
-(5, 'https://www.forexsrovnavac.cz/assets/img/crypto/enjin-coin.png', 'Enjin Coin', '2021-04-16', 17, 'Una moneda creada para bienes virtuales y su finalidad convertirse en la criptomoneda más útil en la industria del videojuego. A su vez Enjin es una plataforma de juegos con la comunidad más grande en linea.', 'Una moneda para comprar bienes virtuales.', 4),
-(6, 'https://www.forexsrovnavac.cz/assets/img/crypto/ontology.png', 'Ontology', '2021-04-18', 17, 'Ontology es una plataforma pública de cadenas de bloques que permite la creación e implementación de proyectos de diferentes tamaños; de esta manera, cierra la brecha entre las cadenas de bloques y los negocios.', 'Una plataforma pública de blockchain.', 4),
-(7, 'https://icodrops.com/wp-content/uploads/2019/09/band_logo.jpg', 'Band Protocol', '2021-04-18', 17, 'Una plataforma criptográfica de oráculos descentralizados entre cadenas. Band Protocol v2 usa su propia cadena de bloques, BandChain, basada en Tendermint, con un algoritmo de consenso BFT (DPoS), y opera dentro del ecosistema Cosmos.', 'Una plataforma criptográfica de oráculos descentralizados.', 4),
-(8, 'https://coincost.net/uploads/temp/04178d6b96b8c23fbf596de6000a1a72.png', 'Chain Games', '2021-04-17', 17, 'Chain Games es una plataforma que busca ser una opción más y prometedora para los jugadores que buscan un entorno de apuestas sin confianza cuando juegan a videojuegos competitivos con otros usuarios. La infraestructura elimina la necesidad de \"intermediarios o intermediarios externos\" durante los concursos.', 'Un protocolo para apuestas en juegos.', 5),
-(9, 'https://assets.coingecko.com/coins/images/1369/large/StormX.png?1603113002', 'StormX', '2021-04-19', 17, 'StormX (STMX) es un mercado gamificado que permite a los usuarios ganar STMX, así como otras criptomonedas, por comprar en una de sus tiendas asociadas en Internet o por completar microtareas a través de su aplicación.', 'Una app que promueve las compras online con cripto.', 4),
-(10, 'https://icoholder.com/files/img/0c374147dd170d41a31f5c0083059500.jpeg', 'Ecomi', '2021-04-19', 17, 'ECOMI ofrece una ventanilla única para coleccionables digitales a través de la aplicación VeVe que permite a los usuarios experimentar la propiedad real de coleccionables digitales de primera calidad.', 'Una ventanilla única para coleccionables digitales.', 5),
-(11, 'https://assets.coingecko.com/coins/images/878/large/decentraland-mana.png?1550108745', 'Decentraland', '2021-04-18', 17, 'Una plataforma de realidad virtual desarrollada por el blockchain de Ethereum, en donde se puede crear, experimentar y monetizar apps y contenido.', 'Un juego de realidad virtual con compras in-game.', 4),
-(12, 'https://s2.coinmarketcap.com/static/img/coins/200x200/2010.png', 'Cardano', '2021-04-19', 17, 'Una plataforma de blockchain de código abierto que busca redistribuir el poder de las estructuras contables entre los individuos, ayudando a crear una sociedad más segura, transparente y justa.', 'Una plataforma de blockchain para redistribuir el poder.', 10),
-(13, 'https://64.media.tumblr.com/18a5246a4287ee4db0cd134d69954eb0/tumblr_inline_o4wvui8rKt1r2w261_400.png', 'Ethereum', '2021-04-14', 17, 'Un sistema blockchain descentralizado que funciona como plataforma para intercambiar numerosas criptomonedas, así como para la ejecución de contratos inteligentes.', 'Un sistema blockchain de intercambio y desarrollo.', 11),
-(14, 'https://s2.coinmarketcap.com/static/img/coins/200x200/4129.png', 'Polkadot', '2021-04-19', 17, 'Un protocolo de sharding multicadena que facilita la transferencia entre cadenas de cualquier tipo de datos o activos, no solo tokens.', 'Un protocolo de sharding multicadena.', 7),
-(15, 'https://s2.coinmarketcap.com/static/img/coins/200x200/1975.png', 'Chainlink', '2021-04-18', 17, 'Una red de oráculo descentralizado que tiene como objetivo conectar contratos inteligentes con datos del mundo real.', 'Una red de oráculo descentralizado.', 9),
-(16, 'https://s2.coinmarketcap.com/static/img/coins/200x200/825.png', 'Tether', '2021-04-16', 17, 'Una moneda estable, que imita siempre el valor del dólar americano. Denominada USDT.', 'Una moneda estable que imita el valor del dólar.', 4),
-(17, 'https://icoholder.com/media/cache/ico_logo_view_page/files/img/2694471c0ab0f122134bbd371541d521.jpeg', 'Klaytn', '2021-04-16', 17, 'Es un proyecto blockchain público de Kakao (una empresa de Internet surcoreana). Tiene como finalidad brindar una experiencia blockchain fácil de usar a millones de personas, a través de una plataforma de nivel empresarial.', 'Un proyecto blockchain con foco en el UX.', 4),
-(18, 'https://assets.coingecko.com/coins/images/12645/large/AAVE.png?1601374110', 'Aave', '2021-04-16', 17, 'Aave es un protocolo de mercado monetario descentralizado (DEFI) y sin custodia en el que los usuarios pueden participar como depositantes o prestatarios.', 'Un protocolo de mercado monetario DeFi.', 4),
-(19, 'https://assets.coingecko.com/coins/images/1481/large/cosmos_hub.png', 'Cosmos', '2021-04-16', 17, 'Cosmos es un proyecto centrado en brindar una infraestructura capaz de unir a varias blockchain independientes y hacerlas interoperables entre ellas.', 'Un proyecto que busca unificar blockchains.', 4),
-(20, 'https://s2.coinmarketcap.com/static/img/coins/200x200/7186.png', 'PancakeSwap', '2021-04-17', 17, 'La plataforma PancakeSwap, desarrollada sobre la blockchain de Binance (BSC), figura ahora como la más grande por activos bloqueados en el sector de los exchanges descentralizados (DEX).', 'Una plataforma de intercambio de criptomonedas con BSC.', 4),
-(21, 'https://coincost.net/uploads/temp/82719f912ddf6377a0f150b373c83357.png', 'Elrond', '2021-05-13', 17, 'Un proyecto que aspira a conseguir una blockchain tan rápida y escalable que pueda ser utilizada para las finanzas, el uso empresarial y más, gracias a su sistema adaptativo de fragmentación del estado, que permite que las transacciones sean gestionadas rápidamente por múltiples validadores.', 'Una blockchain rápida y escalable.', 0),
-(22, 'https://s2.coinmarketcap.com/static/img/coins/200x200/5034.png', 'Kusama', '2021-05-17', 17, 'Es la testnet de Polkadot, el protocolo blockchain que conecta múltiples blockchains especializadas en una sola red unificada. Representa una versión experimental de investigación y desarrollo comunitario para el protocolo inicial Polkadot.', 'La testnet de Polkadot.', NULL),
-(25, '/images/products/1623096970493-url_imagen.png', 'Arweave', '2021-06-07', 17, 'Un nuevo protocolo de almacenamiento de datos en una estructura tipo blockchain llamada Blockweave. Se basa en un nuevo mecanismo de consenso de prueba de acceso que hace que el almacenamiento de datos verdaderamente permanente y de bajo costo esté disponible por primera vez.', 'un nuevo protocolo de almacenamiento de datos ', NULL);
+(1, 'https://s2.coinmarketcap.com/static/img/coins/200x200/5117.png', 'Origin Protocol', '2021-04-14', 1, 'Origin Protocol es una plataforma de código abierto que permite la creación de mercados entre pares y aplicaciones de comercio electrónico, que utiliza la blockchain de Ethereum y el Sistema de Archivos IPFS. Origin Protocol pretende facilitar la creación de sistemas similares a Uber, Airbnb, Getaround, Fiverr y muchos otros.', 'Una plataforma para crear mercados y aplicaciones.', 4),
+(2, 'https://s2.coinmarketcap.com/static/img/coins/200x200/4206.png', 'Wink', '2021-04-14', 1, 'WINk (WIN) es una plataforma de juego basada en Tron (TRX) que permite a los usuarios jugar, socializar y bloquear activos en múltiples ecosistemas blockchain mediante el uso del token nativo WIN.', 'Una plataforma de juego basada en Tron.', 4),
+(3, 'https://research.binance.com/static/images/projects/vethor/logo1.png', 'VeThor Token', '2021-04-15', 1, 'VeThor Token (VTHO) es un activo digital con una capitalización de mercado de $686.78M. VeThor Token se encuentra en el rango de 121 en el rating global de criptomonedas con un volumen de trading diario medio de $160.78M. Es el token secundario en el ecosistema VeChain; el VTHO se consume al hacer transacciones o al subir datos a la cadena de bloques.', 'El token secundario en el ecosistema VeChain.', 4),
+(4, 'https://icoholder.com/media/cache/ico_logo_view_page/files/img/c364d8534cf023bd26556dcb035d5b79.png', 'PAID Network', '2021-04-14', 1, 'Un ecosistema dApp que aprovecha la tecnología blockchain para ofrecer acuerdos SMART impulsados por DeFi para hacer negocios exponencialmente más eficientes. Permiten a los usuarios crear su propia política, asegurándose de que RECIBAN PAGOS. Diseñaron la plataforma con la eficiencia y la rentabilidad como su prioridad principal. ', 'Un ecosistema dApp con acuerdos inteligentes.', 4),
+(5, 'https://www.forexsrovnavac.cz/assets/img/crypto/enjin-coin.png', 'Enjin Coin', '2021-04-16', 1, 'Una moneda creada para bienes virtuales y su finalidad convertirse en la criptomoneda más útil en la industria del videojuego. A su vez Enjin es una plataforma de juegos con la comunidad más grande en linea.', 'Una moneda para comprar bienes virtuales.', 4),
+(6, 'https://www.forexsrovnavac.cz/assets/img/crypto/ontology.png', 'Ontology', '2021-04-18', 1, 'Ontology es una plataforma pública de cadenas de bloques que permite la creación e implementación de proyectos de diferentes tamaños; de esta manera, cierra la brecha entre las cadenas de bloques y los negocios.', 'Una plataforma pública de blockchain.', 4),
+(7, 'https://icodrops.com/wp-content/uploads/2019/09/band_logo.jpg', 'Band Protocol', '2021-04-18', 2, 'Una plataforma criptográfica de oráculos descentralizados entre cadenas. Band Protocol v2 usa su propia cadena de bloques, BandChain, basada en Tendermint, con un algoritmo de consenso BFT (DPoS), y opera dentro del ecosistema Cosmos.', 'Una plataforma criptográfica de oráculos descentralizados.', 4),
+(8, 'https://coincost.net/uploads/temp/04178d6b96b8c23fbf596de6000a1a72.png', 'Chain Games', '2021-04-17', 2, 'Chain Games es una plataforma que busca ser una opción más y prometedora para los jugadores que buscan un entorno de apuestas sin confianza cuando juegan a videojuegos competitivos con otros usuarios. La infraestructura elimina la necesidad de \"intermediarios o intermediarios externos\" durante los concursos.', 'Un protocolo para apuestas en juegos.', 5),
+(9, 'https://assets.coingecko.com/coins/images/1369/large/StormX.png?1603113002', 'StormX', '2021-04-19', 4, 'StormX (STMX) es un mercado gamificado que permite a los usuarios ganar STMX, así como otras criptomonedas, por comprar en una de sus tiendas asociadas en Internet o por completar microtareas a través de su aplicación.', 'Una app que promueve las compras online con cripto.', 4),
+(10, 'https://icoholder.com/files/img/0c374147dd170d41a31f5c0083059500.jpeg', 'Ecomi', '2021-04-19', 4, 'ECOMI ofrece una ventanilla única para coleccionables digitales a través de la aplicación VeVe que permite a los usuarios experimentar la propiedad real de coleccionables digitales de primera calidad.', 'Una ventanilla única para coleccionables digitales.', 5),
+(11, 'https://assets.coingecko.com/coins/images/878/large/decentraland-mana.png?1550108745', 'Decentraland', '2021-04-18', 4, 'Una plataforma de realidad virtual desarrollada por el blockchain de Ethereum, en donde se puede crear, experimentar y monetizar apps y contenido.', 'Un juego de realidad virtual con compras in-game.', 4),
+(12, 'https://s2.coinmarketcap.com/static/img/coins/200x200/2010.png', 'Cardano', '2021-04-19', 4, 'Una plataforma de blockchain de código abierto que busca redistribuir el poder de las estructuras contables entre los individuos, ayudando a crear una sociedad más segura, transparente y justa.', 'Una plataforma de blockchain para redistribuir el poder.', 10),
+(13, 'https://64.media.tumblr.com/18a5246a4287ee4db0cd134d69954eb0/tumblr_inline_o4wvui8rKt1r2w261_400.png', 'Ethereum', '2021-04-14', 5, 'Un sistema blockchain descentralizado que funciona como plataforma para intercambiar numerosas criptomonedas, así como para la ejecución de contratos inteligentes.', 'Un sistema blockchain de intercambio y desarrollo.', 11),
+(14, 'https://s2.coinmarketcap.com/static/img/coins/200x200/4129.png', 'Polkadot', '2021-04-19', 10, 'Un protocolo de sharding multicadena que facilita la transferencia entre cadenas de cualquier tipo de datos o activos, no solo tokens.', 'Un protocolo de sharding multicadena.', 7),
+(15, 'https://s2.coinmarketcap.com/static/img/coins/200x200/1975.png', 'Chainlink', '2021-04-18', 10, 'Una red de oráculo descentralizado que tiene como objetivo conectar contratos inteligentes con datos del mundo real.', 'Una red de oráculo descentralizado.', 9),
+(16, 'https://s2.coinmarketcap.com/static/img/coins/200x200/825.png', 'Tether', '2021-04-16', 11, 'Una moneda estable, que imita siempre el valor del dólar americano. Denominada USDT.', 'Una moneda estable que imita el valor del dólar.', 4),
+(17, 'https://icoholder.com/media/cache/ico_logo_view_page/files/img/2694471c0ab0f122134bbd371541d521.jpeg', 'Klaytn', '2021-04-16', 11, 'Es un proyecto blockchain público de Kakao (una empresa de Internet surcoreana). Tiene como finalidad brindar una experiencia blockchain fácil de usar a millones de personas, a través de una plataforma de nivel empresarial.', 'Un proyecto blockchain con foco en el UX.', 4),
+(18, 'https://assets.coingecko.com/coins/images/12645/large/AAVE.png?1601374110', 'Aave', '2021-04-16', 14, 'Aave es un protocolo de mercado monetario descentralizado (DEFI) y sin custodia en el que los usuarios pueden participar como depositantes o prestatarios.', 'Un protocolo de mercado monetario DeFi.', 4),
+(19, 'https://assets.coingecko.com/coins/images/1481/large/cosmos_hub.png', 'Cosmos', '2021-04-16', 2, 'Cosmos es un proyecto centrado en brindar una infraestructura capaz de unir a varias blockchain independientes y hacerlas interoperables entre ellas.', 'Un proyecto que busca unificar blockchains.', 4),
+(20, 'https://s2.coinmarketcap.com/static/img/coins/200x200/7186.png', 'PancakeSwap', '2021-04-17', 11, 'La plataforma PancakeSwap, desarrollada sobre la blockchain de Binance (BSC), figura ahora como la más grande por activos bloqueados en el sector de los exchanges descentralizados (DEX).', 'Una plataforma de intercambio de criptomonedas con BSC.', 4),
+(21, 'https://coincost.net/uploads/temp/82719f912ddf6377a0f150b373c83357.png', 'Elrond', '2021-05-13', 11, 'Un proyecto que aspira a conseguir una blockchain tan rápida y escalable que pueda ser utilizada para las finanzas, el uso empresarial y más, gracias a su sistema adaptativo de fragmentación del estado, que permite que las transacciones sean gestionadas rápidamente por múltiples validadores.', 'Una blockchain rápida y escalable.', 0),
+(22, 'https://s2.coinmarketcap.com/static/img/coins/200x200/5034.png', 'Kusama', '2021-05-17', 17, 'Es la testnet de Polkadot, el protocolo blockchain que conecta múltiples blockchains especializadas en una sola red unificada. Representa una versión experimental de investigación y desarrollo comunitario para el protocolo inicial Polkadot.', 'La testnet de Polkadot.', NULL);
 
 -- --------------------------------------------------------
 
@@ -208,8 +209,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre_usuario`, `apellido_usuario`, `num_seguidores`, `num_comentarios_hechos`, `cant_productos`, `url_imagen_usuario`, `mail`, `fecha_registracion`, `texto_usuario`, `contrasenia`, `fecha_nacimiento`) VALUES
-(1, 'Bautista', 'Migliore', 7, 11, 8, 'https://media-exp1.licdn.com/dms/image/C5603AQEJr4VmhoWDxw/profile-displayphoto-shrink_800_800/0/1604009810434?e=1624492800&v=beta&t=8UUIXnr8HwHwf9LTAN0mPsk4fxEMfQknzS4min7avTs', 'bmigliore@udesa.edu.ar', '2021-04-13', 'Hola! Soy Bauti, y te invito a ver mis productos :)', 'BautiMigliore1', NULL),
-(2, 'Sol', 'Ana', 2, 5, 2, 'https://img.europapress.es/fotoweb/fotonoticia_20200907131946_420.jpg', 'sol_ana20@hotmail.com', '2021-04-15', NULL, 'Solana123', NULL),
+(1, 'Bautista', 'Migliore', 7, 11, 6, 'https://media-exp1.licdn.com/dms/image/C5603AQEJr4VmhoWDxw/profile-displayphoto-shrink_800_800/0/1604009810434?e=1624492800&v=beta&t=8UUIXnr8HwHwf9LTAN0mPsk4fxEMfQknzS4min7avTs', 'bmigliore@udesa.edu.ar', '2021-04-13', 'Hola! Soy Bauti, y te invito a ver mis productos :)', 'BautiMigliore1', NULL),
+(2, 'Sol', 'Ana', 2, 5, 3, 'https://img.europapress.es/fotoweb/fotonoticia_20200907131946_420.jpg', 'sol_ana20@hotmail.com', '2021-04-15', NULL, 'Solana123', NULL),
 (3, 'Samanta', 'Rosales', 5, 10, NULL, 'https://image.freepik.com/foto-gratis/mujer-adolescente-aislada-azul-mostrando-levantando-dedo_1368-115667.jpg', 'srosalesmm5@gmail.com', '2021-04-15', 'Fan de las criptomonedas, con ganas de aprender a diario. Capricornio', 'Sam.RosalesCR7', NULL),
 (4, 'Arya', 'Frias', 3, 4, 4, 'https://divem.accem.es/wp-content/uploads/2018/05/brian-fraser-337137-1030x687.jpg', 'arya_stark_frias@gmail.com', '2021-04-14', 'Invirtiendo a full!!!', 'aRYAsTARK9', NULL),
 (5, 'Manuel', 'Gonzales', NULL, 4, 1, 'https://www.diariodecuyo.com.ar/__export/1586191744739/sites/diariodecuyo/img/2020/04/06/screenshot_1.jpg', 'gonzalesmanu4@gmail.com', '2021-04-15', 'Hincha de Olimpo, en contra de Dogecoin...', 'Manumanucho3', NULL),
@@ -218,13 +219,13 @@ INSERT INTO `usuarios` (`id`, `nombre_usuario`, `apellido_usuario`, `num_seguido
 (8, 'Abril', 'Frondizi', 6, NULL, NULL, 'https://cde.peru.com//ima/0/0/7/4/5/745653/611x458/mujeres.jpg', 'abrufrondizi@gmail.com', '2021-04-16', 'La inflación se zafa a través las criptos.', 'AbruFrondz4', NULL),
 (9, 'Carolina', 'Guide', NULL, 1, NULL, NULL, 'carolinaguide@gmail.com', '2021-04-17', NULL, 'CaroCaro33', NULL),
 (10, 'Raul', 'Carra', 3, 12, 2, NULL, 'rau_carra_rau@outlook.com', '2021-04-14', 'Gurú de las criptomonedas.', 'RuloCarra7', NULL),
-(11, 'Nicolás', 'Cavalieri', 13, 14, 2, NULL, 'ncavalieri@udesa.edu.ar', '2021-04-15', 'Seguime si te interesan las tokes DeFi!', 'Ncava23Ponzio', NULL),
+(11, 'Nicolás', 'Cavalieri', 13, 14, 4, NULL, 'ncavalieri@udesa.edu.ar', '2021-04-15', 'Seguime si te interesan las tokes DeFi!', 'Ncava23Ponzio', NULL),
 (12, 'Joaquín', 'Lugones', 1, 8, NULL, NULL, 'joalugoness@gmail.com', '2021-04-15', NULL, 'JoacoLug0', NULL),
 (13, 'Catalina', 'Rosella', 15, 7, NULL, NULL, 'crosella@udesa.edu.ar', '2021-04-16', 'Estudiante universitaria.', 'RosellaCata2', NULL),
 (14, 'Juana', 'Miranda', 5, 6, 1, NULL, 'juamirandana@gmail.com', '2021-04-18', '', 'JujuMira2', NULL),
 (15, 'Micaela', 'Gutierrez', NULL, NULL, NULL, 'https://pbs.twimg.com/profile_images/768045805584412672/ixQhQDC_.jpg', 'mica_guti_fotolog@gmail.com', NULL, 'Hola. soy Mica <3', 'sftgyjhukj', NULL),
 (16, 'Hugo', 'Fuchs', NULL, NULL, NULL, 'https://profile-images.xing.com/images/dc7114bdd2142411e9c530c31aeee888-2/hugo-fuchs.1024x1024.jpg', 'fuchshugo1@gmail.com', NULL, 'HODL', 'Huguete777', NULL),
-(17, 'Wenceslao', 'Menceyra', NULL, NULL, NULL, '', 'w.menceyra@scms.edu.ar', NULL, 'Hola soy Wences', '$2a$10$UPH1TeAEkW1UE56KEHHOee.Pxn1AnEoxVN/kgBn6CtZ6HDCu.aXea', NULL),
+(17, 'Wenceslao', 'Menceyra', NULL, NULL, 1, NULL, 'w.menceyra@scms.edu.ar', NULL, 'Hola soy Wences', '$2a$10$UPH1TeAEkW1UE56KEHHOee.Pxn1AnEoxVN/kgBn6CtZ6HDCu.aXea', NULL),
 (18, 'Julián', 'Estevez', NULL, NULL, NULL, NULL, 'julianestevez@gmail.com', NULL, 'Mi perro sabe más que yo :)', '$2a$10$zUuWapirZNF8LKePzcO.2eV9zGBux8vF7HvsCpKkyEloTowZQ1oly', NULL);
 
 --
@@ -236,8 +237,8 @@ INSERT INTO `usuarios` (`id`, `nombre_usuario`, `apellido_usuario`, `num_seguido
 --
 ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario_comentador` (`id_usuario_comentador`),
-  ADD KEY `id_producto` (`id_producto`);
+  ADD KEY `id_producto` (`id_producto`),
+  ADD KEY `id_usuario_comentador` (`id_usuario_comentador`);
 
 --
 -- Indexes for table `productos`
@@ -260,13 +261,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `usuarios`

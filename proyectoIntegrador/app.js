@@ -9,7 +9,7 @@ const { flash } = require('express-flash-message');
 
 
 var indexRouter = require('./routes/index');
-var userRouter = require('./routes/users');
+var usuarioRouter = require('./routes/usuarios');
 var buscadorRouter = require('./routes/buscador');
 var routerSeguridad = require('./routes/seguridad')
 
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
 const rutasPrivadas = [
-  '/user/perfil', '/user/editar-perfil', '/producto/agregar-producto', '/producto/editar-producto'
+  '/usuario/perfil', '/usuario/editar-perfil', '/producto/agregar-producto', '/producto/editar-producto'
 ]
 
 app.use(function(req, res, next) {
@@ -75,7 +75,7 @@ app.use(async (req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/seguridad', routerSeguridad)
-app.use('/user', userRouter);
+app.use('/usuario', usuarioRouter);
 app.use('/search', buscadorRouter);
 
 

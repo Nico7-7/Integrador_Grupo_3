@@ -15,12 +15,11 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage})
 
 
-let controladorSeguridad = require('../controladores/controladorSeguridad');
+let controladorUsuario = require('../controladores/controladorUsuario');
 
-router.get('/login', controladorSeguridad.login)
-router.post('/login', controladorSeguridad.autenticarse);
-router.get('/registrarse', controladorSeguridad.registrarse);
-router.post('/registrarse', upload.single('url_imagen_usuario'), controladorSeguridad.registrarse);
-router.get('/logout', controladorSeguridad.logout);
+router.get('/perfil/:id', controladorUsuario.profile);
+router.get('/profileUsuario/:id', controladorUsuario.profileUsuario);
+router.get('/editar-perfil/:id', controladorUsuario.profileEdit);
+router.post('/editar-perfil/:id', upload.single('url_imagen_usuario'), controladorUsuario.profileEditConfirm);
 
 module.exports = router;

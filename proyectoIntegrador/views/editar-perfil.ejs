@@ -20,7 +20,7 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 
-			<form class= "formulario" action="/user/profile-edit/<%= locals.usuario.id %> " method="POST" enctype="multipart/form-data">
+			<form class= "formulario" action="/usuario/editar-perfil/<%= locals.usuario.id %> " method="POST" enctype="multipart/form-data">
 				<p>
 				<label for="Nombre"> Nombre: </label>
 				<input type="text" name="nombre_usuario" id="nombre_usuario" value="<%= locals.usuario.nombre_usuario %>" required>

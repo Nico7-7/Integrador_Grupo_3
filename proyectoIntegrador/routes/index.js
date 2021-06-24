@@ -21,7 +21,7 @@ let controladorProducts = require('../controladores/controladorProducts');
 /* GET home page. */
 router.get('/', controladorProducts.index)
 router.get('/producto/productosGenerales', controladorProducts.productosGenerales);
-router.get('/producto/detalleProduct/:id', controladorProducts.detalleProduct);
+router.get('/producto/detalleProducto/:id', controladorProducts.detalleProducto);
 router.post('/producto/agregarComentario/:id', controladorProducts.agregarComentario);
 router.get('/producto/agregar-producto', controladorProducts.agregarProducto);
 router.post('/producto/agregar-producto', upload.single('url_imagen'), controladorProducts.productoBaseDatos);
