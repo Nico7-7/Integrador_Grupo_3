@@ -2,20 +2,17 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('./partial/head') %> 
-
-<body>
+<body id="fondo_blanco">
 	<!-- Header -->
 	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
 	<% } else { %>
 		<%- include('./partial/header') %> 
 	<% } %>
-
 	<!-- product detail -->
 	<div class="container products-wrapper">
-
 			<div class="d-flex align-items-center">
-				<h2 class="font-family" ><%= cripto.nombre_producto %> </h2>
+				<h2 class="font-family" id="titulo"><%= cripto.nombre_producto %> </h2>
 				<% if (locals.usuario && locals.usuario.mail){ %>  
 					<% if(cripto.id_usuario == locals.usuario.id){ %> 
 					<p class="product-detail-description">
@@ -31,10 +28,10 @@
 					<% } %> 
 				<% } %> 
 			</div>
-			<div class="product-detail">
+			<div class="product-detail" id="index">
 				<div class="row">
 					<article class="col-12 col-lg-8 product-detail-info">
-						<img src="<%= cripto.url_imagen %> " alt=" <%= cripto.nombre %> " class="product-detail-img">
+						<img src="<%= cripto.url_imagen %>" alt="<%= cripto.nombre %>" class="foto_detalle">
 						<p class="product-detail-description">
 							<%= cripto.descripcion_larga %> 
 						</p>
@@ -44,13 +41,13 @@
 							<section class="comments">
 								<article>
 									<% if (comentarios[i].usuario.url_imagen_usuario == null) { %>
-										<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">		
+										<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35" class="imagen_comentador">		
 									<% }else{ %>
-										<img src="<%= comentarios[i].usuario.url_imagen_usuario %>" alt="imagen usuario">
+										<img src="<%= comentarios[i].usuario.url_imagen_usuario %>" alt="imagen usuario" class="imagen_comentador">
 									<% } %>					
 									<div class="data">
 										<p class="user">
-										<strong> <a href="/usuario/profileUsuario/<%= comentarios[i].id_usuario_comentador %> "> <%= comentarios[i].usuario.nombre_usuario %>  <%= comentarios[i].usuario.apellido_usuario %> </a> </strong>
+										<strong> <a href="/usuario/profileUsuario/<%= comentarios[i].id_usuario_comentador %>"> <%= comentarios[i].usuario.nombre_usuario %>  <%= comentarios[i].usuario.apellido_usuario %> </a> </strong>
 										<%= comentarios[i].texto %></p>
 									</div>
 								</article>
@@ -61,24 +58,30 @@
 									<textarea name="texto" rows="5" cols="50" id="texto" placeholder="Agregar comentario"></textarea>
 									<label for="nombre"> Fecha de hoy: </label>
 									<input type="date" name="fecha_comentado" id="fecha_comentado">	
-									<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+									<button type="submit" class="buy-now-button agregar_comentario">AGREGAR COMENTARIO</button><hr class="linea_comentario">
 								</form>
 							<% } else { %>
-								<form action="">
-									<button type="submit" class="buy-now-button gris" disabled>AGREGAR COMENTARIO</button>
-								</form>
-								<p>Debes iniciar sesión para agregar un comentario</p>
+								<% if (comentarios.length != 0){ %> 
+									<form action="">
+										<button type="submit" class="buy-now-button gris" disabled>AGREGAR COMENTARIO</button>
+									</form>
+									<p class="comentario_info">Debes iniciar sesión para agregar un comentario</p>
+									<hr>
+								<% } else { %>
+									<form action="">
+										<button type="submit" class="buy-now-button agregar_comentario" disabled>AGREGAR COMENTARIO</button>
+									</form>
+									<p class="error_comentario">Debes iniciar sesión para agregar un comentario</p>
+									<hr class="linea_error">
+								<% } %>
 							<% } %>
-							<hr>
 						</div>
 					</div>
 				</div>
 	</div>
 	<!-- /product detail -->
-
 	<!-- footer -->
 	<%- include('./partial/footer') %> 
 	<!-- /footer -->
-
 </body>	
 </html>
