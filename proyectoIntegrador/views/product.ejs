@@ -24,6 +24,10 @@
 					<p class="product-detail-description">
 						<a href="/producto/product-delete/<%= cripto.id %>" class="edicion">BORRAR</a>
 					</p>
+					<% } else { %> 
+						<p class="product-detail-description">
+							<a href="/producto/product-delete/<%= cripto.id %>" class="edicion">AGREGAR A WATCHLIST</a>
+						</p>
 					<% } %> 
 				<% } %> 
 			</div>
