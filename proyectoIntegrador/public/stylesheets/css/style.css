@@ -5,13 +5,11 @@
 .footer-nombres {
   text-align: center;
 }
-
 .font-family {
   font-family: 'New Tegomin', serif;
   text-align: center;
   color: white;
   font-size: 40px;
-
 }
 .imagenCripto{
   background-repeat: no-repeat;
@@ -26,7 +24,6 @@
   max-width: 100px;
   max-height: 100px;
 }
-
 .formulario {
   display: flex;
   flex-direction: column;
@@ -51,11 +48,162 @@
   font-family: 'New Tegomin', serif;
   color: whitesmoke;
 }
-
 .edicion{
   color: whitesmoke;
 }
-
+/* Nuevo CSS */
+/* Header (ambos) */
+.encabezado{
+  background-color: white;
+  border-bottom: 2px solid black;
+}
+.logo_pagina{
+  width: 110%;
+  position: relative;
+  top: 3px;
+}
+.iconos{
+  color: #6de5f7;
+}
+#barra_navegacion{
+  background-color: #6de5f7;
+  width: 100vw;
+  position: relative;
+  right: 4.7vw;
+  height: 50px;
+  margin-bottom: -15px;
+  border-top: 2px solid black;
+}
+#nav_izq{
+  position: relative;
+  left: 5vw;
+}
+#nav_der{
+  position: relative;
+  right: 5vw;
+}
+.icono_nav{
+  color: black;
+}
+#buscador{
+  position: relative;
+  left: 2vw;
+}
+/* Index .js*/
+#banners{
+  width: 90vw;
+  height: 350px;
+  position: relative;
+  left: 5vw;
+  top: 30px;
+}
+#bannersImage{
+  width: 90vw;
+  height: 350px;
+}
+#tituloBanner{
+  position: relative;
+  top: -12px;
+}
+#descBanner{
+  position: relative;
+  top: -18px;
+}
+#botones_banner{
+  position: relative;
+  top: -25px;
+}
+#fondo_blanco{
+  background-image: url('/images/fondo_celeste.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#index{
+  background-color: #6de5f7;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+#secciones{
+  color: black;
+  position: relative;
+  top: 5px;
+}
+#cada_producto{
+  border: 2px solid black;
+  width: 80%;
+}
+#seccion{
+  position: relative;
+  left: 2vw;
+}
+.comentarios{
+  position: relative;
+  top: 10px;
+}
+/* Productos Generales */
+#titulo{
+  color: black;
+}
+/* Detalle Producto */
+.foto_detalle{
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 70%;
+  position: relative;
+  left: 10vw;
+}
+.agregar_comentario{
+  position: absolute;
+  bottom: 45px;
+  left: 7.5vw;
+  background-color: grey;
+}
+.error_comentario{
+  position: absolute;
+  bottom: 25px;
+  left: 7.5vw;
+}
+.linea_error{
+  position: relative;
+  top: 710px;
+}
+.imagen_comentador{
+  border: 1px solid black;
+}
 .gris{
   background-color: grey;
+  position: relative;
+  left: 7.5vw;
+}
+.comentario_info{
+  position: relative;
+  left: 7.5vw;
+}
+/* Perfil Usuario */
+.foto_perfil_usuario{
+  border-radius: 20px;
+  border: 2px solid black;
+  width: 180px;
+  height: 180px;
+}
+.seguir{
+  width: 120px;
+  color: black;
+  background-color: #6de5f7;
+  border: 2px solid black;
+  font-size: 15px;
+}
+.error_seguir{
+  width: 120px;
+  color: black;
+  border: 2px solid black;
+  font-size: 15px;
+}
+/* Footer */
+#footer{
+  background-color: #6de5f7;
+  border-top: 2px solid black;
+}
+#letra_negra{
+  color: black;
 }
