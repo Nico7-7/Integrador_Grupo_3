@@ -5,9 +5,10 @@ const controller = {
     search: function(req, res, next){
         let buscador = req.query.search;
         db.Producto.findAll({
-            where: [
-                {nombre_producto: {[op.like]: '%'+buscador+'%'}}
-            ]
+            where: {[op.or]: 
+                [{nombre_producto:  {[op.like]: '%'+buscador+'%'}}, 
+                {descripcion_larga:  {[op.like]: '%'+buscador+'%'}}]
+            }
         })
         .then((cripto)=> {
             return res.render('resultados-busqueda', {
