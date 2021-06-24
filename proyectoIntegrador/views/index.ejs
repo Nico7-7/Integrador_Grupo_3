@@ -2,45 +2,76 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('./partial/head') %> 
-<body>
+<body id="fondo_blanco">
 	<!-- Header -->
-	
 	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
 	<% } else { %>
 		<%- include('./partial/header') %> 
 	<% } %>
 	<!-- /Header -->
-	
 	<!-- Banner -->
-	<div class="">
-		<img class="imagenCripto" src="/images/banner.jpeg" alt="Banner de ofertas">
-	</div>
+	<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="carousel-item active" id="banners">
+			<img src="/images/banner1.jpeg" class="d-block w-100" alt="" id="bannersImage">
+			<div class="carousel-caption d-none d-md-block">
+			  <h3 id="tituloBanner">El mercado cripto vuelve a caer</h5>
+			  <p id="descBanner">Bajó un 15% en las últimas 8 horas, un total de 50% desde Abril.</p>
+			</div>
+		  </div>
+		  <div class="carousel-item" id="banners">
+			<img src="/images/banner2.png" class="d-block w-100" alt="" id="bannersImage">
+			<div class="carousel-caption d-none d-md-block">
+			  <h3 id="tituloBanner">Tether: ¿posible estafa?</h5>
+			  <p id="descBanner">Furor tras el nuevo video de Coffezilla exponiendo a Tether y Bitfinex.</p>
+			</div>
+		  </div>
+		  <div class="carousel-item" id="banners">
+			<img src="/images/banner3.jpeg" class="d-block w-100" alt="" id="bannersImage">
+			<div class="carousel-caption d-none d-md-block">
+			  <h3 id="tituloBanner">Contratos inteligentes en Cardano</h5>
+			  <p id="descBanner">La agenda dice que llegarán a la plataforma a fines de Agosto.</p>
+			</div>
+		  </div>
+		</div>
+		<div class="carousel-indicators" id="botones_banner">
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+		  </div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+		  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		  <span class="visually-hidden">Anterior</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+		  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		  <span class="visually-hidden">Siguiente</span>
+		</button>
+	  </div>
 	<!-- /Banner -->
-
 	<!-- Novedades -->
-	<div class="container products-wrapper">
+	<div class="container products-wrapper" id="index">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="font-family" class="products-title" >NOVEDADES</h2>
+				<h2 class="font-family" class="products-title" id="secciones" >NOVEDADES</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<% for(let i = 0; i < 4; i++){ %>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
+			<div class="col-12 col-sm-6 col-lg-3" id="seccion">
+				<section class="product-box" id="cada_producto">
 					<a href="/producto/detalleProducto/<%=resultado[i].id%>">
 						<figure class="product-box_image">
 							<img src="<%=resultado[i].url_imagen%>" alt="<%=resultado[i].nombre_producto%>">
 						</figure>
 						<article class="product-box_data">
 							<h2><%=resultado[i].nombre_producto%></h2>
-							<p><%=resultado[i].descripcion_corta%></p>
+							<p class="desc_corta"><%=resultado[i].descripcion_corta%></p>
 							<% if (resultado[i].num_comentarios == null) { %>
-								<p>Comentarios: 0</p>
+								<p class="comentarios">Comentarios: 0</p>
 							<% }else{ %>
-								<p>Comentarios: <%= resultado[i].num_comentarios %></p>
+								<p class="comentarios">Comentarios: <%= resultado[i].num_comentarios %></p>
 							<% } %> 
-
 						</article>
 					</a>
 				</section>
@@ -50,23 +81,23 @@
 	</div>
 	<!-- /Novedades -->
 	<!-- Más comentados -->
-	<div class="container products-wrapper">
+	<div class="container products-wrapper" id="index">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="font-family" class="products-title">MAS COMENTADOS</h2>
+				<h2 class="font-family" class="products-title" id="secciones">MAS COMENTADOS</h2>
 			</div>
 			<% for(let i = 0; i < 4; i++){ %>
 			<!-- Show the "ultimos" products -->
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
+				<div class="col-12 col-sm-6 col-lg-3" id="seccion">
+					<section class="product-box" id="cada_producto">
 						<a href="/producto/detalleProducto/<%=masComentados[i].id%>">
 							<figure class="product-box_image">
 								<img src="<%=masComentados[i].url_imagen%>" alt="<%=masComentados[i].nombre_producto%>">
 							</figure>
 							<article class="product-box_data">
 								<h2><%=masComentados[i].nombre_producto%></h2>
-								<p><%=masComentados[i].descripcion_corta%></p>
-								<p>Comentarios: <%=masComentados[i].num_comentarios%></p>
+								<p class="desc_corta"><%=masComentados[i].descripcion_corta%></p>
+								<p class="comentarios">Comentarios: <%=masComentados[i].num_comentarios%></p>
 							</article>
 						</a>
 					</section>
@@ -75,8 +106,6 @@
 		</div>
 	</div>
 	<!-- /Más comentados -->
-
-
 	<!-- footer -->
 	<%- include('./partial/footer') %> 
 	<!-- /footer -->
