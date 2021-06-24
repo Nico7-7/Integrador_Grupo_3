@@ -2,7 +2,7 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('./partial/head') %> 
-<body>
+<body id="fondo_blanco">
 	<!-- Header -->
 	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
@@ -17,40 +17,40 @@
 			<div class="row">
 				<div class="img-container offset-3 col-2">
 					<% if (!usuariosGenerales.url_imagen_usuario) { %>
-						<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35">		
+						<img src="https://developers.google.com/web/images/contributors/no-photo.jpg?hl=es" alt="https://via.placeholder.com/35" class="foto_perfil_usuario">		
 					<% }else{ %>
-						<img src="<%= usuariosGenerales.url_imagen_usuario %>" alt="imagen de <%= usuariosGenerales.nombre_usuario %> ">
+						<img src="<%= usuariosGenerales.url_imagen_usuario %>" alt="imagen de <%= usuariosGenerales.nombre_usuario %>" class="foto_perfil_usuario">
 					<% } %>	
 				</div>
 				<div class="data-container col-6">
 					<div class="d-flex align-items-center ">
-						<h1 class="main-title"> <%= usuariosGenerales.nombre_usuario %>  <%= usuariosGenerales.apellido_usuario %> </h1>
+						<h1 class="main-title" id="titulo"> <%= usuariosGenerales.nombre_usuario %>  <%= usuariosGenerales.apellido_usuario %> </h1>
 						<% if (locals.usuario && locals.usuario.mail){ %> 
-							<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+							<a class="btn mt-3 ml-4 seguir" href="">SEGUIR</a>
 						<% } else { %>
-							<a class="btn mt-3 ml-4 gris" href="" style="pointer-events: none">SEGUIR</a>
+							<a class="btn mt-3 ml-4 gris error_seguir" href="" style="pointer-events: none">SEGUIR</a>
 						<% } %>
 					</div>
 					<div>
 						<ul class="">
-							<li class="datosUsuario"><% if (!usuariosGenerales.cant_productos) { %>
+							<li class="datosUsuario" id="titulo"><% if (!usuariosGenerales.cant_productos) { %>
 								0 Productos</li>
 							<% }else{ %>
 								<%= usuariosGenerales.cant_productos%> Productos</li>
 							<% } %> 
-							<li class="datosUsuario"><% if (!usuariosGenerales.num_seguidores) { %>
+							<li class="datosUsuario" id="titulo"><% if (!usuariosGenerales.num_seguidores) { %>
 								0 Seguidores</li>
 							<% }else{ %>
 								<%= usuariosGenerales.num_seguidores%> Seguidores</li>
 							<% } %> 
-							<li class="datosUsuario"><% if (!usuariosGenerales.num_comentarios_hechos) { %>
+							<li class="datosUsuario" id="titulo"><% if (!usuariosGenerales.num_comentarios_hechos) { %>
 								0 Comentarios</li>
 							<% }else{ %>
 								<%= usuariosGenerales.num_comentarios_hechos%> Comentarios</li>
 							<% } %> 
 							<br>
 
-							<li class="descripcion"> <%= usuariosGenerales.texto_usuario%></li>
+							<li class="descripcion" id="titulo"> <%= usuariosGenerales.texto_usuario%></li>
 						</ul>
 					</div>
 				</div>
@@ -63,16 +63,16 @@
 			<div class="row">
 				<div class="col-12">
 					<% if (!usuariosGenerales.cant_productos) { %>
-						<h2 class="products-title"><%= usuariosGenerales.nombre_usuario %> aun no ha subido criptomonedas, vuelve mas tarde para ver si esto cambia </h2>
+						<h2 class="products-title" id="titulo"><%= usuariosGenerales.nombre_usuario %> Aún no ha subido criptomonedas, vuelve mas tarde para ver si esto cambia </h2>
 				</div>
 					<% }else{ %>
-					<h2 class="products-title">Los productos de <%= usuariosGenerales.nombre_usuario %> </h2>
+					<h2 class="products-title" id="titulo">Los productos de <%= usuariosGenerales.nombre_usuario %> </h2>
 				</div>
 					<% } %> 
 			<!-- Show mis productos -->
-				<div class="productos-profile" >
+				<div class="productos-profile" id="seccion">
 					<% for(let i = 0; i < usuariosGenerales.producto.length; i++){ %>
-					<section class="product-box">
+					<section class="product-box" id="cada_producto">
 						<a href="/producto/detalleProducto/<%= usuariosGenerales.producto[i].id %> ">
 							<figure class="product-box_image">
 								<img src="<%= usuariosGenerales.producto[i].url_imagen %>" alt="<%= usuariosGenerales.producto[i].nombre_producto %>">

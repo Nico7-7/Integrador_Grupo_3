@@ -4,7 +4,7 @@
 
 <%- include('./partial/head') %> 
 
-<body>
+<body id="fondo_blanco">
 	<!-- Header -->
 	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
@@ -16,12 +16,12 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">RESULTADO DE BUSQUEDA: "<%= buscador %>" </h2>
+				<h2 class="products-title" id="titulo">RESULTADO DE BUSQUEDA: "<%= buscador %>" </h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<% for(let i = 0; i < cripto.length; i++){ %>  
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
+				<div class="col-12 col-sm-6 col-lg-3" id="seccion">
+					<section class="product-box" id="cada_producto">
 						<a href="/producto/detalleProducto/<%= cripto[i].id %> ">
 							<figure class="product-box_image">
 								<img src="<%= cripto[i].url_imagen %> " alt="<%= cripto[i].nombre_producto %> ">

@@ -1,23 +1,23 @@
-<header class="main-header">
+<header class="main-header encabezado">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-5 col-md-2">
 				<a href="/" class="main-header_home-link">
-					<img src="/images/imagenCripto.png">
+					<img src="/images/ImagenCripto.png" class="logo_pagina">
 				</a>
 			</div>
 	
-			<div class="col-7 col-md-6">
+			<div class="col-7 col-md-6" id="buscador">
 				<form action="/search/resultados-busqueda" method="GET" class="search-form">
-					<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
+					<input type="text" name="search" placeholder="Buscar criptomonedas" class="search-form_input">
 					<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 				</form>
 			</div>
 	
 			<div class="col-12 col-md-4">
 				<a class="main-header_credit-link">
-					<i class="fas fa-hand-holding-usd"></i>
-					Todas las opiniones en un solo lugar.
+					<i class="fab fa-bitcoin iconos"></i>
+					Encontrá todas las criptomonedas.
 				</a>
 			</div>
 		</div>
@@ -26,22 +26,22 @@
 			<i class="fas fa-bars"></i>
 		</button>
 	
-		<nav class="main-navbar">
-			<ul class="left-navbar">
-				<li><a href="/producto/productosGenerales">Todos los productos</a></li>
+		<nav class="main-navbar" id="barra_navegacion">
+			<ul class="left-navbar" id="nav_izq">
+				<li><a href="/producto/productosGenerales">Todas las criptomonedas</a></li>
 				<li><a href="/producto/agregar-producto">Cargar productos</a></li>
 			</ul>
 	
-			<ul class="right-navbar">
+			<ul class="right-navbar" id="nav_der">
 				<li>Hola, <%= locals.usuario.nombre_usuario %>! </li>
 				<li><a href="/usuario/perfil/<%= locals.usuario.id %> ">
-					Mi perfil <i class="fas fa-user"></i>
+					Mi perfil <i class="fas fa-user icono_nav"></i>
 					</a>
 				</li>
 				<li>
 					<form action="/" method="POST">
 						<button class="logout" type="submit">
-							<a href="/seguridad/logout">Cerrar sesión <i class="fas fa-sign-in-alt"></i></a>
+							<a href="/seguridad/logout">Cerrar sesión <i class="fas fa-sign-in-alt icono_nav"></i></a>
 						</button>
 					</form>
 				</li>
