@@ -13,9 +13,6 @@ module.exports = (sequelize, DataTypes) => {
         apellido_usuario: {
             type: DataTypes.STRING
         },
-        num_seguidores: {
-            type: DataTypes.INTEGER
-        },
         num_comentarios_hechos: {
             type: DataTypes.INTEGER
         },

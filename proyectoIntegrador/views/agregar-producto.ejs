@@ -20,24 +20,24 @@
 			<form id="formulario_agregar" class= "formulario" action="/producto/agregar-producto" method="POST" enctype="multipart/form-data">
 				<p>
 					<label class="input_formulario" for="imagen" > Imágen: </label>
-					<input class="cuadro_input" type="file" name="url_imagen" id="url_imagen">
+					<input class="cuadro_input" type="file" name="url_imagen" id="url_imagen"required>
 				</p>
 				<p>
 					<label class="input_formulario" for="nombre"> Nombre cripto: </label>
-					<input class="cuadro_input" type="text" name="nombre_producto" id="nombre_producto">
+					<input class="cuadro_input" type="text" name="nombre_producto" id="nombre_producto"required>
 				</p>
 				<p>
 				<p>
 					<label class="input_formulario" for="nombre"> Fecha de hoy: </label>
-					<input class="cuadro_input" type="date" name="fecha_publicacion" id="fecha_publicacion">
+					<input class="cuadro_input" type="date" name="fecha_publicacion" id="fecha_publicacion"required>
 				</p>
 				<p>
 					<label class="input_formulario" for="Descripcion"> Descripción larga: </label>
-					<textarea class="cuadro_input" name="descripcion_larga" rows="5" cols="50" id="descripcion_larga"></textarea>
+					<textarea class="cuadro_input" name="descripcion_larga" rows="5" cols="50" id="descripcion_larga"required></textarea>
 				</p>
 				<p>
 					<label class="input_formulario" for="Descripcion"> Descripción corta*: </label>
-					<textarea class="cuadro_input" name="descripcion_corta" rows="1" cols="50" id="descripcion_corta" ></textarea>
+					<textarea class="cuadro_input" name="descripcion_corta" rows="1" cols="50" id="descripcion_corta"required></textarea>
 				</p>
 				<p class="aclaracion">* Longitud máxima: una oración corta.</p>
 				<p>
