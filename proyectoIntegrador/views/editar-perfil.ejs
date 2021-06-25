@@ -1,60 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
 <%- include('./partial/head') %> 
-
-<body>
+<body id="fondo_blanco">
 	<!-- Header -->
 	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
 	<% } else { %>
 		<%- include('./partial/header') %> 
 	<% } %>
-
 	<!-- Novedades -->
-	<div class="container products-wrapper">
+	<div class="container products-wrapper" id="formularioTotal">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">EDITAR MI PERFIL</h2>
+				<h2 class="products-title" id="titulo">EDITAR MI PERFIL</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-
-			<form class= "formulario" action="/usuario/editar-perfil/<%= locals.usuario.id %> " method="POST" enctype="multipart/form-data">
+			<form class= "formulario" id="formulario" action="/usuario/editar-perfil/<%= locals.usuario.id %> " method="POST" enctype="multipart/form-data">
 				<p>
-				<label for="Nombre"> Nombre: </label>
-				<input type="text" name="nombre_usuario" id="nombre_usuario" value="<%= locals.usuario.nombre_usuario %>" required>
-				</p>
-
-				<p>
-				<label for="Apellido"> Apellido: </label>
-				<input type="text" name="apellido_usuario" id="apellido_usuario" value="<%= locals.usuario.apellido_usuario %>" required>
-				</p>
-
-				<p>
-				<label for="Email"> Email: </label>
-				<input type="email" name="mail" id="mail" value="<%= locals.usuario.mail %>" required>
+				<label class="input_formulario" for="Nombre">Nombre:</label>
+				<input class="cuadro_input" type="text" name="nombre_usuario" id="nombre_usuario" value="<%= locals.usuario.nombre_usuario %>" required>
 				</p>
 				<p>
-				<label for="imagen"> Imágen: </label>
-				<input type="file" name="url_imagen_usuario" id="url_imagen_usuario" value="<%= locals.usuario.url_imagen_usuario %> ">
+				<label class="input_formulario" for="Apellido">Apellido:</label>
+				<input class="cuadro_input" type="text" name="apellido_usuario" id="apellido_usuario" value="<%= locals.usuario.apellido_usuario %>" required>
+				</p>
+				<p>
+				<label class="input_formulario" for="Email">Email:</label>
+				<input class="cuadro_input" type="email" name="mail" id="mail" value="<%= locals.usuario.mail %>" required>
+				</p>
+				<p>
+				<label class="input_formulario" for="imagen">Imágen:</label>
+				<input class="cuadro_input" type="file" name="url_imagen_usuario" id="url_imagen_usuario" value="<%= locals.usuario.url_imagen_usuario %> ">
 				</p>
 				<% if (!locals.usuario.url_imagen_usuario) { %>
 					<img src="<%= locals.usuario.url_imagen_usuario %> " alt="">
 				<% } %>
 				<p>
-				<label for="descripcion"> Biografía: </label>
-				<textarea name="texto_usuario" rows="1" cols="40" id="texto_usuario"><%= locals.usuario.texto_usuario %></textarea>
+				<label class="input_formulario" for="descripcion">Biografía:</label>
+				<textarea class="cuadro_input" name="texto_usuario" rows="1" cols="40" id="texto_usuario"><%= locals.usuario.texto_usuario %></textarea>
 				</p>
 				<p>
-				<label for="fecha_nacimiento"> Fecha de nacimiento: </label>
-				<input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="<%= locals.usuario.fecha_nacimiento %> ">
+				<label class="input_formulario" for="fecha_nacimiento">Nacimiento:</label>
+				<input class="cuadro_input" type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="<%= locals.usuario.fecha_nacimiento %> ">
 				</p>
-
 				<p>
-				<input type="submit" value="Enviar">
+				<input id="boton_enviar" type="submit" value="Enviar">
 				</p>
-				
 			</form>
 		</div>
     </div>
@@ -62,5 +54,4 @@
 	<%- include('./partial/footer') %> 
 	<!-- /footer -->
 </body>
-
 </html>
