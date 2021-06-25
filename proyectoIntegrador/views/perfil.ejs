@@ -77,7 +77,11 @@
 									<article class="product-box_data">
 										<h2><%= producto.nombre_producto %></h2>
 										<p><%= producto.descripcion_corta %></p>
+										<% if (!producto.num_comentarios) { %>
+										<p>0 Comentarios</p>
+										<% }else{ %>
 										<p>Comentarios: <%= producto.num_comentarios %></p>
+										<% } %> 
 									</article>
 								</a>
 							</section>
