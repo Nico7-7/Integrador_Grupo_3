@@ -1,68 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
 <%- include('./partial/head') %> 
-
-<body>
+<body id="fondo_blanco">
 	<!-- Header -->
 	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
 	<% } else { %>
 		<%- include('./partial/header') %> 
 	<% } %>
-
 	<!-- Novedades -->
 	<div id="formularioTotal" class="container products-wrapper">
-				<h2 class="products-title">REGISTRATE</h2>
+				<h2 class="products-title" id="titulo">REGISTRATE</h2>
 			<!-- Show the "ultimos" products -->
-
-			<form class= "formulario" action="/seguridad/registrarse" method="POST" enctype="multipart/form-data">
+			<form class= "formulario" id="formulario" action="/seguridad/registrarse" method="POST" enctype="multipart/form-data">
 				<p>
-				<label for="Nombre"> Nombre: </label>
-				<input type="text" name="nombre_usuario" id="nombre_usuario" required>
+				<label class="input_formulario" for="Nombre">Nombre:</label>
+				<input class="cuadro_input" type="text" name="nombre_usuario" id="nombre_usuario" required>
 				</p>
-
 				<p>
-				<label for="Apellido"> Apellido: </label>
-				<input type="text" name="apellido_usuario" id="apellido_usuario" required>
+				<label class="input_formulario" for="Apellido">Apellido:</label>
+				<input class="cuadro_input" type="text" name="apellido_usuario" id="apellido_usuario" required>
 				</p>
-
 				<p>
-				<label for="Email"> Email: </label>
-				<input type="email" name="mail" id="mail" required>
+				<label class="input_formulario" for="Email">Email:</label>
+				<input class="cuadro_input" type="email" name="mail" id="mail" required>
 				</p>
-
 				<p>
-				<label for="contrasenia"> Contraseña: </label>
-				<input type="password" name="contrasenia" id="contrasenia" required>
+				<label class="input_formulario" for="contrasenia">Contraseña:</label>
+				<input class="cuadro_input" type="password" name="contrasenia" id="contrasenia" required>
 				</p>
-	
 				<p>
-				<label for="imagen"> Imágen: </label>
-				<input type="file" name="url_imagen_usuario" id="url_imagen_usuario">
+				<label class="input_formulario" for="imagen">Imágen:</label>
+				<input class="cuadro_input" type="file" name="url_imagen_usuario" id="url_imagen_usuario">
 				</p>
-
 				<p>
-				<label for="descripcion"> Biografía: </label>
-				<textarea name="texto_usuario" rows="1" cols="40" id="texto_usuario"></textarea>
+				<label class="input_formulario" for="descripcion">Biografía:</label>
+				<textarea class="cuadro_input" name="texto_usuario" rows="1" cols="40" id="texto_usuario"></textarea>
 				</p>
-
 				<p>
-				<label for="fecha_nacimiento"> Fecha de nacimiento: </label>
-				<input type="date" name="fecha_nacimiento" id="fecha_nacimiento">
+				<label class="input_formulario" for="fecha_nacimiento">Nacimiento:</label>
+				<input class="cuadro_input" type="date" name="fecha_nacimiento" id="fecha_nacimiento">
 				</p>
-
 				<p>
-				<input type="submit" value="Enviar">
+				<input id="boton_enviar" type="submit" value="Enviar">
 				</p>
-				
 			</form>
-
 	</div>
 	<!-- footer -->
 	<%- include('./partial/footer') %> 
 	<!-- /footer -->
 </body>
-
 </html>
