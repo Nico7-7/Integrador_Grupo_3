@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
 <%- include('./partial/head') %> 
-
-<body>
+<body id="fondo_blanco">
 	<!-- Header -->
 	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
@@ -12,46 +10,42 @@
 		<%- include('./partial/header') %> 
 	<% } %>
 	<!-- /Header -->
-
 	<!-- Novedades -->
-	<div class="container products-wrapper">
+	<div id="formularioTotal" class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Editar productos</h2>
+				<h2 class="products-title" id="titulo">EDITAR PRODUCTO</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-
-			<form class= "formulario" action="/producto/editar-producto/<%= cripto.id %> " method="POST" enctype="multipart/form-data">
-
+			<form class= "formulario" id="formulario_agregar" action="/producto/editar-producto/<%= cripto.id %> " method="POST" enctype="multipart/form-data">
 				<p>
-					<label for="imagen" >Imagen: </label>
-					<input type="file" name="url_imagen" id="url_imagen" value= <%= cripto.url_imagen %>> 
+					<label class="input_formulario" for="imagen" >Imágen:</label>
+					<input class="cuadro_input" type="file" name="url_imagen" id="url_imagen" value= <%= cripto.url_imagen %>> 
 				</p>
 				<% if (!cripto.url_imagen) { %>
 					<img src="<%= cripto.url_imagen %> " alt="">
 				<% } %>
 				<p>
-					<label for="nombre"> Nombre de la criptomoneda: </label>
-					<input type="text" name="nombre_producto" id="nombre_producto" value= <%= cripto.nombre_producto %>>
+					<label class="input_formulario" for="nombre">Nombre cripto:</label>
+					<input class="cuadro_input" type="text" name="nombre_producto" id="nombre_producto" value= <%= cripto.nombre_producto %>>
 				</p>
 				<p>
 				<p>
-					<label for="nombre"> Fecha de hoy (AAAA-MM-DD): </label>
-					<input type="text" name="fecha_publicacion" id="fecha_publicacion" value= <%= cripto.fecha_publicacion %>>
+					<label class="input_formulario" for="nombre">Fecha de hoy:</label>
+					<input class="cuadro_input" type="text" name="fecha_publicacion" id="fecha_publicacion" value= <%= cripto.fecha_publicacion %>>
 				</p>
 				<p>
-					<label for="Descripcion"> Descripción larga: </label>
-					<textarea name="descripcion_larga" rows="10" cols="50" id="descripcion_larga"><%= cripto.descripcion_larga %></textarea>
+					<label class="input_formulario" for="Descripcion">Descripción larga:</label>
+					<textarea class="cuadro_input" name="descripcion_larga" rows="10" cols="50" id="descripcion_larga"><%= cripto.descripcion_larga %></textarea>
 				</p>
 				<p>
-					<label for="Descripcion"> Descripción corta (una frase): </label>
-					<textarea name="descripcion_corta" rows="2" cols="50" id="descripcion_corta" ><%= cripto.descripcion_corta %></textarea>
+					<label class="input_formulario" for="Descripcion">Descripción corta*:</label>
+					<textarea class="cuadro_input" name="descripcion_corta" rows="2" cols="50" id="descripcion_corta" ><%= cripto.descripcion_corta %></textarea>
 				</p>
-
+				<p class="aclaracion">* Longitud máxima: una oración corta.</p>
 				<p>
-				<button type="submit" value="enviar">Agregar criptomoneda</button>
+				<button id="boton_agregar" type="submit" value="enviar">Actualizar</button>
 				</p>
-			
 			</form>
 		</div>
 	</div>
@@ -59,5 +53,4 @@
 	<%- include('./partial/footer') %> 
 	<!-- /footer -->
 </body>
-
 </html>
