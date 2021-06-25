@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
 <%- include('./partial/head') %> 
-<body>
+<body id="fondo_blanco">
 	<!-- Header -->
 	<%- include('./partial/header') %> 
 	<!-- /Header -->
-
 	<!-- Novedades -->
-	<div class="container products-wrapper">
+	<div id="formularioTotal" class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">INGRESAR</h2>
+				<h2 class="products-title" id="titulo">INGRESAR</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			
-			<form class= "formulario" method="POST">
+			<form class= "formulario" id="formulario" method="POST">
 				<p>
-					<label for="email"> Email: </label>
-					<input type="email" name="mail" id="mail">
+					<label class="input_formulario" for="email"> Email: </label>
+					<input class="cuadro_input" type="email" name="mail" id="mail">
 				</p>
 				<p>
-					<label for="contrasenia"> Contraseña: </label>
-					<input type="password" name="contrasenia" id="contrasenia">
+					<label class="input_formulario" for="contrasenia"> Contraseña: </label>
+					<input class="cuadro_input" type="password" name="contrasenia" id="contrasenia">
 				</p>
-				<p>
+				<p  class="recordarme_centrar">
 					<input id="recordarme" type="checkbox" name="recordarme">
 					<label for="recordarme">Recordarme</label>
 				</p>
-				<input type="submit" value="Enviar">
+				<input id="boton_enviar" class="boton_enviar" type="submit" value="Enviar">
 			</form>
 		</div>
     </div>
@@ -37,5 +34,4 @@
 	<%- include('./partial/footer') %> 
 	<!-- /footer -->
 </body>
-
 </html>
