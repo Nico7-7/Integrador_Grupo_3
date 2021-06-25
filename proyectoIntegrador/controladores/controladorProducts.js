@@ -111,7 +111,7 @@ const controller = {
     productoEditado: function(req, res, next){
         let imagenProducto = {
            nombre_producto: req.body.nombre_producto,
-           fecha_publicacion: req.body.fecha_publicacion,
+           actualizar_producto: req.body.fecha_publicacion,
            id_usuario: req.session.usuario.id,
            descripcion_larga: req.body.descripcion_larga,
            descripcion_corta: req.body.descripcion_corta
@@ -143,17 +143,18 @@ const controller = {
             req.flash('danger', 'Algo salió mal');
             next(error);
           });
-    },
-    async add(req, res) {
-        const product = await db.Product.findByPk(req.params.id);
-        if (product) {
-            req.session.Listaseguimiento ? req.session.Listaseguimiento.push(product) : req.session.cart = [product];
-            req.flash('success', 'Producto agregado exitósamente');
-        } else {
-            req.flash('warning', 'Producto no encontrado');
-        }
-        res.redirect(req.get('Referrer'));
-      },
+    }
+    
+    // async add(req, res) {
+    //     const product = await db.Product.findByPk(req.params.id);
+    //     if (product) {
+    //         req.session.Listaseguimiento ? req.session.Listaseguimiento.push(product) : req.session.cart = [product];
+    //         req.flash('success', 'Producto agregado exitósamente');
+    //     } else {
+    //         req.flash('warning', 'Producto no encontrado');
+    //     }
+    //     res.redirect(req.get('Referrer'));
+    //   },
 
 }
 

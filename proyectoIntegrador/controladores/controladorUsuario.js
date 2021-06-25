@@ -45,7 +45,8 @@ const controller = {
                 apellido_usuario: req.body.apellido_usuario,
                 mail: req.body.mail,
                 texto_usuario: req.body.texto_usuario,
-                fecha_nacimiento: req.body.fecha_nacimiento
+                fecha_nacimiento: req.body.fecha_nacimiento,
+                editar_perfil: req.body.editar_perfil
             };
             if (req.file) {
                 imagenUsuario.url_imagen = '/images/usuarios/' + req.file.filename;

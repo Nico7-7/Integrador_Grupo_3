@@ -35,15 +35,17 @@ let controladorSeguridad = {
                 apellido_usuario: req.body.apellido_usuario,
                 mail: req.body.mail,
                 contrasenia: req.body.contrasenia,
-                texto_usuario: req.body.texto_usuario
+                texto_usuario: req.body.texto_usuario,
+                fecha_nacimiento: req.body.fecha_nacimiento,
+                fecha_registracion: req.body.fecha_registracion
             };
             if (req.file) {
                 imagenUsuario.url_imagen = '/images/usuarios/' + req.file.filename;
             }
             db.Usuario.create(imagenUsuario)
             .then(() => {
-                // req.flash('info', 'Bienvenido!');
-               // req.session.usuario = usuario;
+                req.flash('info', 'Ahora ve a loguearte!');
+                req.session.usuario = usuario;
                 res.redirect('/')
             })
             .catch((error) => {

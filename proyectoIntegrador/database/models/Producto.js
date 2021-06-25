@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
         fecha_publicacion: {
             type: DataTypes.DATE
         },
+        actualizar_producto: {
+            type: DataTypes.DATE
+        },
         id_usuario: {
             type: DataTypes.INTEGER
         },

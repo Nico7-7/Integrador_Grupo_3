@@ -31,6 +31,9 @@ module.exports = (sequelize, DataTypes) => {
         fecha_registracion: {
             type: DataTypes.DATE
         },
+        editar_perfil: {
+            type: DataTypes.DATE
+        },
         texto_usuario: {
             type: DataTypes.STRING
         },
