@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
 <%- include('./partial/head') %> 
-
-<body>
+<body id="fondo_blanco">
 	<!-- Header -->
 	<% if (locals.usuario && locals.usuario.mail) { %>
 		<%- include('./partial/headerLogueado') %>
@@ -12,43 +10,39 @@
 		<%- include('./partial/header') %> 
 	<% } %>
 	<!-- /Header -->
-
 	<!-- Novedades -->
-	<div class="container products-wrapper">
+	<div id="formularioTotal" class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
+				<h2 class="products-title" id="titulo">AGREGAR PRODUCTOS</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-
-			<form class= "formulario" action="/producto/agregar-producto" method="POST" enctype="multipart/form-data">
-
+			<form id="formulario_agregar" class= "formulario" action="/producto/agregar-producto" method="POST" enctype="multipart/form-data">
 				<p>
-					<label for="imagen" > Url de la imagen: </label>
-					<input type="file" name="url_imagen" id="url_imagen">
+					<label class="input_formulario" for="imagen" > Imágen: </label>
+					<input class="cuadro_input" type="file" name="url_imagen" id="url_imagen">
 				</p>
 				<p>
-					<label for="nombre"> Nombre de la criptomoneda: </label>
-					<input type="text" name="nombre_producto" id="nombre_producto">
+					<label class="input_formulario" for="nombre"> Nombre cripto: </label>
+					<input class="cuadro_input" type="text" name="nombre_producto" id="nombre_producto">
 				</p>
 				<p>
 				<p>
-					<label for="nombre"> Fecha de hoy (AAAA-MM-DD): </label>
-					<input type="text" name="fecha_publicacion" id="fecha_publicacion">
+					<label class="input_formulario" for="nombre"> Fecha de hoy: </label>
+					<input class="cuadro_input" type="date" name="fecha_publicacion" id="fecha_publicacion">
 				</p>
 				<p>
-					<label for="Descripcion"> Descripción larga: </label>
-					<textarea name="descripcion_larga" rows="10" cols="50" id="descripcion_larga"></textarea>
+					<label class="input_formulario" for="Descripcion"> Descripción larga: </label>
+					<textarea class="cuadro_input" name="descripcion_larga" rows="1" cols="50" id="descripcion_larga"></textarea>
 				</p>
 				<p>
-					<label for="Descripcion"> Descripción corta (una frase): </label>
-					<textarea name="descripcion_corta" rows="2" cols="50" id="descripcion_corta" ></textarea>
+					<label class="input_formulario" for="Descripcion"> Descripción corta*: </label>
+					<textarea class="cuadro_input" name="descripcion_corta" rows="1" cols="50" id="descripcion_corta" ></textarea>
 				</p>
-
+				<p class="aclaracion">* Longitud máxima: una oración corta.</p>
 				<p>
-				<button type="submit" value="enviar">Agregar criptomoneda</button>
+				<button id="boton_agregar" type="submit" value="enviar">Agregar criptomoneda</button>
 				</p>
-			
 			</form>
 		</div>
 	</div>
@@ -56,5 +50,4 @@
 	<%- include('./partial/footer') %> 
 	<!-- /footer -->
 </body>
-
 </html>
