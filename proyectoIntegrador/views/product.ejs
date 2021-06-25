@@ -16,7 +16,7 @@
 				<% if (locals.usuario && locals.usuario.mail){ %>  
 					<% if(cripto.id_usuario == locals.usuario.id){ %> 
 					<p class="product-detail-description">
-						<a href="/producto/product-edit/<%= cripto.id %>" class="edicion">EDITAR</a>
+						<a href="/producto/editar-producto/<%= cripto.id %>" class="edicion">EDITAR</a>
 					</p>
 					<p class="product-detail-description">
 						<a href="/producto/product-delete/<%= cripto.id %>" class="edicion">BORRAR</a>
@@ -54,25 +54,32 @@
 							</section>
 						<% } %>
 							<% if (locals.usuario && locals.usuario.mail){ %> 
-								<form class="form" action="/producto/agregarComentario/<%= cripto.id %>" method="POST">
-									<textarea name="texto" rows="5" cols="50" id="texto" placeholder="Agregar comentario"></textarea>
-									<label for="nombre"> Fecha de hoy: </label>
-									<input type="date" name="fecha_comentado" id="fecha_comentado">	
-									<button type="submit" class="buy-now-button agregar_comentario">AGREGAR COMENTARIO</button><hr class="linea_comentario">
-								</form>
+								<% if (comentarios.length != 0){ %> 
+									<form class="form" action="/producto/agregarComentario/<%= cripto.id %>" method="POST">
+										<textarea name="texto" rows="5" cols="50" id="texto" placeholder="Agregar comentario"></textarea>
+										<label for="nombre">Fecha de hoy:</label>
+										<input type="date" name="fecha_comentado" id="fecha_comentado">	
+										<button type="submit" class="buy-now-button agregar_comentario">AGREGAR COMENTARIO</button>
+									</form>
+								<% } else { %>
+									<form id="no_comentario" class="form" action="/producto/agregarComentario/<%= cripto.id %>" method="POST">
+										<textarea name="texto" rows="5" cols="50" id="texto" placeholder="Agregar comentario"></textarea>
+										<label for="nombre">Fecha de hoy:</label>
+										<input type="date" name="fecha_comentado" id="fecha_comentado">	
+										<button type="submit" class="buy-now-button agregar_comentario">AGREGAR COMENTARIO</button>
+									</form>
+								<% } %>
 							<% } else { %>
 								<% if (comentarios.length != 0){ %> 
 									<form action="">
 										<button type="submit" class="buy-now-button gris" disabled>AGREGAR COMENTARIO</button>
 									</form>
 									<p class="comentario_info">Debes iniciar sesión para agregar un comentario</p>
-									<hr>
 								<% } else { %>
 									<form action="">
-										<button type="submit" class="buy-now-button agregar_comentario" disabled>AGREGAR COMENTARIO</button>
+										<button type="submit" class="buy-now-button no_agregar" disabled>AGREGAR COMENTARIO</button>
 									</form>
 									<p class="error_comentario">Debes iniciar sesión para agregar un comentario</p>
-									<hr class="linea_error">
 								<% } %>
 							<% } %>
 						</div>
