@@ -61,16 +61,16 @@
 							<% if (locals.usuario && locals.usuario.mail){ %> 
 								<% if (comentarios.length != 0){ %> 
 									<form class="form" action="/producto/agregarComentario/<%= cripto.id %>" method="POST">
-										<textarea name="texto" rows="5" cols="50" id="texto" placeholder="Agregar comentario"></textarea>
+										<textarea name="texto" rows="5" cols="50" id="texto" placeholder="Agregar comentario"required></textarea>
 										<label for="nombre">Fecha de hoy:</label>
-										<input type="date" name="fecha_comentado" id="fecha_comentado">	
+										<input type="date" name="fecha_comentado" id="fecha_comentado"required>	
 										<button type="submit" class="buy-now-button agregar_comentario">AGREGAR COMENTARIO</button>
 									</form>
 								<% } else { %>
 									<form id="no_comentario" class="form" action="/producto/agregarComentario/<%= cripto.id %>" method="POST">
-										<textarea name="texto" rows="5" cols="50" id="texto" placeholder="Agregar comentario"></textarea>
+										<textarea name="texto" rows="5" cols="50" id="texto" placeholder="Agregar comentario"required></textarea>
 										<label for="nombre">Fecha de hoy:</label>
-										<input type="date" name="fecha_comentado" id="fecha_comentado">	
+										<input type="date" name="fecha_comentado" id="fecha_comentado"required>	
 										<button type="submit" class="buy-now-button agregar_comentario">AGREGAR COMENTARIO</button>
 									</form>
 								<% } %>

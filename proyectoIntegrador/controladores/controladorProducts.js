@@ -59,7 +59,7 @@ const controller = {
         const usuario = await db.Usuario.findByPk(req.session.usuario.id)
         db.Comentario.create(comentarios)
         .then(() => {
-            comentarios.update({num_comentarios_hechos: usuario.num_comentarios_hechos + 1})
+            usuario.update({num_comentarios_hechos: usuario.num_comentarios_hechos + 1})
             req.flash('success', 'Comentario creado correctamente');
             return res.redirect('/producto/detalleProducto/' + req.params.id)
         })

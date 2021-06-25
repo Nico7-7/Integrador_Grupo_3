@@ -4,14 +4,12 @@ const Usuario = require('../database/models/Usuario')
 
 const controller = {
     profile: function(req, res, next){
-    db.Producto.findAll({
-                where: [
-                {id_usuario: req.params.id}
-                ]
-            }) 
-            .then((producto) => {
+    db.Usuario.findByPk(req.session.usuario.id,{
+        include: [{association:'producto'}]
+    })
+            .then((usuario) => {
                     return res.render('perfil', {
-                        'producto': producto,
+                        'usuario': usuario,
                     })
             })
             .catch((error) => {
