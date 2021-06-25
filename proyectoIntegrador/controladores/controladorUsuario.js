@@ -58,10 +58,12 @@ const controller = {
                 }
             })
             .then(() => {
+                req.flash('success', 'Perfil editado correctamente');
                 res.redirect('/usuario/perfil/'+req.params.id)
             })
             .catch((error) => {
-                return res.send(error)
+                next(error)
+                req.flash('danger', 'Algo salió mal');
             })
         }
         if (req.method == 'GET') {

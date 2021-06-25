@@ -60,10 +60,12 @@ const controller = {
         db.Comentario.create(comentarios)
         .then(() => {
             comentarios.update({num_comentarios_hechos: usuario.num_comentarios_hechos + 1})
+            req.flash('success', 'Comentario creado correctamente');
             return res.redirect('/producto/detalleProducto/' + req.params.id)
         })
         .catch((error) => {
-            return res.send(error);
+            next(error)
+            req.flash('danger', 'Algo salió mal');
         })
     },
     agregarProducto: function(req, res, next){
@@ -125,10 +127,12 @@ const controller = {
             }
         })
         .then(() => {
+            req.flash('success', 'Producto editado correctamente');
             return res.redirect('/producto/productosGenerales')
         })
         .catch((error) => {
-            return res.send(error);
+            next(error)
+            req.flash('danger', 'Algo salió mal');
         })
     },
     async eliminarProducto(req, res, next) {
@@ -140,11 +144,12 @@ const controller = {
             res.redirect('/');
           })
           .catch((error) => {
-            req.flash('danger', 'Algo salió mal');
-            next(error);
+           next(error)
+           req.flash('danger', 'Algo salió mal');
+            
           });
     }
-    
+
     // async add(req, res) {
     //     const product = await db.Product.findByPk(req.params.id);
     //     if (product) {

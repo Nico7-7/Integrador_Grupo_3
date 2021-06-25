@@ -20,10 +20,12 @@ let controladorSeguridad = {
                 return res.redirect('/');
             }
             res.redirect('/seguridad/login?failed=true');
+            req.flash('danger', 'Algo salió mal');
         })
         .catch((error) => {
+            next(error)
             req.flash('danger', 'Algo salió mal');
-            next(error);
+            
           });
     },
     registrarse: function (req, res) {
