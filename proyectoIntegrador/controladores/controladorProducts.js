@@ -49,15 +49,17 @@ const controller = {
         })
     },
         
-    agregarComentario: function(req, res, next){
+    agregarComentario: async function(req, res, next){
         let comentarios = {
            texto: req.body.texto,
            fecha_comentado: req.body.fecha_comentado,
            id_usuario_comentador: req.session.usuario.id,
            id_producto: req.params.id
         };
+        const usuario = await db.Usuario.findByPk(req.session.usuario.id)
         db.Comentario.create(comentarios)
         .then(() => {
+            comentarios.update({num_comentarios_hechos: usuario.num_comentarios_hechos + 1})
             return res.redirect('/producto/detalleProducto/' + req.params.id)
         })
         .catch((error) => {
