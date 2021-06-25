@@ -49,7 +49,7 @@
   color: whitesmoke;
 }
 .edicion{
-  color: whitesmoke;
+  color: black;
 }
 /* Nuevo CSS */
 /* Header (ambos) */
@@ -153,6 +153,15 @@
   left: 10vw;
 }
 .agregar_comentario{
+  width: 60%;
+  position: relative;
+  left: 4.7vw;
+  top: 10px;
+  border: black 2px solid;
+  background-color: white;
+  color: black;
+}
+.no_agregar{
   position: absolute;
   bottom: 45px;
   left: 7.5vw;
@@ -163,21 +172,24 @@
   bottom: 25px;
   left: 7.5vw;
 }
-.linea_error{
-  position: relative;
-  top: 710px;
-}
 .imagen_comentador{
   border: 1px solid black;
 }
 .gris{
   background-color: grey;
-  position: relative;
+  position: absolute;
+  bottom: 45px;
   left: 7.5vw;
 }
 .comentario_info{
-  position: relative;
+  position: absolute;
+  bottom: 25px;
   left: 7.5vw;
+}
+#no_comentario{
+  position: absolute;
+  bottom: 0;
+  width: 95%;
 }
 /* Perfil Usuario */
 .foto_perfil_usuario{
@@ -199,10 +211,79 @@
   border: 2px solid black;
   font-size: 15px;
 }
+/* Mi Perfil */
+.icono_editar{
+  color: black;
+  position: relative;
+  left: 10px;
+  bottom: 5px;
+}
+/* Registrarse */
+#formulario{
+  background-color: #6de5f7;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin-top: 20px;
+  width: 40vw;
+  position: relative;
+  left: 25vw;
+}
+#boton_enviar{
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 100px;
+  margin-bottom: 20px;
+}
+.boton_enviar{
+  position: relative;
+  left: 43%;
+}
+/* Login */
+.recordarme_centrar{
+  position: relative;
+  left: 2%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.input_formulario{
+  position: absolute;
+  left: 2vw;
+  margin-top: 20px;
+}
+.cuadro_input{
+  margin-top: 20px;
+  width: 70%;
+  position: relative;
+  left: 50px;
+}
+/* Agregar Producto */
+#formulario_agregar{
+  background-color: #6de5f7;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin-top: 20px;
+  width: 60vw;
+  position: relative;
+  left: 15vw;
+}
+#boton_agregar{
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 200px;
+  margin-bottom: 20px;
+}
+.aclaracion{
+  font-size: 14px;
+}
 /* Footer */
 #footer{
   background-color: #6de5f7;
   border-top: 2px solid black;
+  width: 100%;
 }
 #letra_negra{
   color: black;
