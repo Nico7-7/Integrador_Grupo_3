@@ -8,7 +8,10 @@ const controller = {
             where: {[op.or]: 
                 [{nombre_producto:  {[op.like]: '%'+buscador+'%'}}, 
                 {descripcion_larga:  {[op.like]: '%'+buscador+'%'}}]
-            }
+            }, 
+            include: [{
+                association: 'producto_usuario'
+            }]
         })
         .then((cripto)=> {
             return res.render('resultados-busqueda', {
