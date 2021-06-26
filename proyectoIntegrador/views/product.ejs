@@ -21,10 +21,6 @@
 					<p class="product-detail-description">
 						<a href="/producto/product-delete/<%= cripto.id %>" class="edicion">BORRAR</a>
 					</p>
-					<% } else { %> 
-						<!-- <p class="product-detail-description">
-							<a href="/producto/agregar-wachlist/<%= //cripto.id %>" class="edicion">AGREGAR A WATCHLIST</a>
-						</p> -->
 					<% } %> 
 				<% } %> 
 			</div>
@@ -47,7 +43,7 @@
 									<% } %>					
 									<div class="data">
 										<p class="user">
-										<% if(locals.usuario.id == comentarios[i].id_usuario_comentador){ %> 
+										<% if(locals.usuario && locals.usuario.id == comentarios[i].id_usuario_comentador){ %> 
 										<strong> <a href="/usuario/perfil/<%= comentarios[i].id_usuario_comentador %>"> <%= comentarios[i].usuario.nombre_usuario %>  <%= comentarios[i].usuario.apellido_usuario %> </a> </strong>
 										<%= comentarios[i].texto %></p>
 										<% }else{ %> 
