@@ -6,12 +6,20 @@ const controller = {
         let resultado = await db.Producto.findAll({
             order: [
                 ['fecha_publicacion', 'DESC']
-            ]
+            ],
+            limit: 4,
+            include: [{
+                association: 'producto_usuario'
+            }]
         })
         let masComentados = await db.Producto.findAll({
             order: [
                 ['num_comentarios', 'DESC']
-            ]
+            ], 
+            limit: 4,
+            include: [{
+                association: 'producto_usuario'
+            }]
         })
         res.render('index',{
             resultado,
@@ -38,6 +46,7 @@ const controller = {
             order: [
                 ['fecha_comentado', 'DESC']
             ],
+            limit: 5,
             include: [{
                 association: 'usuario'
             }]

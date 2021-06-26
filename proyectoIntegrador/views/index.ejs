@@ -57,7 +57,7 @@
 				<h2 class="font-family" class="products-title" id="secciones" >NOVEDADES</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for(let i = 0; i < 4; i++){ %>
+			<% for(let i = 0; i < resultado.length; i++){ %>
 			<div class="col-12 col-sm-6 col-lg-3" id="seccion">
 				<section class="product-box" id="cada_producto">
 					<a href="/producto/detalleProducto/<%=resultado[i].id%>">
@@ -68,10 +68,11 @@
 							<h2><%=resultado[i].nombre_producto%></h2>
 							<p class="desc_corta"><%=resultado[i].descripcion_corta%></p>
 							<% if (resultado[i].num_comentarios == null) { %>
-								<p class="comentarios">Comentarios: 0</p>
+							<p class="comentarios">Comentarios: 0</p>
 							<% }else{ %>
-								<p class="comentarios">Comentarios: <%= resultado[i].num_comentarios %></p>
+							<p class="comentarios">Comentarios: <%= resultado[i].num_comentarios %></p>
 							<% } %> 
+							<a href="/usuario/profileUsuario/<%= resultado[i].producto_usuario.id %>"><p>Cargado por: <%= resultado[i].producto_usuario.nombre_usuario %> </p></a>
 						</article>
 					</a>
 				</section>
@@ -86,7 +87,7 @@
 			<div class="col-12">
 				<h2 class="font-family" class="products-title" id="secciones">MAS COMENTADOS</h2>
 			</div>
-			<% for(let i = 0; i < 4; i++){ %>
+			<% for(let i = 0; i < masComentados.length; i++){ %>
 			<!-- Show the "ultimos" products -->
 				<div class="col-12 col-sm-6 col-lg-3" id="seccion">
 					<section class="product-box" id="cada_producto">
@@ -98,6 +99,7 @@
 								<h2><%=masComentados[i].nombre_producto%></h2>
 								<p class="desc_corta"><%=masComentados[i].descripcion_corta%></p>
 								<p class="comentarios">Comentarios: <%=masComentados[i].num_comentarios%></p>
+								<a href="/usuario/profileUsuario/<%= masComentados[i].producto_usuario.id %>"><p>Cargado por: <%= masComentados[i].producto_usuario.nombre_usuario %> </p></a>
 							</article>
 						</a>
 					</section>
