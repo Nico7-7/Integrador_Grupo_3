@@ -123,7 +123,6 @@ const controller = {
         let imagenProducto = {
            nombre_producto: req.body.nombre_producto,
            actualizar_producto: req.body.fecha_publicacion,
-           id_usuario: req.session.usuario.id,
            descripcion_larga: req.body.descripcion_larga,
            descripcion_corta: req.body.descripcion_corta
         };
