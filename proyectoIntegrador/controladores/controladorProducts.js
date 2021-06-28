@@ -158,18 +158,6 @@ const controller = {
             
           });
     }
-
-    // async add(req, res) {
-    //     const product = await db.Product.findByPk(req.params.id);
-    //     if (product) {
-    //         req.session.Listaseguimiento ? req.session.Listaseguimiento.push(product) : req.session.cart = [product];
-    //         req.flash('success', 'Producto agregado exitósamente');
-    //     } else {
-    //         req.flash('warning', 'Producto no encontrado');
-    //     }
-    //     res.redirect(req.get('Referrer'));
-    //   },
-
 }
 
 module.exports = controller; 
